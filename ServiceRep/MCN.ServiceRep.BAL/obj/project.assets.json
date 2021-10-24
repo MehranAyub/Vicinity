@@ -9864,11 +9864,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\MCN\\MuslimCommunityNetwork\\ServiceRep\\MCN.ServiceRep.BAL\\MCN.ServiceRep.BAL.csproj",
+      "projectUniqueName": "E:\\Practise\\JobPortal\\ServiceRep\\MCN.ServiceRep.BAL\\MCN.ServiceRep.BAL.csproj",
       "projectName": "MCN.ServiceRep.BAL",
-      "projectPath": "E:\\MCN\\MuslimCommunityNetwork\\ServiceRep\\MCN.ServiceRep.BAL\\MCN.ServiceRep.BAL.csproj",
+      "projectPath": "E:\\Practise\\JobPortal\\ServiceRep\\MCN.ServiceRep.BAL\\MCN.ServiceRep.BAL.csproj",
       "packagesPath": "C:\\Users\\FaisalAyub\\.nuget\\packages\\",
-      "outputPath": "E:\\MCN\\MuslimCommunityNetwork\\ServiceRep\\MCN.ServiceRep.BAL\\obj\\",
+      "outputPath": "E:\\Practise\\JobPortal\\ServiceRep\\MCN.ServiceRep.BAL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -9890,14 +9890,14 @@
         "netcoreapp3.0": {
           "targetAlias": "netcoreapp3.0",
           "projectReferences": {
-            "E:\\MCN\\MuslimCommunityNetwork\\Common\\MCN.Common\\MCN.Common.csproj": {
-              "projectPath": "E:\\MCN\\MuslimCommunityNetwork\\Common\\MCN.Common\\MCN.Common.csproj"
+            "E:\\Practise\\JobPortal\\Common\\MCN.Common\\MCN.Common.csproj": {
+              "projectPath": "E:\\Practise\\JobPortal\\Common\\MCN.Common\\MCN.Common.csproj"
             },
-            "E:\\MCN\\MuslimCommunityNetwork\\Core\\MCN.Core.Entities.Params\\MCN.Core.Entities.Params.csproj": {
-              "projectPath": "E:\\MCN\\MuslimCommunityNetwork\\Core\\MCN.Core.Entities.Params\\MCN.Core.Entities.Params.csproj"
+            "E:\\Practise\\JobPortal\\Core\\MCN.Core.Entities.Params\\MCN.Core.Entities.Params.csproj": {
+              "projectPath": "E:\\Practise\\JobPortal\\Core\\MCN.Core.Entities.Params\\MCN.Core.Entities.Params.csproj"
             },
-            "E:\\MCN\\MuslimCommunityNetwork\\Core\\MCN.Core.Entities\\MCN.Core.Entities.csproj": {
-              "projectPath": "E:\\MCN\\MuslimCommunityNetwork\\Core\\MCN.Core.Entities\\MCN.Core.Entities.csproj"
+            "E:\\Practise\\JobPortal\\Core\\MCN.Core.Entities\\MCN.Core.Entities.csproj": {
+              "projectPath": "E:\\Practise\\JobPortal\\Core\\MCN.Core.Entities\\MCN.Core.Entities.csproj"
             }
           }
         }

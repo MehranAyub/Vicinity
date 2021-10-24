@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kueZIUDdP84h4DKl/rpYJ2Omp6gv9UHdFPG1ktgT6C6rWE0DrokPTz4f3t7SgB98QHy6QsRpZ86dLdgNO6LCOA==",
+  "dgSpecHash": "q6xs7xE+C+qpIvWkwNF6tb9d9jiQueXmxWdfHTWuzntEpoJBXpYlLUvMDc0DE3vFB2lN9anxdyT6m9OcrFMYpA==",
   "success": true,
-  "projectFilePath": "E:\\MCN\\MuslimCommunityNetwork\\Common\\MCN.Common\\MCN.Common.csproj",
+  "projectFilePath": "E:\\Practise\\JobPortal\\Common\\MCN.Common\\MCN.Common.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\FaisalAyub\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\FaisalAyub\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",

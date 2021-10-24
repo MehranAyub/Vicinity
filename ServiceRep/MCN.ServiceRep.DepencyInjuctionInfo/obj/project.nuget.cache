@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "khFRVCt3y1cooVessaHaiMmJnKqGcs32h5+x5GNiJaRENGYBCy72rJr+rglQcFdZryLnLETYZm+7T6Z3a3H+vw==",
+  "dgSpecHash": "cjRq0Kl3ioNKiC2Lbo2xSSbFPWQaoqz2oTtwzEn/gApIcQ52yTmtV4ionn4Q7WG4qQWPlswm6EnyB2y8+dKvCQ==",
   "success": true,
-  "projectFilePath": "E:\\MCN\\MuslimCommunityNetwork\\ServiceRep\\MCN.ServiceRep.DepencyInjuctionInfo\\MCN.ServiceRep.DepencyInjuctionInfo.csproj",
+  "projectFilePath": "E:\\Practise\\JobPortal\\ServiceRep\\MCN.ServiceRep.DepencyInjuctionInfo\\MCN.ServiceRep.DepencyInjuctionInfo.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\FaisalAyub\\.nuget\\packages\\entityframework\\6.4.0\\entityframework.6.4.0.nupkg.sha512",
     "C:\\Users\\FaisalAyub\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "j3CETbJxW3wzZCBH33ewN3vMQ4vFv74miSAU54jLfvI5Sf+AtTKsHBaOGUBFnIjnf/3VVc7L2jztDaSklGepEQ==",
+  "dgSpecHash": "R4lutKXwzoqL8jRcLFI6G/LbKkEKvP8p7a2ALzXau4EIcWLIByjXHWDqfTnZn1UquVtuqrUBZXialmoYddrfTQ==",
   "success": true,
-  "projectFilePath": "E:\\MCN\\MuslimCommunityNetwork\\Infrastructure\\SourceApp.Infrastructure.Logging\\MCN.Infrastructure.Logging.csproj",
+  "projectFilePath": "E:\\Practise\\JobPortal\\Infrastructure\\SourceApp.Infrastructure.Logging\\MCN.Infrastructure.Logging.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\FaisalAyub\\.nuget\\packages\\microsoft.aspnetcore.hosting.abstractions\\2.1.1\\microsoft.aspnetcore.hosting.abstractions.2.1.1.nupkg.sha512",
     "C:\\Users\\FaisalAyub\\.nuget\\packages\\microsoft.aspnetcore.hosting.server.abstractions\\2.1.1\\microsoft.aspnetcore.hosting.server.abstractions.2.1.1.nupkg.sha512",

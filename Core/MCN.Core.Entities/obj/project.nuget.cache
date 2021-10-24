@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qIDQFtguOpRThzgDYadRbxsybZvtrEmG6LCnQ+1egrHSpetIQca4uKRCtLHIEB63vQvxr0h5xi3BCHhxgYPZOQ==",
+  "dgSpecHash": "x7ZJW3HCXEG9V6BAmUUbblOp3z6c+vUWy6L6zXjsmDFM9B7prx+96ezEWXS2D2me/ptIAUWqi/MsoiRLd+Hq4A==",
   "success": true,
-  "projectFilePath": "E:\\MCN\\MuslimCommunityNetwork\\Core\\MCN.Core.Entities\\MCN.Core.Entities.csproj",
+  "projectFilePath": "E:\\Practise\\JobPortal\\Core\\MCN.Core.Entities\\MCN.Core.Entities.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\FaisalAyub\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "C:\\Users\\FaisalAyub\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\MCN\\MuslimCommunityNetwork\\Core\\MCN.Core.Entities\\MCN.Core.Entities.csproj": {}
+    "E:\\Practise\\JobPortal\\Core\\MCN.Core.Entities\\MCN.Core.Entities.csproj": {}
   },
   "projects": {
-    "E:\\MCN\\MuslimCommunityNetwork\\Core\\MCN.Core.Entities\\MCN.Core.Entities.csproj": {
+    "E:\\Practise\\JobPortal\\Core\\MCN.Core.Entities\\MCN.Core.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\MCN\\MuslimCommunityNetwork\\Core\\MCN.Core.Entities\\MCN.Core.Entities.csproj",
+        "projectUniqueName": "E:\\Practise\\JobPortal\\Core\\MCN.Core.Entities\\MCN.Core.Entities.csproj",
         "projectName": "MCN.Core.Entities",
-        "projectPath": "E:\\MCN\\MuslimCommunityNetwork\\Core\\MCN.Core.Entities\\MCN.Core.Entities.csproj",
+        "projectPath": "E:\\Practise\\JobPortal\\Core\\MCN.Core.Entities\\MCN.Core.Entities.csproj",
         "packagesPath": "C:\\Users\\FaisalAyub\\.nuget\\packages\\",
-        "outputPath": "E:\\MCN\\MuslimCommunityNetwork\\Core\\MCN.Core.Entities\\obj\\",
+        "outputPath": "E:\\Practise\\JobPortal\\Core\\MCN.Core.Entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
