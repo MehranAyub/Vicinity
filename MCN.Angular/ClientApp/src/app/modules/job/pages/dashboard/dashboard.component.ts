@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
+  isHideFilterCard:boolean=true;
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  SearchFilterClick(value:boolean){
+    if(value==true){
+      this.isHideFilterCard=true;
+    }else{
+      this.isHideFilterCard=false;
+    }
+   
+  }
 }

@@ -1,3 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'assets/styles/bootstrap.css';
-@import 'assets/styles/style.css';
+
+@import 'assets/font/bootstrap-icons.css';
+@import 'assets/vendor/nouislider/nouislider.min.css';
+@import 'assets/vendor/swiperjs-6.6.2/swiper-bundle.min.css';
+@import 'assets/css/style.css';
+
+// <!-- bootstrap icons -->
+// <link rel="stylesheet" href="../../../../cdn.jsdelivr.net/npm/bootstrap-icons%401.5.0/font/bootstrap-icons.css">
+
+// <!-- nouislider CSS -->
+// <link href="assets/vendor/nouislider/nouislider.min.css" rel="stylesheet">
+
+// <!-- swiper css -->
+// <link rel="stylesheet" href="assets/vendor/swiperjs-6.6.2/swiper-bundle.min.css">
+
+// <!-- style css for this template -->
+// <link href="assets/css/style.css" rel="stylesheet" id="style">

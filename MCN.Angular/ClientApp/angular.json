@@ -37,8 +37,7 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "src/assets/scripts/bootstrap.min.js",
-              "src/assets/scripts/custom.js"
+              "./node_modules/jquery/dist/jquery.min.js"
             ]
           },
           "configurations": {
