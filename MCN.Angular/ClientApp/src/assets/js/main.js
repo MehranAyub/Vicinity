@@ -11,8 +11,8 @@ $(document).ready(function () {
         body.removeClass('iframe');
     }
 
-    /* menu open close */
-    $('.menu-btn').on('click', function () {
+    $("body").on(".menu-btn", "click", function(){
+
         if (body.hasClass('menu-open') === true) {
             body.removeClass('menu-open');
             bodyParent.removeClass('menu-open');
@@ -23,6 +23,19 @@ $(document).ready(function () {
 
         return false;
     });
+
+    // /* menu open close */
+    // $('.menu-btn').on('click', function () {
+    //     if (body.hasClass('menu-open') === true) {
+    //         body.removeClass('menu-open');
+    //         bodyParent.removeClass('menu-open');
+    //     } else {
+    //         body.addClass('menu-open');
+    //         bodyParent.addClass('menu-open');
+    //     }
+
+    //     return false;
+    // });
 
     body.on("click", function (e) {
         if (!$('.sidebar').is(e.target) && $('.sidebar').has(e.target).length === 0) {
@@ -35,8 +48,9 @@ $(document).ready(function () {
 
 
 
-    /* menu style switch */
-    $('#menu-pushcontent').on('change', function () {
+
+    $("body").on("#menu-pushcontent",'change', function(){
+
         if ($(this).is(':checked') === true) {
             body.addClass('menu-push-content');
             body.removeClass('menu-overlay');
@@ -45,7 +59,8 @@ $(document).ready(function () {
         return false;
     });
 
-    $('#menu-overlay').on('change', function () {
+     $("body").on("#menu-overlay", "change", function(){
+
         if ($(this).is(':checked') === true) {
             body.removeClass('menu-push-content');
             body.addClass('menu-overlay');
@@ -55,15 +70,16 @@ $(document).ready(function () {
     });
 
 
-    /* back page navigation */
-    $('.back-btn').on('click', function () {
+
+    $("body").on(".back-btn", "click", function(){
         window.history.back();
 
         return false;
+
     });
 
-    /* Filter button */
-    $('.filter-btn').on('click', function () {
+
+    $("body").on(".filter-btn", "click", function(){
         if (body.hasClass('filter-open') === true) {
             body.removeClass('filter-open');
         } else {
@@ -71,12 +87,21 @@ $(document).ready(function () {
         }
 
         return false;
+
     });
-    $('.filter-close').on('click', function () {
+
+        // $("body").on(".menu-btn", "click", function(){
+
+
+    // });
+
+     $("body").on(".filter-close", "click", function(){
         if (body.hasClass('filter-open') === true) {
             body.removeClass('filter-open');
         }
+
     });
+
 
     /* scroll y limited container height on page  */
     var scrollyheight = Number($(window).height() - $('.header').outerHeight() - $('.footer-info').outerHeight()) - 40;
