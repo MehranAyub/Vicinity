@@ -29,3 +29,13 @@ E:\MCN\MuslimCommunityNetwork\Infrastructure\SourceApp.Infrastructure.Logging\ob
 E:\MCN\MuslimCommunityNetwork\Infrastructure\SourceApp.Infrastructure.Logging\obj\Debug\netcoreapp2.2\MCN.Infrastructure.Logging.csproj.CoreCompileInputs.cache
 E:\MCN\MuslimCommunityNetwork\Infrastructure\SourceApp.Infrastructure.Logging\obj\Debug\netcoreapp2.2\MCN.Infrastructure.Logging.dll
 E:\MCN\MuslimCommunityNetwork\Infrastructure\SourceApp.Infrastructure.Logging\obj\Debug\netcoreapp2.2\MCN.Infrastructure.Logging.pdb
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\Infrastructure\SourceApp.Infrastructure.Logging\bin\Debug\netcoreapp2.2\NLog.config
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\Infrastructure\SourceApp.Infrastructure.Logging\bin\Debug\netcoreapp2.2\MCN.Infrastructure.Logging.deps.json
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\Infrastructure\SourceApp.Infrastructure.Logging\bin\Debug\netcoreapp2.2\MCN.Infrastructure.Logging.dll
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\Infrastructure\SourceApp.Infrastructure.Logging\bin\Debug\netcoreapp2.2\MCN.Infrastructure.Logging.pdb
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\Infrastructure\SourceApp.Infrastructure.Logging\obj\Debug\netcoreapp2.2\MCN.Infrastructure.Logging.csprojAssemblyReference.cache
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\Infrastructure\SourceApp.Infrastructure.Logging\obj\Debug\netcoreapp2.2\MCN.Infrastructure.Logging.AssemblyInfoInputs.cache
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\Infrastructure\SourceApp.Infrastructure.Logging\obj\Debug\netcoreapp2.2\MCN.Infrastructure.Logging.AssemblyInfo.cs
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\Infrastructure\SourceApp.Infrastructure.Logging\obj\Debug\netcoreapp2.2\MCN.Infrastructure.Logging.csproj.CoreCompileInputs.cache
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\Infrastructure\SourceApp.Infrastructure.Logging\obj\Debug\netcoreapp2.2\MCN.Infrastructure.Logging.dll
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\Infrastructure\SourceApp.Infrastructure.Logging\obj\Debug\netcoreapp2.2\MCN.Infrastructure.Logging.pdb

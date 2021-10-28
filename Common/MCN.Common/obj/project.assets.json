@@ -5237,24 +5237,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\FaisalAyub\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Zawar\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Practise\\JobPortal\\Common\\MCN.Common\\MCN.Common.csproj",
+      "projectUniqueName": "C:\\Users\\Zawar\\source\\repos\\JobPortal\\JobPortal\\Common\\MCN.Common\\MCN.Common.csproj",
       "projectName": "MCN.Common",
-      "projectPath": "E:\\Practise\\JobPortal\\Common\\MCN.Common\\MCN.Common.csproj",
-      "packagesPath": "C:\\Users\\FaisalAyub\\.nuget\\packages\\",
-      "outputPath": "E:\\Practise\\JobPortal\\Common\\MCN.Common\\obj\\",
+      "projectPath": "C:\\Users\\Zawar\\source\\repos\\JobPortal\\JobPortal\\Common\\MCN.Common\\MCN.Common.csproj",
+      "packagesPath": "C:\\Users\\Zawar\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Zawar\\source\\repos\\JobPortal\\JobPortal\\Common\\MCN.Common\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\FaisalAyub\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Zawar\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5262,18 +5257,17 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://payactiv1.pkgs.visualstudio.com/_packaging/PayActiv_Feed@Release/nuget/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.0": {
           "targetAlias": "netcoreapp3.0",
           "projectReferences": {
-            "E:\\Practise\\JobPortal\\Core\\MCN.Core.Entities\\MCN.Core.Entities.csproj": {
-              "projectPath": "E:\\Practise\\JobPortal\\Core\\MCN.Core.Entities\\MCN.Core.Entities.csproj"
+            "C:\\Users\\Zawar\\source\\repos\\JobPortal\\JobPortal\\Core\\MCN.Core.Entities\\MCN.Core.Entities.csproj": {
+              "projectPath": "C:\\Users\\Zawar\\source\\repos\\JobPortal\\JobPortal\\Core\\MCN.Core.Entities\\MCN.Core.Entities.csproj"
             },
-            "E:\\Practise\\JobPortal\\Infrastructure\\SourceApp.Infrastructure.Logging\\MCN.Infrastructure.Logging.csproj": {
-              "projectPath": "E:\\Practise\\JobPortal\\Infrastructure\\SourceApp.Infrastructure.Logging\\MCN.Infrastructure.Logging.csproj"
+            "C:\\Users\\Zawar\\source\\repos\\JobPortal\\JobPortal\\Infrastructure\\SourceApp.Infrastructure.Logging\\MCN.Infrastructure.Logging.csproj": {
+              "projectPath": "C:\\Users\\Zawar\\source\\repos\\JobPortal\\JobPortal\\Infrastructure\\SourceApp.Infrastructure.Logging\\MCN.Infrastructure.Logging.csproj"
             }
           }
         }
@@ -5326,7 +5320,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.208\\RuntimeIdentifierGraph.json"
       }
     }
   }

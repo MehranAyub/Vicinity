@@ -2,25 +2,9 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
+bin
+obj
+node_modules
 /.vs/MCN/config
 /.vs/MCN/DesignTimeBuild
 /.vs/MCN/v16
-MCN.WebApi/bin
-MCN.WebApi/obj
-MCN.infrastructure.BAL/obj
-MCN.infrastructure.BAL/bin
-SourceApp.Infrastructure.Logging/bin
-SourceApp.Infrastructure.Logging/obj 
-MCN.Common/bin
-MCN.Common/obj
-MCN.Core.Entities/bin
-MCN.Core.Entities/obj
-MCN.Core.Entities.Params/bin
-MCN.Core.Entities.Params/obj
-MCN.ServiceRep.BAL/bin
-MCN.ServiceRep.BAL/obj
-MCN.ServiceRep.DependencyInjuctionInfo/bin
-MCN.ServiceRep.DependencyInjuctionInfo/obj
-MCN.Angular/bin
-MCN.Angular/obj
-MCN.Angular/ClientApp/node_modules
