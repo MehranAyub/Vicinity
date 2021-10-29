@@ -46,3 +46,16 @@ E:\MCN\MuslimCommunityNetwork\Core\MCN.Core.Entities\obj\Debug\netcoreapp3.0\MCN
 E:\MCN\MuslimCommunityNetwork\Core\MCN.Core.Entities\obj\Debug\netcoreapp3.0\MCN.Core.Entities.dll
 E:\MCN\MuslimCommunityNetwork\Core\MCN.Core.Entities\obj\Debug\netcoreapp3.0\MCN.Core.Entities.pdb
 E:\MCN\MuslimCommunityNetwork\Core\MCN.Core.Entities\obj\Debug\netcoreapp3.0\MCN.Core.Entities.genruntimeconfig.cache
+E:\Practise\JobPortal\Core\MCN.Core.Entities\bin\Debug\netcoreapp3.0\MCN.Core.Entities.deps.json
+E:\Practise\JobPortal\Core\MCN.Core.Entities\bin\Debug\netcoreapp3.0\MCN.Core.Entities.runtimeconfig.json
+E:\Practise\JobPortal\Core\MCN.Core.Entities\bin\Debug\netcoreapp3.0\MCN.Core.Entities.runtimeconfig.dev.json
+E:\Practise\JobPortal\Core\MCN.Core.Entities\bin\Debug\netcoreapp3.0\MCN.Core.Entities.dll
+E:\Practise\JobPortal\Core\MCN.Core.Entities\bin\Debug\netcoreapp3.0\MCN.Core.Entities.pdb
+E:\Practise\JobPortal\Core\MCN.Core.Entities\obj\Debug\netcoreapp3.0\MCN.Core.Entities.csproj.AssemblyReference.cache
+E:\Practise\JobPortal\Core\MCN.Core.Entities\obj\Debug\netcoreapp3.0\MCN.Core.Entities.GeneratedMSBuildEditorConfig.editorconfig
+E:\Practise\JobPortal\Core\MCN.Core.Entities\obj\Debug\netcoreapp3.0\MCN.Core.Entities.AssemblyInfoInputs.cache
+E:\Practise\JobPortal\Core\MCN.Core.Entities\obj\Debug\netcoreapp3.0\MCN.Core.Entities.AssemblyInfo.cs
+E:\Practise\JobPortal\Core\MCN.Core.Entities\obj\Debug\netcoreapp3.0\MCN.Core.Entities.csproj.CoreCompileInputs.cache
+E:\Practise\JobPortal\Core\MCN.Core.Entities\obj\Debug\netcoreapp3.0\MCN.Core.Entities.dll
+E:\Practise\JobPortal\Core\MCN.Core.Entities\obj\Debug\netcoreapp3.0\MCN.Core.Entities.pdb
+E:\Practise\JobPortal\Core\MCN.Core.Entities\obj\Debug\netcoreapp3.0\MCN.Core.Entities.genruntimeconfig.cache

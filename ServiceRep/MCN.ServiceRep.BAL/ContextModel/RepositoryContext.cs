@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace MCN.ServiceRep.BAL.ContextModel
 {
-    public partial class RepositoryContext : DbContext
+    public  class RepositoryContext : DbContext
     {
         public RepositoryContext()
         {

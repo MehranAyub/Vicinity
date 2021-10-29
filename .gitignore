@@ -24,3 +24,9 @@ MCN.ServiceRep.DependencyInjuctionInfo/obj
 MCN.Angular/bin
 MCN.Angular/obj
 MCN.Angular/ClientApp/node_modules
+Common/MCN.Common/bin
+Common/MCN.Common/bin
+Common/MCN.Common/bin
+Core/MCN.Core.Entities.Params/obj
+Infrastructure/MCN.Infrastructure.BAL/obj
+Infrastructure/SourceApp.Infrastructure.Logging/obj

@@ -1,0 +1,59 @@
+<div class="d-flex h-90">
+    <div class="login-container m-auto">
+      <div class="card boxshadow" *ngIf="!isEmailVerify">
+        <div class="card-header bg-primary dark text-white clearfix">
+          <i class="fa fa-lock" aria-hidden="true"></i> Register User
+          <button  type="button" class="close float-right text-light" aria-label="Close" (click)="closeModal()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="card-body">
+          <div class="col-md-8 offset-md-2">
+            <form [formGroup]="createUserForm" (submit)="OnUserCreation()">
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+        
+                    <input type="text" class="form-control" id="firstName" name="firstName" formControlName="firstName" placeholder="First Name">
+                    <control-messages [control]="createUserForm.get('firstName')"></control-messages>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <input type="text" class="form-control" id="lastName" name="lastName" formControlName="lastName" placeholder="Last Name">
+                    <control-messages [control]="createUserForm.get('lastName')"></control-messages>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputAddress">Email</label>
+                  <input type="text" class="form-control" id="email" name="email" formControlName="email" placeholder="imranqamar@gmail.com">
+                  <control-messages [control]="createUserForm.get('email')"></control-messages>
+                </div>
+                <p>
+                  You can use letters, numbers & periods.
+                </p>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+        
+                    <input type="password" formControlName="password" class="form-control" id="password" name="password" placeholder="Password">
+                    <control-messages [control]="createUserForm.get('password')"></control-messages>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <input type="password" formControlName="confirmPassword" class="form-control" (keyup)="onKey($event)" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password">
+                    <control-messages [control]="createUserForm.get('confirmPassword')"></control-messages>
+                    <div *ngIf="showConfirmPassword" class="confirm-password-error">Password does not match.</div>
+                  </div>
+                  <p>
+                   Use 8 or more characters with a mix of letters, numbers, & symbols.
+                  </p>
+                </div>
+           
+                        <div class="stickyfooter">
+        
+                          <button type="submit" class="btn btn-primary">Save</button>
+                          <button type="button" class="btn btn-light" (click)="cancel()">Cancel</button>
+                        </div>
+        
+              </form>
+          </div>
+        </div>
+      </div>
+     </div>
+ </div>

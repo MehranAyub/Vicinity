@@ -29,3 +29,14 @@ E:\MCN\MuslimCommunityNetwork\Infrastructure\SourceApp.Infrastructure.Logging\ob
 E:\MCN\MuslimCommunityNetwork\Infrastructure\SourceApp.Infrastructure.Logging\obj\Debug\netcoreapp2.2\MCN.Infrastructure.Logging.csproj.CoreCompileInputs.cache
 E:\MCN\MuslimCommunityNetwork\Infrastructure\SourceApp.Infrastructure.Logging\obj\Debug\netcoreapp2.2\MCN.Infrastructure.Logging.dll
 E:\MCN\MuslimCommunityNetwork\Infrastructure\SourceApp.Infrastructure.Logging\obj\Debug\netcoreapp2.2\MCN.Infrastructure.Logging.pdb
+E:\Practise\JobPortal\Infrastructure\SourceApp.Infrastructure.Logging\bin\Debug\netcoreapp2.2\NLog.config
+E:\Practise\JobPortal\Infrastructure\SourceApp.Infrastructure.Logging\bin\Debug\netcoreapp2.2\MCN.Infrastructure.Logging.deps.json
+E:\Practise\JobPortal\Infrastructure\SourceApp.Infrastructure.Logging\bin\Debug\netcoreapp2.2\MCN.Infrastructure.Logging.dll
+E:\Practise\JobPortal\Infrastructure\SourceApp.Infrastructure.Logging\bin\Debug\netcoreapp2.2\MCN.Infrastructure.Logging.pdb
+E:\Practise\JobPortal\Infrastructure\SourceApp.Infrastructure.Logging\obj\Debug\netcoreapp2.2\MCN.Infrastructure.Logging.csproj.AssemblyReference.cache
+E:\Practise\JobPortal\Infrastructure\SourceApp.Infrastructure.Logging\obj\Debug\netcoreapp2.2\MCN.Infrastructure.Logging.GeneratedMSBuildEditorConfig.editorconfig
+E:\Practise\JobPortal\Infrastructure\SourceApp.Infrastructure.Logging\obj\Debug\netcoreapp2.2\MCN.Infrastructure.Logging.AssemblyInfoInputs.cache
+E:\Practise\JobPortal\Infrastructure\SourceApp.Infrastructure.Logging\obj\Debug\netcoreapp2.2\MCN.Infrastructure.Logging.AssemblyInfo.cs
+E:\Practise\JobPortal\Infrastructure\SourceApp.Infrastructure.Logging\obj\Debug\netcoreapp2.2\MCN.Infrastructure.Logging.csproj.CoreCompileInputs.cache
+E:\Practise\JobPortal\Infrastructure\SourceApp.Infrastructure.Logging\obj\Debug\netcoreapp2.2\MCN.Infrastructure.Logging.dll
+E:\Practise\JobPortal\Infrastructure\SourceApp.Infrastructure.Logging\obj\Debug\netcoreapp2.2\MCN.Infrastructure.Logging.pdb

@@ -9,6 +9,13 @@ const routes: Routes = [
         redirectTo: 'job'
       },
       {
+        path: 'account',
+        loadChildren: () =>
+          import('./modules/account/account.module').then(
+            (m) => m.AccountModule
+          )
+      },
+      {
         path: 'job',
         loadChildren: () =>
           import('./modules/job/job.module').then(
