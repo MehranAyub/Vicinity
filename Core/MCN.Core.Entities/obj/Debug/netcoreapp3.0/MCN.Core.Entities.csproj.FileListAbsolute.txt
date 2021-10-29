@@ -46,6 +46,7 @@ E:\MCN\MuslimCommunityNetwork\Core\MCN.Core.Entities\obj\Debug\netcoreapp3.0\MCN
 E:\MCN\MuslimCommunityNetwork\Core\MCN.Core.Entities\obj\Debug\netcoreapp3.0\MCN.Core.Entities.dll
 E:\MCN\MuslimCommunityNetwork\Core\MCN.Core.Entities\obj\Debug\netcoreapp3.0\MCN.Core.Entities.pdb
 E:\MCN\MuslimCommunityNetwork\Core\MCN.Core.Entities\obj\Debug\netcoreapp3.0\MCN.Core.Entities.genruntimeconfig.cache
+<<<<<<< HEAD
 E:\Practise\JobPortal\Core\MCN.Core.Entities\bin\Debug\netcoreapp3.0\MCN.Core.Entities.deps.json
 E:\Practise\JobPortal\Core\MCN.Core.Entities\bin\Debug\netcoreapp3.0\MCN.Core.Entities.runtimeconfig.json
 E:\Practise\JobPortal\Core\MCN.Core.Entities\bin\Debug\netcoreapp3.0\MCN.Core.Entities.runtimeconfig.dev.json
@@ -59,3 +60,17 @@ E:\Practise\JobPortal\Core\MCN.Core.Entities\obj\Debug\netcoreapp3.0\MCN.Core.En
 E:\Practise\JobPortal\Core\MCN.Core.Entities\obj\Debug\netcoreapp3.0\MCN.Core.Entities.dll
 E:\Practise\JobPortal\Core\MCN.Core.Entities\obj\Debug\netcoreapp3.0\MCN.Core.Entities.pdb
 E:\Practise\JobPortal\Core\MCN.Core.Entities\obj\Debug\netcoreapp3.0\MCN.Core.Entities.genruntimeconfig.cache
+=======
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\Core\MCN.Core.Entities\bin\Debug\netcoreapp3.0\MCN.Core.Entities.deps.json
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\Core\MCN.Core.Entities\bin\Debug\netcoreapp3.0\MCN.Core.Entities.runtimeconfig.json
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\Core\MCN.Core.Entities\bin\Debug\netcoreapp3.0\MCN.Core.Entities.runtimeconfig.dev.json
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\Core\MCN.Core.Entities\bin\Debug\netcoreapp3.0\MCN.Core.Entities.dll
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\Core\MCN.Core.Entities\bin\Debug\netcoreapp3.0\MCN.Core.Entities.pdb
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\Core\MCN.Core.Entities\obj\Debug\netcoreapp3.0\MCN.Core.Entities.csprojAssemblyReference.cache
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\Core\MCN.Core.Entities\obj\Debug\netcoreapp3.0\MCN.Core.Entities.AssemblyInfoInputs.cache
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\Core\MCN.Core.Entities\obj\Debug\netcoreapp3.0\MCN.Core.Entities.AssemblyInfo.cs
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\Core\MCN.Core.Entities\obj\Debug\netcoreapp3.0\MCN.Core.Entities.csproj.CoreCompileInputs.cache
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\Core\MCN.Core.Entities\obj\Debug\netcoreapp3.0\MCN.Core.Entities.dll
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\Core\MCN.Core.Entities\obj\Debug\netcoreapp3.0\MCN.Core.Entities.pdb
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\Core\MCN.Core.Entities\obj\Debug\netcoreapp3.0\MCN.Core.Entities.genruntimeconfig.cache
+>>>>>>> 6cbfc6fc35718eb13423abb207d81750d3c0ee51

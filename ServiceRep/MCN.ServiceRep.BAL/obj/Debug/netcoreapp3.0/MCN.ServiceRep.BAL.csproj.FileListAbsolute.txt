@@ -87,6 +87,7 @@ E:\MCN\MuslimCommunityNetwork\ServiceRep\MCN.ServiceRep.BAL\obj\Debug\netcoreapp
 E:\MCN\MuslimCommunityNetwork\ServiceRep\MCN.ServiceRep.BAL\obj\Debug\netcoreapp3.0\MCN.ServiceRep.BAL.dll
 E:\MCN\MuslimCommunityNetwork\ServiceRep\MCN.ServiceRep.BAL\obj\Debug\netcoreapp3.0\MCN.ServiceRep.BAL.pdb
 E:\MCN\MuslimCommunityNetwork\ServiceRep\MCN.ServiceRep.BAL\obj\Debug\netcoreapp3.0\MCN.ServiceRep.BAL.genruntimeconfig.cache
+<<<<<<< HEAD
 E:\Practise\JobPortal\ServiceRep\MCN.ServiceRep.BAL\bin\Debug\netcoreapp3.0\NLog.config
 E:\Practise\JobPortal\ServiceRep\MCN.ServiceRep.BAL\bin\Debug\netcoreapp3.0\MCN.ServiceRep.BAL.deps.json
 E:\Practise\JobPortal\ServiceRep\MCN.ServiceRep.BAL\bin\Debug\netcoreapp3.0\MCN.ServiceRep.BAL.runtimeconfig.json
@@ -110,3 +111,27 @@ E:\Practise\JobPortal\ServiceRep\MCN.ServiceRep.BAL\obj\Debug\netcoreapp3.0\MCN.
 E:\Practise\JobPortal\ServiceRep\MCN.ServiceRep.BAL\obj\Debug\netcoreapp3.0\MCN.ServiceRep.BAL.dll
 E:\Practise\JobPortal\ServiceRep\MCN.ServiceRep.BAL\obj\Debug\netcoreapp3.0\MCN.ServiceRep.BAL.pdb
 E:\Practise\JobPortal\ServiceRep\MCN.ServiceRep.BAL\obj\Debug\netcoreapp3.0\MCN.ServiceRep.BAL.genruntimeconfig.cache
+=======
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\ServiceRep\MCN.ServiceRep.BAL\bin\Debug\netcoreapp3.0\NLog.config
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\ServiceRep\MCN.ServiceRep.BAL\bin\Debug\netcoreapp3.0\MCN.ServiceRep.BAL.deps.json
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\ServiceRep\MCN.ServiceRep.BAL\bin\Debug\netcoreapp3.0\MCN.ServiceRep.BAL.runtimeconfig.json
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\ServiceRep\MCN.ServiceRep.BAL\bin\Debug\netcoreapp3.0\MCN.ServiceRep.BAL.runtimeconfig.dev.json
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\ServiceRep\MCN.ServiceRep.BAL\bin\Debug\netcoreapp3.0\MCN.ServiceRep.BAL.dll
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\ServiceRep\MCN.ServiceRep.BAL\bin\Debug\netcoreapp3.0\MCN.ServiceRep.BAL.pdb
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\ServiceRep\MCN.ServiceRep.BAL\bin\Debug\netcoreapp3.0\MCN.Common.dll
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\ServiceRep\MCN.ServiceRep.BAL\bin\Debug\netcoreapp3.0\MCN.Core.Entities.dll
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\ServiceRep\MCN.ServiceRep.BAL\bin\Debug\netcoreapp3.0\MCN.Core.Entities.Params.dll
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\ServiceRep\MCN.ServiceRep.BAL\bin\Debug\netcoreapp3.0\MCN.Infrastructure.Logging.dll
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\ServiceRep\MCN.ServiceRep.BAL\bin\Debug\netcoreapp3.0\MCN.Common.pdb
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\ServiceRep\MCN.ServiceRep.BAL\bin\Debug\netcoreapp3.0\MCN.Core.Entities.Params.pdb
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\ServiceRep\MCN.ServiceRep.BAL\bin\Debug\netcoreapp3.0\MCN.Core.Entities.pdb
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\ServiceRep\MCN.ServiceRep.BAL\bin\Debug\netcoreapp3.0\MCN.Infrastructure.Logging.pdb
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\ServiceRep\MCN.ServiceRep.BAL\obj\Debug\netcoreapp3.0\MCN.ServiceRep.BAL.csprojAssemblyReference.cache
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\ServiceRep\MCN.ServiceRep.BAL\obj\Debug\netcoreapp3.0\MCN.ServiceRep.BAL.AssemblyInfoInputs.cache
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\ServiceRep\MCN.ServiceRep.BAL\obj\Debug\netcoreapp3.0\MCN.ServiceRep.BAL.AssemblyInfo.cs
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\ServiceRep\MCN.ServiceRep.BAL\obj\Debug\netcoreapp3.0\MCN.ServiceRep.BAL.csproj.CoreCompileInputs.cache
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\ServiceRep\MCN.ServiceRep.BAL\obj\Debug\netcoreapp3.0\MCN.ServiceRep.BAL.csproj.CopyComplete
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\ServiceRep\MCN.ServiceRep.BAL\obj\Debug\netcoreapp3.0\MCN.ServiceRep.BAL.dll
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\ServiceRep\MCN.ServiceRep.BAL\obj\Debug\netcoreapp3.0\MCN.ServiceRep.BAL.pdb
+C:\Users\Zawar\source\repos\JobPortal\JobPortal\ServiceRep\MCN.ServiceRep.BAL\obj\Debug\netcoreapp3.0\MCN.ServiceRep.BAL.genruntimeconfig.cache
+>>>>>>> 6cbfc6fc35718eb13423abb207d81750d3c0ee51
