@@ -41,6 +41,7 @@ namespace MCN.WebAPI.Areas.Users
 
         [HttpGet]
         [AllowAnonymous]
+        [Route("ValidateEmail")]
         public IActionResult ValidateEmail([FromQuery]string Email, string Url, string RoleType)
         {
 
@@ -69,6 +70,26 @@ namespace MCN.WebAPI.Areas.Users
                 return Ok(new SwallResponseWrapper { Data = new UserResult { token = tokenString, User = (User)result.Data }, StatusCode = result.StatusCode, SwallText = result.SwallText });
             
         }
+
+        [HttpGet]
+        [AllowAnonymous]
+        [Route("ValidateEmailPassword")]
+        public IActionResult ValidateEmailPassword(string password, string email)
+        {
+
+            var ip = _accessor.HttpContext?.Connection?.RemoteIpAddress?.ToString();
+            IActionResult response = Unauthorized();
+            var result = _UserRepositoryBL.IsValidPassword(password,email,ip);
+            if (result.Data == null)
+            {
+                return Ok(new SwallResponseWrapper { Data = null, StatusCode = 401, SwallText = new LoginUser().SwallTextEmailPasscodeFailure });
+            }
+            var tokenString = GenerateJSONWebToken((User)result.Data);
+            //return Ok(new UserResult { token = tokenString, User = (User)result.Data,message=result. });
+            return Ok(new SwallResponseWrapper { Data = new UserResult { token = tokenString, User = (User)result.Data }, StatusCode = result.StatusCode, SwallText = result.SwallText });
+
+        }
+
 
         private string GenerateJSONWebToken(User userInfo)
         {

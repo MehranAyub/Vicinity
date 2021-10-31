@@ -17,9 +17,9 @@ namespace MCN.ServiceRep.BAL.ContextModel
         }
 
         public virtual DbSet<User> Users { get; set; }
-        //public virtual DbSet<UserAuthtoken> UserAuthtoken { get; set; }
+        public virtual DbSet<UserAuthtoken> UserAuthtoken { get; set; }
         public virtual DbSet<UserMultiFactor> UserMultiFactors { get; set; }
-        //public virtual DbSet<UserLoginType> UserLoginType { get; set; }
+        public virtual DbSet<UserLoginType> UserLoginType { get; set; }
 
 
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

@@ -9,7 +9,7 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.UserRepositoryBL
     public interface IUserRepositoryBL
     {
         SwallResponseWrapper IsValidUserEmail(string email, string Url, string RoleType);
-        //SwallResponseWrapper IsValidPassword(string Password, string Email, string IpAddress, string Url);
+        SwallResponseWrapper IsValidPassword(string Password, string Email, string IpAddress);
         //SwallResponseWrapper IsValidAdminPassword(string Password, string Email);
         SwallResponseWrapper IsValidEmailPasscode(string Passcode, string IpAddress, string Email); 
         //SwallResponseWrapper ResetPassword(ChangePasswordDTO resetPassword);

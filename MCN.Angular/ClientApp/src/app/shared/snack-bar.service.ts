@@ -11,7 +11,7 @@ export class SnackBarService {
 
   constructor(private snackBar: MatSnackBar) { }
 
-  openSnack(message: string, status: any, verticalPosition : any = 'bottom', horizontalPosition: any = "right", duration :any = 5000 ) {
+  openSnack(message: string, status: any, verticalPosition : any = 'top', horizontalPosition: any = "right", duration :any = 5000 ) {
     var snackPanelClass;
     switch (status) {
       case ResponseStatus.OK:
@@ -40,7 +40,7 @@ export class SnackBarService {
     );
   }
 
-  openSnackFromComponent(message: string, status: any, verticalPosition : any = 'bottom', horizontalPosition: any = "center", duration :any = 10000 ) {
+  openSnackFromComponent(message: string, status: any, verticalPosition : any = 'top', horizontalPosition: any = "center", duration :any = 10000 ) {
     var snackPanelClass;
     switch (status) {
       case ResponseStatus.OK:

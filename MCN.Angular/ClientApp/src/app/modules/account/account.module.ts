@@ -11,7 +11,6 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from 'src/app/shared/_helpers/jwt.interceptor';
 import { ErrorInterceptor } from 'src/app/shared/_helpers/error.interceptor';
 
-
 @NgModule({
   declarations: [ EmailVerificationComponent,UserRegisterComponent, AccountComponent,ControlMessagesComponent],
   imports: [

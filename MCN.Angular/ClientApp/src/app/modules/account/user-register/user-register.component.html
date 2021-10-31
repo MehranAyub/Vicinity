@@ -1,4 +1,4 @@
-<div class="d-flex h-90">
+<!-- <div class="d-flex h-90">
     <div class="login-container m-auto">
       <div class="card boxshadow" *ngIf="!isEmailVerify">
         <div class="card-header bg-primary dark text-white clearfix">
@@ -56,4 +56,91 @@
         </div>
       </div>
      </div>
- </div>
+ </div> -->
+
+
+
+
+
+
+
+ <main class="container-fluid h-100 main-container"> 
+
+  <div class="row vh-100" >
+      <div class="col-12 text-center">
+          <div class="logo-small">
+              <img src="assets/img/logo.png" alt="" class="img">
+              <h6>GO<br><small>MobileUX</small></h6>
+          </div>
+      </div>
+      <div class="col-12 mx-auto text-center"> 
+          <div class="row ">
+            <div class="col-10 col-sm-8 col-md-6 col-lg-4 col-xl-3 mx-auto align-self-center">
+                <h3 class="text-center mb-4">Register User</h3>
+                
+                <div class="card card-light shadow-sm mb-4">
+                 
+                    <div class="card-body">
+                      <form   [formGroup]="createUserForm" (submit)="OnUserCreation()" >
+                        <div class="form-floating mb-3"> 
+                                  <input type="text" class="form-control" id="firstName" name="firstName" formControlName="firstName" placeholder="First Name"  required>
+                                  <control-messages [control]="createUserForm.get('firstName')"></control-messages>
+                            <label for="firstName">First Name  </label> 
+                        </div> 
+
+                        <div class="form-floating mb-3"> 
+                          <input type="text" class="form-control" id="lastName" name="lastName" formControlName="lastName" placeholder="Last Name"  required>
+                          <control-messages [control]="createUserForm.get('lastName')"></control-messages>
+                      <label for="lastName">Last Name  </label> 
+                  </div> 
+
+                        <div class="form-floating mb-3"> 
+                        <input type="text" class="form-control" id="email" name="email" formControlName="email" placeholder="Email"  required>
+                        <control-messages [control]="createUserForm.get('email')"></control-messages>
+                    <label for="email"> Email  </label> 
+                </div> 
+
+                <div class="form-floating mb-3"> 
+                  <input type="password" class="form-control" id="password" name="password" formControlName="password" placeholder="Password"  required>
+                  <control-messages [control]="createUserForm.get('password')"></control-messages>
+              <label for="password"> Password  </label> 
+          </div> 
+
+          <div class="form-floating mb-3"> 
+            <input type="text" class="form-control" id="confirmPassword" name="confirmPassword" (keyup)="onKey($event)"  formControlName="confirmPassword" placeholder="Confirm Password"  required>
+            <control-messages [control]="createUserForm.get('confirmPassword')"></control-messages>
+            <div *ngIf="showConfirmPassword" class="text-danger">Password does not match.</div>
+        <label for="confirmPassword"> Confirm Password  </label> 
+    </div> 
+             <div class="d-grid"><a  class="link mb-3 text-decoration-none">Forgot
+              Password?</a>
+            </div> 
+              <div class="d-grid">  
+                 <button type="submit"   class="btn btn-lg btn-default shadow-sm ">Save</button>
+              </div>
+                          </form>
+                        
+                    </div>
+
+            
+                </div>
+                <p class="text-center">OR<br>Continue with</p>
+                <p class="text-center">
+                    <a  class="btn btn-link"><i class="bi bi-facebook"></i></a>
+                    <a  class="btn btn-link"><i class="bi bi-twitter"></i></a>
+                    <a  class="btn btn-link"><i class="bi bi-google"></i></a>
+                </p>
+
+            </div>
+        </div>
+
+      </div>
+      <div class="col-12 text-center align-self-end py-2">
+          <div class="row">
+              <div class="col text-center">
+                  Already have account? <a class="btn btn-link px-0 ms-2" routerLink="/account/login">SIGN IN <i class="bi bi-chevron-right"></i></a>
+              </div>
+          </div>
+      </div>
+  </div>
+</main>

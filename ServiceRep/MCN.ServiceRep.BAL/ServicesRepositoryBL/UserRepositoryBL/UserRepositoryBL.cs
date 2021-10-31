@@ -4,6 +4,7 @@ using MCN.Common.Exceptions;
 using MCN.Core.Entities.Entities;
 using MCN.ServiceRep.BAL.ContextModel;
 using MCN.ServiceRep.BAL.ServicesRepositoryBL.UserRepositoryBL.Dtos;
+using MCN.ServiceRep.BAL.ViewModels;
 using Microsoft.EntityFrameworkCore; 
 using System;
 using System.Collections.Generic;
@@ -50,7 +51,13 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.UserRepositoryBL
             }
             else
             {
-                throw new UserThrownBadRequest(new LoginUser().SwallTextEmailVerifiedFailure, null);
+                return new SwallResponseWrapper()
+                {
+                    SwallText = LoginUser.EmailVerifcationInvalidUser,
+                    StatusCode = 404,
+                    Data = usr
+                };
+                //throw new UserThrownBadRequest(new LoginUser().SwallTextEmailVerifiedFailure, null);
             }
         }
 
@@ -259,7 +266,7 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.UserRepositoryBL
             {
                 var passcodeSuccess = repositoryContext.UserMultiFactors.OrderByDescending(x => x.CreatedOn).FirstOrDefault(x => x.AccessIP == IpAddress && x.UserID == user.ID);
 
-                if (passcodeSuccess.EmailToken == Passcode)
+                if (passcodeSuccess?.EmailToken == Passcode)
                 {
 
                     return passcodeSuccess;
@@ -278,64 +285,34 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.UserRepositoryBL
             }
         }
 
-        //public SwallResponseWrapper IsValidPassword(string Password,
-        //    string Email, string IpAddress, string Url)
-        //{
-        //    // var user = GetUserByUrlEmail(Email, Url);
+        public SwallResponseWrapper IsValidPassword(string Password,
+            string Email, string IpAddress)
+        {
+            // var user = GetUserByUrlEmail(Email, Url);
 
-        //    var user = (from u in repositoryContext.User
-        //                join fr in repositoryContext.Form on u.AdminOfficeID equals fr.AdminOfficeID
-        //                where u.Email.ToLower() == Email.ToLower() && u.Password == Password
-        //                && fr.FormUrl == Url
-        //                select new AuthenticatedUserDTO
-        //                {
-        //                    Email = u.Email,
-        //                    //UserName = u.UserName,
-        //                }).FirstOrDefault();
+            var user = (from u in repositoryContext.Users
+                        where u.Email.ToLower() == Email.ToLower() && u.Password == Password
+                        select u).FirstOrDefault();
 
-        //    if (user == null)
-        //    {
-        //        throw new UserThrownBadRequest(new LoginUser().SwallTextEmailVerifiedFailure, null);
-        //    }
-        //    if (!string.IsNullOrWhiteSpace(Url))
-        //    {
-        //        //var user = repositoryContext.User
-        //        //.Where(x => x.Email == Email)
-        //        //.FirstOrDefault();
-        //        //var form = new Form();
-        //        //var formq = repositoryContext.Form.Where(x => x.FormUrl == Url);
-        //        //form = (from frm in formq
-        //        //        select new Form
-        //        //        {
-        //        //            FormKey = frm.FormKey,
-        //        //            FormName = frm.FormName,
-        //        //            FormSupportEmail = frm.FormSupportEmail
-        //        //        }).FirstOrDefault();
-        //        //var passcode = RandomHelper.GetRandomNumber().ToString("x");
-        //        // SavePasscode(passcode, IpAddress, user.UserKey);
-        //        //var passcodeEmaildto = new PasscodeEmailDTO();
-        //        //passcodeEmaildto.PassCode = passcode;
-        //        //passcodeEmaildto.user = user;
-        //        //passcodeEmaildto.form = form;
-        //        //_emailrepo.SendPasscodeEmail(passcodeEmaildto);
+            if (user == null)
+            {
+                return new SwallResponseWrapper()
+                {
+                    Data = null,
+                    StatusCode = 404,
+                    SwallText = new LoginUser().SwallTextEmailVerifiedFailure
+                };
 
-        //        return new SwallResponseWrapper()
-        //        {
-        //            Data = user,
-        //            StatusCode = 200,
-        //            SwallText = new LoginUser().SwallTextPasswordVerifiedSuccess
-        //        };
-        //    }
+            } 
+            return new SwallResponseWrapper()
+            {
+                Data = user,
+                StatusCode = 200,
+                SwallText = new LoginUser().SwallTextPasswordVerifiedSuccess
+            };
+        }
 
-        //    return new SwallResponseWrapper()
-        //    {
-        //        Data = new AuthenticatedUserDTO() { Email = user.Email, UserName = user.UserName },
-        //        StatusCode = 200,
-        //        SwallText = new LoginUser().SwallTextPasswordVerifiedSuccess
-        //    };
-        //}
 
-   
         private void SavePasscode(string Passcode, string IpAddress, int userId)
         {
 

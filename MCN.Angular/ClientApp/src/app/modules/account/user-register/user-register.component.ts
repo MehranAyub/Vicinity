@@ -73,8 +73,7 @@ export class UserRegisterComponent implements OnInit {
         this.userService.register(this.userCreate).subscribe((response)=>{
           console.log(response);
           if(response.statusCode==200){
-            // this.router.navigateByUrl('/');
-            this.cancel();
+            this.router.navigateByUrl('/account/login'); 
             this.snackbarService.openSnack(response.swallText.title,NotificationTypeEnum.Success);
           }else{
             this.snackbarService.openSnack("Something went wrong",NotificationTypeEnum.Danger);
@@ -84,13 +83,6 @@ export class UserRegisterComponent implements OnInit {
     }
      
     }
-  }
-
-  cancel(){
-    this.dialogService.clear();
-  }
-
-  closeModal(){
-    
-  }
+  } 
+ 
 }

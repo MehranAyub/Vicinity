@@ -28,12 +28,9 @@
 
 
     <!-- Begin page content -->
-    <main class="container-fluid h-100 main-container">
-      <div class="overlay-image text-end">
-          <img src="assets/img/orange-slice.png" class="orange-slice" alt="">
-      </div>
+    <main class="container-fluid h-100 main-container"> 
 
-      <div class="row h-100">
+      <div class="row vh-100" >
           <div class="col-12 text-center">
               <div class="logo-small">
                   <img src="assets/img/logo.png" alt="" class="img">
@@ -41,46 +38,45 @@
               </div>
           </div>
           <div class="col-12 mx-auto text-center">
-              <div class="row h-100" *ngIf="!isEmailVerify">
+              <div class="row" *ngIf="!isEmailVerify">
                   <div class="col-10 col-sm-8 col-md-6 col-lg-4 col-xl-3 mx-auto align-self-center">
-                      <h2 class="text-center mb-4">Sign in</h2>
+                      <h3 class="text-center mb-4">Verify Email </h3>
                       <div class="card card-light shadow-sm mb-4">
+                       
                           <div class="card-body">
-                              <form class=" was-validated">
-                                  <div class="form-floating mb-3">
+                            <form   class="login" name="loginForm" #f="ngForm" >
+                                  <div class="form-floating mb-3"> 
+                                      <input type="email" class="form-control" name="username" id="login-username" placeholder="name@example.com" 
+                                           [(ngModel)]="loginDto.email" (keyup)="validateEmail(loginDto.email)" #username="ngModel" required>
 
-                                    <!-- <input type="text" id="login-username" name="username" placeholder="Enter Email" autocomplete="username" class="form-control" [ngClass]="{'is-valid': f.submitted && username.valid, 'is-invalid' : f.submitted && !username.valid}"
-                                    [(ngModel)]="createUserDto.Email" #username="ngModel" required />
-                             <i *ngIf="f.submitted" class="fa form-control-feedback" [ngClass]="{'fa-check': username.valid, 'fa-times' : !username.valid}" aria-hidden="true"></i>
-                             <span class="invalid-feedback" *ngIf="f.submitted && !username.valid">
-                               Email is required
-                             </span>
-                              -->
-                                      <input type="email" class="form-control" id="emailaddress" placeholder="name@example.com"
-                                          value="emailaddress@example.com">
-                                      <label for="emailaddress">Enter Email</label>
-                                      <button type="button" class="btn btn-link text-success tooltip-btn valid-tooltip"
-                                          data-bs-toggle="tooltip" data-bs-placement="left" title="Email is valid">
-                                          <i class="bi bi-check-circle"></i>
+                                      <label for="login-username">Enter Email  </label>
+
+                                      <button  type="button" *ngIf="username.valid && !!isEmailValidate" style="display: block;" class="btn btn-link text-success tooltip-btn valid-tooltip"
+                                          data-bs-toggle="tooltip" data-bs-placement="left" title="Valid Email">
+                                          <i  class="bi bi-check-circle"></i>
+                                       
                                       </button>
-                                  </div>
-                                  <div class="form-floating mb-3">
-                                      <input type="password" class="form-control is-invalid" id="password"
-                                          placeholder="Your Password" value="emailaddress">
-                                      <label for="password">Password</label>
-                                      <button type="button"  class="btn btn-link text-danger tooltip-btn invalid-tooltip"
-                                          data-bs-toggle="tooltip" data-bs-placement="left" title="Enter valid password">
-                                          <i class="bi bi-exclamation-circle"></i>
+
+                                      <button type="button" *ngIf="username.valid && !isEmailValidate" style="display: block;"  class="btn btn-link text-danger tooltip-btn invalid-tooltip"
+                                      data-bs-toggle="tooltip" data-bs-placement="left" title="Email is invalid">
+                                      <i  class="bi bi-exclamation-circle"></i>
                                       </button>
-                                  </div>
-                              </form>
 
-                              <div class="d-grid"><a href="forgotpassword.html" class="link mb-3">Forgot
-                                      Password?</a></div>
 
-                              <div class="d-grid"><a href="home.html" class="btn btn-lg btn-default shadow-sm">Sign
-                                      in</a></div>
+                                  </div> 
+
+                                </form>
+                                <div class="d-grid"><a  class="link mb-3 text-decoration-none">Forgot
+                                      Password?</a>
+                                    </div> 
+                                      <div class="d-grid"> 
+                                        <a [class.disabled]="!isLoading && !(username.valid && !!isEmailValidate)"  (click)="OnVerifyEmailAddress()"
+                                         class="btn btn-lg btn-default shadow-sm text-decoration-none"  ><i *ngIf="isLoading" class='fa fa-circle-o-notch fa-spin'></i> {{isLoading ? 'Logging in...' : 'Login'}}</a>
+ 
+                                      </div>
                           </div>
+
+                  
                       </div>
                       <p class="text-center">OR<br>Continue with</p>
                       <p class="text-center">
@@ -91,56 +87,83 @@
 
                   </div>
               </div>
+ 
 
-
-              <div class="row h-100" *ngIf="!!statusCode">
+              <div class="row " *ngIf="!!isEmailVerify">
                 <div class="col-10 col-sm-8 col-md-6 col-lg-4 col-xl-3 mx-auto align-self-center">
-                    <h2 class="text-center mb-4">Sign in</h2>
+                    <h3 class="text-center mb-4">Sign in  </h3>
+                    
                     <div class="card card-light shadow-sm mb-4">
+                     
                         <div class="card-body">
-                            <form class=" was-validated">
-                                <div class="form-floating mb-3">
-                                    <input type="email" class="form-control is-valid" id="emailaddress" placeholder="name@example.com"
-                                        value="emailaddress@example.com">
-                                    <label for="emailaddress">Username/Email</label>
-                                    <button type="button" class="btn btn-link text-success tooltip-btn valid-tooltip"
-                                        data-bs-toggle="tooltip" data-bs-placement="left" title="Email is valid">
-                                        <i class="bi bi-check-circle"></i>
-                                    </button>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="password" class="form-control is-invalid" id="password"
-                                        placeholder="Your Password" value="emailaddress">
-                                    <label for="password">Password</label>
-                                    <button type="button"  class="btn btn-link text-danger tooltip-btn invalid-tooltip"
-                                        data-bs-toggle="tooltip" data-bs-placement="left" title="Enter valid password">
-                                        <i class="bi bi-exclamation-circle"></i>
-                                    </button>
-                                </div>
-                            </form>
+                          <form   class="login" name="loginForm" #f="ngForm" >
+                                <div class="form-floating mb-3"> 
+                                    <input type="email" class="form-control" name="username" id="login-username" placeholder="name@example.com" 
+                                         [(ngModel)]="loginDto.email" (keyup)="validateEmail(loginDto.email)" #username="ngModel" required>
 
-                            <div class="d-grid"><a href="forgotpassword.html" class="link mb-3">Forgot
-                                    Password?</a></div>
+                                    <label for="login-username">Enter Email  </label>
 
-                            <div class="d-grid"><a href="home.html" class="btn btn-lg btn-default shadow-sm">Sign
-                                    in</a></div>
+                                    <button  type="button" *ngIf="username.valid && !!isEmailValidate" style="display: block;" class="btn btn-link text-success tooltip-btn valid-tooltip"
+                                        data-bs-toggle="tooltip" data-bs-placement="left" title="Valid Email">
+                                        <i  class="bi bi-check-circle"></i>
+                                     
+                                    </button>
+
+                                    <button type="button" *ngIf="username.valid && !isEmailValidate" style="display: block;"  class="btn btn-link text-danger tooltip-btn invalid-tooltip"
+                                    data-bs-toggle="tooltip" data-bs-placement="left" title="Email is invalid">
+                                    <i  class="bi bi-exclamation-circle"></i>
+                                    </button>
+
+
+                                </div> 
+
+                                <div class="form-floating mb-3">
+                                    <input class="form-control is-invalid"  type="password" id="login-passcode" name="passcode" placeholder="Enter auth token" autocomplete="passcode" class="form-control" [ngClass]="{'is-valid': f.submitted && passcode.valid, 'is-invalid' : f.submitted && !passcode.valid}"
+                                    [(ngModel)]="loginDto.password" #passcode="ngModel" required>
+                                    <label for="login-passcode">Password</label>
+                                    
+                                    <button  type="button" *ngIf="passcode.valid && passcode?.value?.length>=4" style="display: block;" class="btn btn-link text-success tooltip-btn valid-tooltip"
+                                    data-bs-toggle="tooltip" data-bs-placement="left" title="Valid Email">
+                                    <i  class="bi bi-check-circle"></i>
+                                 
+                                </button>
+
+                                <button type="button" *ngIf="!(passcode.valid && passcode?.value?.length>=4)" style="display: block;"  class="btn btn-link text-danger tooltip-btn invalid-tooltip"
+                                data-bs-toggle="tooltip" data-bs-placement="left" title="Email is invalid">
+                                <i  class="bi bi-exclamation-circle"></i>
+                                </button>
+
+                                </div>
+                          
+
+                              </form>
+                              <div class="d-grid"><a  class="link mb-3 text-decoration-none">Forgot
+                                    Password?</a>
+                                  </div> 
+                                    <div class="d-grid"> 
+                                      <a [class.disabled]="!isLoading && !(username.valid && !!isEmailValidate && passcode.valid && passcode?.value?.length>=4)"  (click)="Login()"
+                                       class="btn btn-lg btn-default shadow-sm text-decoration-none"  ><i *ngIf="isLoading" class='fa fa-circle-o-notch fa-spin'></i> {{isLoading ? 'Logging in...' : 'Login'}}</a>
+
+                                    </div>
                         </div>
+
+                
                     </div>
                     <p class="text-center">OR<br>Continue with</p>
                     <p class="text-center">
-                        <a href="#" class="btn btn-link"><i class="bi bi-facebook"></i></a>
-                        <a href="#" class="btn btn-link"><i class="bi bi-twitter"></i></a>
-                        <a href="#" class="btn btn-link"><i class="bi bi-google"></i></a>
+                        <a  class="btn btn-link"><i class="bi bi-facebook"></i></a>
+                        <a  class="btn btn-link"><i class="bi bi-twitter"></i></a>
+                        <a  class="btn btn-link"><i class="bi bi-google"></i></a>
                     </p>
 
                 </div>
             </div>
-
+ 
           </div>
           <div class="col-12 text-center align-self-end py-2">
               <div class="row">
                   <div class="col text-center">
-                      Don't have account? <a href="signup.html" class="btn btn-link px-0 ms-2">Sign up <i class="bi bi-chevron-right"></i></a>
+                      Don't have account? <a class="btn btn-link px-0 ms-2" routerLink="/account/register">Sign up <i class="bi bi-chevron-right"></i></a>
                   </div>
               </div>
           </div>
@@ -150,110 +173,3 @@
 
 
 
-
-<div class="d-flex h-90">
-    <div class="login-container m-auto">
-      <div class="card boxshadow" *ngIf="!isEmailVerify">
-        <div class="card-header bg-primary dark text-white clearfix">
-          <i class="fa fa-lock" aria-hidden="true"></i> Verify Email
-          <button *ngIf="isModal" type="button" class="close float-right text-light" aria-label="Close" (click)="closeModal()">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="card-body">
-          <div class="col-md-8 offset-md-2">
-            <form *ngIf="formResetToggle" class="login" name="loginForm" #f="ngForm" novalidate
-                  (ngSubmit)="f.form.valid ? OnVerifyEmailAddress() :
-                            (!username.valid && showErrorAlert('Username is required', 'Please enter a valid Email'));">
-              <div class="form-group row has-feedback-icon">
-                <label class="col-form-label col-md-3" for="login-username">Email:</label>
-                <div class="col-md-9">
-                  <input type="text" id="login-username" name="username" placeholder="Enter Email" autocomplete="username" class="form-control" [ngClass]="{'is-valid': f.submitted && username.valid, 'is-invalid' : f.submitted && !username.valid}"
-                         [(ngModel)]="createUserDto.Email" #username="ngModel" required />
-                  <i *ngIf="f.submitted" class="fa form-control-feedback" [ngClass]="{'fa-check': username.valid, 'fa-times' : !username.valid}" aria-hidden="true"></i>
-                  <span class="invalid-feedback" *ngIf="f.submitted && !username.valid">
-                    Email is required
-                  </span>
-                </div>
-              </div>
-           
-              <div class="form-group row">
-                <div class="offset-md-3 col-md-5">
-                  <button type="submit" class="btn btn-primary" [disabled]="isLoading">
-                    <i *ngIf="isLoading" class='fa fa-circle-o-notch fa-spin'></i> {{isLoading ? 'Logging in...' : 'Login'}}
-                  </button>
-                  <button type="button" (click)="cancel()" class="btn btn-light">Cancel</button>
-                </div>
-                
-                <div class="col-md-4">
-                  <span style="float: right;"> <a (click)="registerUser()"> Register User </a></span>
-                 </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="card boxshadow" *ngIf="!!statusCode">
-        <div class="card-header bg-primary dark text-white clearfix">
-          <i class="fa fa-lock" aria-hidden="true"></i> Login
-          <button *ngIf="isModal" type="button" class="close float-right text-light" aria-label="Close" (click)="closeModal()">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="card-body">       
-            <ul>
-                <li> <h5>
-                    Verify your email address    
-                </h5>
-            </li>
-                <li>
-                     
-          Enter the verification code we sent to {{loginDto.email}}
-          if you don't see it, check your spam folder.
-        
-                </li>
-            </ul>
-          <div class="col-md-8 offset-md-2">
-            <form *ngIf="formResetToggle" class="login" name="loginForm" #f="ngForm" novalidate
-                  (ngSubmit)="f.form.valid ? Login() :
-                            (!email.valid && showErrorAlert('Email is required', 'Please enter a valid Email'));">
-              <div class="form-group row has-feedback-icon">
-                <label class="col-form-label col-md-3" for="login-email">Email:</label>
-                <div class="col-md-9">
-                  <input type="text" id="login-email" name="email" placeholder="Enter email" autocomplete="email" class="form-control" [ngClass]="{'is-valid': f.submitted && email.valid, 'is-invalid' : f.submitted && !email.valid}"
-                         [(ngModel)]="loginDto.email" #email="ngModel" required />
-                  <i *ngIf="f.submitted" class="fa form-control-feedback" [ngClass]="{'fa-check': email.valid, 'fa-times' : !email.valid}" aria-hidden="true"></i>
-                  <span class="invalid-feedback" *ngIf="f.submitted && !email.valid">
-                    Email is required
-                  </span>
-                </div>
-              </div>
-
-              <div class="form-group row has-feedback-icon">
-                <label class="col-form-label col-md-3" for="login-passcode">Auth Token:</label>
-                <div class="col-md-9">
-                  <input type="text" id="login-passcode" name="passcode" placeholder="Enter auth token" autocomplete="passcode" class="form-control" [ngClass]="{'is-valid': f.submitted && passcode.valid, 'is-invalid' : f.submitted && !passcode.valid}"
-                         [(ngModel)]="loginDto.passcode" #passcode="ngModel" required />
-                  <i *ngIf="f.submitted" class="fa form-control-feedback" [ngClass]="{'fa-check': passcode.valid, 'fa-times' : !passcode.valid}" aria-hidden="true"></i>
-                  <span class="invalid-feedback" *ngIf="f.submitted && !passcode.valid">
-                   Auth token is required
-                  </span>
-                </div>
-              </div>
-              <!-- registerUser -->
-              <div class="form-group row">
-                <div class="offset-md-3 col-md-5">
-                  <button type="submit" class="btn btn-primary" [disabled]="isLoading">
-                    <i *ngIf="isLoading" class='fa fa-circle-o-notch fa-spin'></i> {{isLoading ? 'Logging in...' : 'Login'}}
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  

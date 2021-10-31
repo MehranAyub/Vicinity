@@ -16,8 +16,8 @@ import { UserRegisterComponent } from '../user-register/user-register.component'
 export class EmailVerificationComponent implements OnInit {
 
   isEmailVerify:boolean=false
-  userLogin:emailDto={userName:''};
-  loginDto:LoginDto={email:'',passcode:''};
+  isEmailVerifyWithAuthToken:boolean=false;
+  loginDto:LoginDto={email:'',password:''};
   createUserDto:CreateUserDto={Address:'',BaseURL:'',Country:'',Email:'',FirstName:'',Gender:'',IpAddress:'',LastName:'',Password:'',Phone:''};
 
   isLoading = false;
@@ -53,12 +53,12 @@ export class EmailVerificationComponent implements OnInit {
     userForm:any;
   OnVerifyEmailAddress() {
     this.isLoading=true; 
-      this._authService.ReGenerateEmailVerificationMail(this.createUserDto).subscribe(response=>{
+    this.createUserDto.Email=this.loginDto.email;
+      this._authService.ValidateEmail(this.loginDto.email).subscribe(response=>{
         console.log(response);
-        if(response.statusCode==1){
-          this._snackbarService.openSnack(response.swallText.title,NotificationTypeEnum.Success);         
-          this.statusCode=true;
-          this.loginDto.email=this.userLogin.userName;
+        if(response.statusCode==200){
+          //this._snackbarService.openSnack(re.ksponse.swallText.title,NotificationTypeEnum.Success,'top');         
+          this.isEmailVerify=true;
         }else{
           this._snackbarService.openSnack(response.swallText.html,NotificationTypeEnum.Danger);
         }
@@ -82,15 +82,17 @@ export class EmailVerificationComponent implements OnInit {
 
 Login(){
   this.isLoading=true;
-  this._authService.VerifyEmailPasscode(this.loginDto.passcode,this.loginDto.email).subscribe((response)=>{
+  this._authService.ValidateEmailPassword(this.loginDto.password,this.loginDto.email).subscribe((response)=>{
   console.log(response);  
   this.isLoading=false;
   if(response.statusCode==200){
+    this.isEmailVerify=true;
+    this.isEmailVerifyWithAuthToken=true;
+    this.router.navigateByUrl('/job/home');
     this._snackbarService.openSnack(response.swallText.html,NotificationTypeEnum.Success);  
-    this.dialogService.clear();
 
   }else{
-    this._snackbarService.openSnack(response.swallText.html,NotificationTypeEnum.Danger);
+    this._snackbarService.openSnack(response?.swallText?.html,NotificationTypeEnum.Danger);
   }
 });
   }
@@ -109,5 +111,11 @@ Login(){
 
   showErrorAlert(param1:any,param2:any){
     alert(param1);
+  }
+
+  isEmailValidate:boolean=false;
+  emailRegExp: RegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  validateEmail(email: string) {
+    this.isEmailValidate=this.emailRegExp.test(email);
   }
 }
