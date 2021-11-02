@@ -40,4 +40,5 @@ Common/MCN.Common/bin
 Common/MCN.Common/bin
 Core/MCN.Core.Entities.Params/obj
 Infrastructure/MCN.Infrastructure.BAL/obj
-Infrastructure/SourceApp.Infrastructure.Logging/obj
+Infrastructure/SourceApp.Infrastructure.Logging/obj/
+ServiceRep/MCN.ServiceRep.DepencyInjuctionInfo/obj/
