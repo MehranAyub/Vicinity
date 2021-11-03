@@ -25,8 +25,9 @@ const Marker = {
 })
 export class HomeComponent implements OnInit {
 
-  // @ViewChild(GoogleMap, { static: false }) map: GoogleMap;
-  @ViewChild(MapInfoWindow, { static: false }) info: any;
+  @ViewChild(GoogleMap, { static: false }) googleMap: GoogleMap;
+
+  @ViewChild(MapInfoWindow, { static: false }) info: MapInfoWindow;
   
   center: google.maps.LatLngLiteral = { lat: 37.3382, lng: -121.8863 };
   zoom = 12;
@@ -108,8 +109,7 @@ export class HomeComponent implements OnInit {
   }
 
   infoContent = ''
-  openInfo(marker: any) {
-    console.log(marker);
+  openInfoWindow(marker: MapMarker) {
     this.infoContent = "Faisal Ayub here <br/> ABCEFBERIV"
     this.info.open(marker);
   }

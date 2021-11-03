@@ -22,16 +22,16 @@ width="100%"
 [options]="options"
 >
 <map-marker
-  #markerElem
+  #marker="mapMarker"
   *ngFor="let mark of markers"
   [position]="mark.position"
   [title]="mark.title"
   [options]="mark.option"
-  (mapClick)="openInfo(mark)"
+  (mapClick)="openInfoWindow(marker)"
 >
 </map-marker>
 
-<map-info-window>{{ infoContent }}</map-info-window>
+<map-info-window> {{ infoContent }}</map-info-window>
 </google-map>
 
 <!-- google map -->
