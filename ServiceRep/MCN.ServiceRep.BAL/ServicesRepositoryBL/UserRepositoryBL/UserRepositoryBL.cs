@@ -39,13 +39,22 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.UserRepositoryBL
             var usr = new User();
 
             var IsValidEmail = repositoryContext.Users.FirstOrDefault(x => x.Email == email);
-            if (IsValidEmail != null)
+            if (IsValidEmail != null && IsValidEmail.IsEmailVerified==true)
             {
                 return new SwallResponseWrapper()
                 {
                     SwallText = new LoginUser().SwallTextEmailVerifiedSuccess,
                     StatusCode = 200,
                     Data = null
+                };
+            }
+            else  if(IsValidEmail != null && IsValidEmail.IsEmailVerified == false)
+            {
+                return new SwallResponseWrapper()
+                {
+                    SwallText =new LoginUser().SwallTextEmailVerifiedFailure,
+                    StatusCode = 401,
+                    Data = usr
                 };
             }
             else
@@ -56,7 +65,6 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.UserRepositoryBL
                     StatusCode = 404,
                     Data = usr
                 };
-                //throw new UserThrownBadRequest(new LoginUser().SwallTextEmailVerifiedFailure, null);
             }
         }
 
@@ -274,6 +282,9 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.UserRepositoryBL
 
                 if (passcodeSuccess?.EmailToken == Passcode)
                 {
+                    user.IsEmailVerified = true;
+                    repositoryContext.Entry(user).State = EntityState.Modified;
+                    repositoryContext.SaveChanges();
 
                     return passcodeSuccess;
                 }
@@ -297,7 +308,7 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.UserRepositoryBL
             // var user = GetUserByUrlEmail(Email, Url);
 
             var user = (from u in repositoryContext.Users
-                        where u.Email.ToLower() == Email.ToLower() && u.Password == Password
+                        where u.Email.ToLower() == Email.ToLower() && u.Password == Password && u.IsEmailVerified==true
                         select u).FirstOrDefault();
 
             if (user == null)
