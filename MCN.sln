@@ -27,7 +27,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MCN.ServiceRep.DepencyInjuc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MCN.Infrastructure.Logging", "Infrastructure\SourceApp.Infrastructure.Logging\MCN.Infrastructure.Logging.csproj", "{2D2EC8A2-8035-4B7A-8298-749ADE231136}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCN.Angular", "MCN.Angular\MCN.Angular.csproj", "{8E088EEE-E465-49B1-A0B0-295D2C272BD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MCN.Angular", "MCN.Angular\MCN.Angular.csproj", "{8E088EEE-E465-49B1-A0B0-295D2C272BD4}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MCN.Database", "MCN.Database\MCN.Database.sqlproj", "{7777AD97-4965-4F39-B925-99519547F648}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +73,12 @@ Global
 		{8E088EEE-E465-49B1-A0B0-295D2C272BD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E088EEE-E465-49B1-A0B0-295D2C272BD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E088EEE-E465-49B1-A0B0-295D2C272BD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7777AD97-4965-4F39-B925-99519547F648}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7777AD97-4965-4F39-B925-99519547F648}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7777AD97-4965-4F39-B925-99519547F648}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7777AD97-4965-4F39-B925-99519547F648}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7777AD97-4965-4F39-B925-99519547F648}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7777AD97-4965-4F39-B925-99519547F648}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

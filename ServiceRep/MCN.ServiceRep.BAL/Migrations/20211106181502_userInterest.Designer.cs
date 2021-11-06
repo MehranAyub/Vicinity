@@ -4,14 +4,16 @@ using MCN.ServiceRep.BAL.ContextModel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MCN.ServiceRep.BAL.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    partial class RepositoryContextModelSnapshot : ModelSnapshot
+    [Migration("20211106181502_userInterest")]
+    partial class userInterest
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -166,14 +168,7 @@ namespace MCN.ServiceRep.BAL.Migrations
                     b.Property<int>("InterestId")
                         .HasColumnType("int");
 
-                    b.Property<int>("LocationId")
-                        .HasColumnType("int");
-
                     b.HasKey("UserId", "InterestId");
-
-                    b.HasIndex("InterestId");
-
-                    b.HasIndex("LocationId");
 
                     b.ToTable("UserInterest","Account");
                 });
@@ -240,19 +235,7 @@ namespace MCN.ServiceRep.BAL.Migrations
 
             modelBuilder.Entity("MCN.Core.Entities.Entities.UserInterest", b =>
                 {
-                    b.HasOne("MCN.Core.Entities.Entities.Interest", "Interest")
-                        .WithMany()
-                        .HasForeignKey("InterestId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MCN.Core.Entities.Entities.Location", "Location")
-                        .WithMany()
-                        .HasForeignKey("LocationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MCN.Core.Entities.Entities.User", "User")
+                    b.HasOne("MCN.Core.Entities.Entities.User", null)
                         .WithMany("Interests")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

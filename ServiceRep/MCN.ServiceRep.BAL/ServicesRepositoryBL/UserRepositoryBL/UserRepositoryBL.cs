@@ -5,7 +5,7 @@ using MCN.Core.Entities.Entities;
 using MCN.ServiceRep.BAL.ContextModel;
 using MCN.ServiceRep.BAL.ServicesRepositoryBL.UserRepositoryBL.Dtos;
 using MCN.ServiceRep.BAL.ViewModels;
-using Microsoft.EntityFrameworkCore; 
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +14,8 @@ using static MCN.Common.AttribParam.SwallTextData;
 
 namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.UserRepositoryBL
 {
-    public class UserRepositoryBL : IUserRepositoryBL
+    public class UserRepositoryBL : BaseRepository, IUserRepositoryBL
     {
-        private RepositoryContext repositoryContext;
         // private readonly IEmailLogRepositoryBL _emailrepo;
         private readonly SwallResponseWrapper _swallResponseWrapper;
         private readonly SwallText _swallText;
@@ -24,7 +23,7 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.UserRepositoryBL
         // private readonly IAutoCodeNumberRepositoryBL _autoCodeNumberRepositoryBL;
         public static int DEFAULT_USERID = 1;
 
-        public UserRepositoryBL(RepositoryContext repository)
+        public UserRepositoryBL(RepositoryContext repository) : base(repository)
         {
             _swallResponseWrapper = new SwallResponseWrapper();
             _swallText = new SwallText();
@@ -66,12 +65,12 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.UserRepositoryBL
         public SwallResponseWrapper ReGenerateEmailVerificationPasscode(CreateUserDto userDto, string IpAddress)
         {
             var context = repositoryContext;
-            
+
             var usr = context.Users.AsNoTracking().FirstOrDefault(x => x.Email == userDto.Email);
-            if (usr == null )
+            if (usr == null)
             {
                 CreateUserDto createUserDto = new CreateUserDto() { Email = userDto.Email };
-                  var response=  CreateUser(createUserDto);
+                var response = CreateUser(createUserDto);
                 if (response.StatusCode == 200)
                 {
                     return new SwallResponseWrapper()
@@ -82,8 +81,9 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.UserRepositoryBL
                     };
 
                 }
-              
-            }else if (usr.Email != null && usr.Password == null)
+
+            }
+            else if (usr.Email != null && usr.Password == null)
             {
                 var passcode = RandomHelper.GetRandomNumber().ToString("x");
                 SavePasscode(passcode, IpAddress, usr.ID);
@@ -94,14 +94,14 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.UserRepositoryBL
                     Data = usr
                 };
             }
-            else if(usr.Email!=null && usr.Password!=null)
+            else if (usr.Email != null && usr.Password != null)
             {
 
                 return new SwallResponseWrapper()
-                {   
-                        SwallText = null,
-                        StatusCode = 2,
-                        Data = usr
+                {
+                    SwallText = null,
+                    StatusCode = 2,
+                    Data = usr
                 };
 
             }
@@ -136,27 +136,33 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.UserRepositoryBL
 
         public SwallResponseWrapper CreateUser(CreateUserDto dto)
         {
+            User usr = new User
+            {
+                CreatedOn = DateTime.Now,
+                UpdatedOn = DateTime.Now,
+                CreatedBy = DEFAULT_USERID,
+                Email = dto.Email,
+                FirstName = dto.FirstName,
+                IsActive = true,
+                LastName = dto.LastName,
+                LoginFailureCount = 0,
+                Password = dto.Password,
+                UpdatedBy = DEFAULT_USERID,
+                IsEmailVerified = false,
+                UserLoginTypeId = AppConstants.UserEntityType.Applicant,//edit here 
+                Locations = new List<Location>()
+            };
+            usr.Locations.Add(
+                new Location
+                {
+                    Address = dto.Address,
+                    Latitude = dto.Latitude,
+                    Longitude = dto.Longitude,
+                    UserId = usr.ID
+                });
 
-
-
-            User usr = new User();
-
-            usr.CreatedOn = DateTime.Now;
-            usr.UpdatedOn = DateTime.Now;
-            usr.CreatedBy = DEFAULT_USERID;
-            usr.Email = dto.Email;
-            usr.FirstName = dto.FirstName;
-            usr.IsActive = true; 
-            usr.LastName = dto.LastName;
-            usr.LoginFailureCount = 0;
-            usr.Password = dto.Password;
-            usr.UpdatedBy = DEFAULT_USERID;
-            usr.IsEmailVerified = false;
-            usr.UserLoginTypeId = AppConstants.UserEntityType.Applicant;//edit here 
-            
-              
-            repositoryContext.Users.Add(usr); 
-            repositoryContext.SaveChanges(); 
+            repositoryContext.Users.Add(usr);
+            repositoryContext.SaveChanges();
             var passcode = RandomHelper.GetRandomNumber().ToString("x");
             SavePasscode(passcode, dto.IpAddress, usr.ID);
             //_emailrepo.SendEmailVerificationPasscode(
@@ -217,7 +223,7 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.UserRepositoryBL
         //    }
 
         //}
- 
+
         public SwallResponseWrapper IsEmailVerified(string Passcode, string IpAddress, string Email)
         {
             var result = checkPasscode(Passcode, IpAddress, Email);
@@ -303,7 +309,7 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.UserRepositoryBL
                     SwallText = new LoginUser().SwallTextEmailVerifiedFailure
                 };
 
-            } 
+            }
             return new SwallResponseWrapper()
             {
                 Data = user,
@@ -319,7 +325,7 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.UserRepositoryBL
             var obj = new UserMultiFactor();
             obj.AccessIP = IpAddress;
             obj.CreatedOn = DateTime.Now;
-            obj.EmailToken = Passcode; 
+            obj.EmailToken = Passcode;
             obj.UpdatedOn = DateTime.Now;
             obj.UserID = userId;
             //obj.UserMultiFactorKey = _autoCodeNumberRepositoryBL.GetAutoCodeNumber(nameof(UserMultiFactor));
@@ -362,7 +368,7 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.UserRepositoryBL
 
         //}
 
-      
+
         public User GetUser(int userID)
         {
             var user = repositoryContext.Users.FirstOrDefault(x => x.ID == userID && x.UserLoginTypeId == AppConstants.UserEntityType.Applicant);
@@ -370,7 +376,7 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.UserRepositoryBL
             return user;
         }
 
-        
+
 
 
     }

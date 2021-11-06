@@ -36,8 +36,17 @@ namespace MCN.Core.Entities.Entities
     public class UserInterest
     {
         public int InterestId { get; set; }
+        [ForeignKey(nameof(InterestId))]
+        public Interest Interest { get; set; }
+
         public int UserId { get; set; }
-    
+        [ForeignKey(nameof(UserId))]
+        public User User { get; set; }
+
+        public int LocationId { get; set; }
+        [ForeignKey(nameof(LocationId))]
+        public Location Location { get; set; }
+
     }
 
 

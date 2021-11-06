@@ -27,6 +27,8 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.0.0" />
 
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
+
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="5.0.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -43,6 +45,10 @@
     <ProjectReference Include="..\..\Common\MCN.Common\MCN.Common.csproj" />
     <ProjectReference Include="..\..\Core\MCN.Core.Entities.Params\MCN.Core.Entities.Params.csproj" />
     <ProjectReference Include="..\..\Core\MCN.Core.Entities\MCN.Core.Entities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ServicesRepositoryBL\ISearchRepositoryBL\Dtos\" />
   </ItemGroup>
 
 </Project>

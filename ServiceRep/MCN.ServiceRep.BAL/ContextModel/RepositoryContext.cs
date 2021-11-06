@@ -5,6 +5,18 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace MCN.ServiceRep.BAL.ContextModel
 {
+    [Keyless]
+    public class GetUserAddressByDistance
+    {
+        public int Id { get; set; }
+        public string Email { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Gender { get; set; }
+        public string Title { get; set; }
+        public double Distance { get; set; }
+    }
+
     public class RepositoryContext : DbContext
     {
         public RepositoryContext()
@@ -23,6 +35,7 @@ namespace MCN.ServiceRep.BAL.ContextModel
         public DbSet<Interest> Interests { get; set; }
         public DbSet<Location> Locations { get; set; }
         public DbSet<UserInterest> UserInterests { get; set; }
+        public DbSet<GetUserAddressByDistance> GetUserAddressByDistances { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

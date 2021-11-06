@@ -9,6 +9,7 @@ using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json; 
 using MCN.ServiceRep.DepencyInjuctionInfo;
 using MCN.WebAPI.Middleware;
+using Microsoft.OpenApi.Models;
 
 namespace MCN.WebAPI
 {
@@ -25,6 +26,10 @@ namespace MCN.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Vicinity API", Version = "v1" });
+            });
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -64,7 +69,8 @@ namespace MCN.WebAPI
                 opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
                 //opt.SerializerSettings.PreserveReferencesHandling = PreserveReferencesHandling.All;
             });
-             
+            
+
             new RepositoryBALRep(services, Configuration);
             new DefaultRep().SetInjuctions(services);
         }
@@ -86,7 +92,6 @@ namespace MCN.WebAPI
          
             app.UseAuthentication();
             app.UseAuthorization();
-
             app.UseMiddleware(typeof(ExceptionMiddleware));
             app.UseEndpoints(endpoints =>
             {
@@ -95,6 +100,13 @@ namespace MCN.WebAPI
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Vicinity API V1");
+            });
+
         }
     }
 }
