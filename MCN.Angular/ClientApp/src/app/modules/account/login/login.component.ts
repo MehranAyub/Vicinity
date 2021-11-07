@@ -9,11 +9,11 @@ import { DialogService } from 'src/app/shared/services/common/dialog.service';
 import { UserRegisterComponent } from '../user-register/user-register.component';
 
 @Component({
-  selector: 'app-email-verification',
-  templateUrl: './email-verification.component.html',
-  styleUrls: ['./email-verification.component.scss']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
-export class EmailVerificationComponent implements OnInit {
+export class LoginComponent implements OnInit {
 
   isEmailVerify:boolean=false
   isEmailVerifyWithAuthToken:boolean=false;

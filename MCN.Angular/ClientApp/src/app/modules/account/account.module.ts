@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AccountRoutingModule } from './account-routing.module';
-import { EmailVerificationComponent } from './email-verification/email-verification.component';
+import { LoginComponent } from './login/login.component';
 import { UserRegisterComponent } from './user-register/user-register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccountComponent } from '../account/account.component';
@@ -12,7 +12,7 @@ import { JwtInterceptor } from 'src/app/shared/_helpers/jwt.interceptor';
 import { ErrorInterceptor } from 'src/app/shared/_helpers/error.interceptor';
 
 @NgModule({
-  declarations: [ EmailVerificationComponent,UserRegisterComponent, AccountComponent,ControlMessagesComponent],
+  declarations: [ LoginComponent,UserRegisterComponent, AccountComponent,ControlMessagesComponent],
   imports: [
     CommonModule,
     AccountRoutingModule,

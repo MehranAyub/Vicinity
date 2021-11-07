@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccountComponent } from './account.component';
-import { EmailVerificationComponent } from './email-verification/email-verification.component';
+import { LoginComponent } from './login/login.component';
 import { UserRegisterComponent } from './user-register/user-register.component';
 
 
@@ -12,7 +12,7 @@ const routes: Routes = [
     children: [ 
     {
       path: 'login',
-      component: EmailVerificationComponent
+      component: LoginComponent
     },
     {
       path: 'register',
