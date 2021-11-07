@@ -10,9 +10,10 @@ import { ControlMessagesComponent } from 'src/app/shared/components/control-mess
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from 'src/app/shared/_helpers/jwt.interceptor';
 import { ErrorInterceptor } from 'src/app/shared/_helpers/error.interceptor';
+import { EmailVerifyComponent } from './email-verify/email-verify.component';
 
 @NgModule({
-  declarations: [ LoginComponent,UserRegisterComponent, AccountComponent,ControlMessagesComponent],
+  declarations: [ EmailVerifyComponent,LoginComponent,UserRegisterComponent, AccountComponent,ControlMessagesComponent],
   imports: [
     CommonModule,
     AccountRoutingModule,

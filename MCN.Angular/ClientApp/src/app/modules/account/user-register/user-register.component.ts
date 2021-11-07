@@ -9,6 +9,7 @@ import { Role } from '../models/role';
 import { SearchInputByGoogleMapComponent } from '../../job/components/search-input-by-google-map/search-input-by-google-map.component';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
+import { AccountDataService } from '../services/accountDataService';
 
 @Component({
   selector: 'app-user-register',
@@ -19,7 +20,7 @@ export class UserRegisterComponent implements OnInit,OnDestroy {
   createUserForm:any;
   isEmailVerify:boolean=false;
   userCreate:User={id:0,email:'',firstName:'',gender:'',lastName:'',password:'',role:Role.User,username:'',token:'',latitude:0,longitude:0};
-  constructor( private formBuilder: FormBuilder,private _bottomSheet: MatBottomSheet,private router:Router,private userService:UserService,private snackbarService:SnackBarService,private dialogService:DialogService) { 
+  constructor(private _dataService:AccountDataService ,private formBuilder: FormBuilder,private _bottomSheet: MatBottomSheet,private router:Router,private userService:UserService,private snackbarService:SnackBarService,private dialogService:DialogService) { 
 
     this.createUserForm=this.formBuilder.group({
       firstName:['',[Validators.required]],
@@ -72,12 +73,12 @@ export class UserRegisterComponent implements OnInit,OnDestroy {
       this.userCreate.email=this.createUserForm.controls['email'].value;  
       this.userCreate.firstName=this.createUserForm.controls['firstName'].value;  
       this.userCreate.lastName=this.createUserForm.controls['lastName'].value;
-      this.userCreate.password=this.createUserForm.controls['password'].value; 
-      console.log(this.userCreate);
+      this.userCreate.password=this.createUserForm.controls['password'].value;
+      this._dataService._emailPasscode.email=this.userCreate.email;
         this.userService.register(this.userCreate).subscribe((response)=>{
           console.log(response);
           if(response.statusCode==200){
-            this.router.navigateByUrl('/account/login'); 
+            this.router.navigateByUrl('/account/email-verify'); 
             this.snackbarService.openSnack(response.swallText.title,NotificationTypeEnum.Success);
           }else{
             this.snackbarService.openSnack("Something went wrong",NotificationTypeEnum.Danger);

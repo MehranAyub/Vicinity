@@ -82,7 +82,7 @@ namespace MCN.WebAPI.Areas.Users
             var result = _UserRepositoryBL.IsValidPassword(password,email,ip);
             if (result.Data == null)
             {
-                return Ok(new SwallResponseWrapper { Data = null, StatusCode = 401, SwallText = new LoginUser().SwallTextEmailPasscodeFailure });
+                return Ok(new SwallResponseWrapper { Data = null, StatusCode = 401, SwallText = new LoginUser().SwallTextEmailPasswordFailure });
             }
             var tokenString = GenerateJSONWebToken((User)result.Data);
             //return Ok(new UserResult { token = tokenString, User = (User)result.Data,message=result. });

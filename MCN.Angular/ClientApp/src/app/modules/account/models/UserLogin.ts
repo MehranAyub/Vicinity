@@ -4,9 +4,13 @@ export interface emailDto {
 }
 
 export interface LoginDto {
- 
     email: string;
     password: string; 
+}
+
+export interface EmailPasscodeDto {
+    email: string;
+    passcode: string; 
 }
 
 export interface CreateUserDto{ 
