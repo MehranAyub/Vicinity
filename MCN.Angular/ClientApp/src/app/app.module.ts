@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './shared/material/material.module';
 import { AuthService } from './shared/services/auth/auth.service';
 import { SnackBarService } from './shared/snack-bar.service';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomSnackBarComponent } from './shared/components/custom-snack-bar/custom-snack-bar.component';
@@ -19,7 +18,7 @@ import { CustomSnackBarComponent } from './shared/components/custom-snack-bar/cu
     HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    MaterialModule,   
+    MaterialModule,       
     FormsModule, ReactiveFormsModule
   ],
   providers: [SnackBarService],

@@ -10,8 +10,10 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { StyleComponent } from './pages/style/style.component';
 import { HomeComponent } from './pages/home/home.component';
-import { GoogleMapsModule } from '@angular/google-maps';
+// import { GoogleMapsModule } from '@angular/google-maps';
 import { SearchInputComponent } from './components/search-input/search-input.component';
+import { SearchInputByGoogleMapComponent } from './components/search-input-by-google-map/search-input-by-google-map.component';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 
 @NgModule({
@@ -24,7 +26,8 @@ import { SearchInputComponent } from './components/search-input/search-input.com
     ProfileComponent,
     StyleComponent,
     HomeComponent,
-    SearchInputComponent
+    SearchInputComponent,
+    SearchInputByGoogleMapComponent
   ],
   imports: [
     CommonModule,

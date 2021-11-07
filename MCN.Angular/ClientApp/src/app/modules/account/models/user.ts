@@ -10,6 +10,8 @@ export interface User {
     gender?:string;
     role?: Role; 
     token?:string; 
+    latitude?:number;
+    longitude?:number;
 }
 
 export class UserToken{

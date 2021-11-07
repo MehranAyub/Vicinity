@@ -97,13 +97,8 @@ Login(){
 });
   }
 
-  registerUser(){
-    this.dialogService.clear();
-    this.dialogService.open(UserRegisterComponent);
-  }
-  cancel(){
-    this.dialogService.clear();
-  }
+  
+  
 
   closeModal(){
 

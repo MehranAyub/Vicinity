@@ -1,9 +1,9 @@
 export interface Marker{
-    position:Position;
-    title:string;
-    option:Option;
-    info:string;
-    label:Label;
+    position?:Position;
+    title?:string;
+    options?:Option;
+    info?:string;
+    label?:Label;
 }
 
 export interface Position{

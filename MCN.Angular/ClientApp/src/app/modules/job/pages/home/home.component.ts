@@ -95,7 +95,7 @@ export class HomeComponent implements OnInit {
       },
       info: 'Marker info ' + (this.markers.length + 1),
 
-      option: {
+      options: {
         animation: google.maps.Animation.DROP,
         icon: {
           url: 'assets/img/PickPin.svg',
