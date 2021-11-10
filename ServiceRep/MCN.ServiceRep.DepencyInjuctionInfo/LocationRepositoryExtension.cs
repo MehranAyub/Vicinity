@@ -1,4 +1,5 @@
 using System;
+using MCN.ServiceRep.BAL.ServicesRepositoryBL.IInterestRepositoryBL;
 using MCN.ServiceRep.BAL.ServicesRepositoryBL.ISearchRepositoryBL;
 using MCN.ServiceRep.BAL.ServicesRepositoryBL.Locals;
 using MCN.ServiceRep.BAL.ServicesRepositoryBL.UserRepositoryBL;
@@ -15,6 +16,8 @@ namespace MCN.ServiceRep.DepencyInjuctionInfo
                 services.AddTransient<ILocalsRepositoryBL, LocalsRepositoryBL>();
                 services.AddScoped<IUserRepositoryBL, UserRepositoryBL>();
                 services.AddScoped<ISearchRepositoryBL, SearchRepositoryBL>();
+                services.AddScoped<IInterestRepositoryBL, InterestRepositoryBL>();
+
                 //services.AddTransient<IFormRepositoryBL, FormRepositoryBL>();
                 //services.AddTransient<IAdminOfficeRepositoryBL, AdminOfficeRepositoryBL>();
                 //services.AddTransient<IProductModuleRepositoryBL, ProductModuleRepositoryBL>();
