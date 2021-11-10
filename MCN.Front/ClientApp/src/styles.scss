@@ -1,4 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'assets/css/style-blue.css';
+@import 'assets/font/bootstrap-icons.css';
+@import 'assets/vendor/nouislider/nouislider.min.css';
+@import 'assets/vendor/swiperjs-6.6.2/swiper-bundle.min.css';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.bottomsheet-container {
+    padding: 32px 24px !important;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    max-height: 95vh !important;
+    box-shadow: 0px -6px 16px rgba(0, 32, 76, 0.2);
+    &.max-height {
+      height: 623px !important;
+      max-height: 623px !important;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: #52E5A5;
+    }
+  }

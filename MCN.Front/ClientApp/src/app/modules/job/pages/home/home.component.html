@@ -1,0 +1,38 @@
+
+<div class="home-map">
+ 
+<button class="btn btn-primary text-white avatar avatar-50 p-0 rounded-circle shadow-sm filter-btn"><i class="bi bi-search"></i></button>
+
+<!-- google map -->
+<!-- <google-map
+height="100vh"
+width="100%"
+[zoom]="zoom"
+[center]="center"
+[options]="options"
+>
+</google-map> -->
+
+
+<google-map
+height="100vh"
+width="100%"
+[zoom]="zoom"
+[center]="center"
+[options]="options"
+>
+<map-marker
+  #marker="mapMarker"
+  *ngFor="let mark of markers"
+  [position]="mark.position"
+  [title]="mark.title"
+  [options]="mark.option"
+  (mapClick)="openInfoWindow(marker)"
+>
+</map-marker>
+
+<map-info-window> {{ infoContent }}</map-info-window>
+</google-map>
+
+<!-- google map -->
+    </div>
