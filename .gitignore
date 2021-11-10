@@ -18,3 +18,4 @@ node_modules
 .vs
 *.csprojAssemblyReference.cache
 MCN.Database/MCN.Database.dbmdl
+MCN.Database/MCN.Database.jfm
