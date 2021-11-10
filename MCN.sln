@@ -31,6 +31,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MCN.Angular", "MCN.Angular\
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MCN.Database", "MCN.Database\MCN.Database.sqlproj", "{7777AD97-4965-4F39-B925-99519547F648}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCN.Front", "MCN.Front\MCN.Front.csproj", "{2B16AD08-DB2F-4632-804E-CCC722E267BA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,6 +81,10 @@ Global
 		{7777AD97-4965-4F39-B925-99519547F648}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7777AD97-4965-4F39-B925-99519547F648}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7777AD97-4965-4F39-B925-99519547F648}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{2B16AD08-DB2F-4632-804E-CCC722E267BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B16AD08-DB2F-4632-804E-CCC722E267BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B16AD08-DB2F-4632-804E-CCC722E267BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B16AD08-DB2F-4632-804E-CCC722E267BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
