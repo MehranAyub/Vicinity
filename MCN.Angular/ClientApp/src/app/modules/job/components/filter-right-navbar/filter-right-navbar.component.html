@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col align-self-center">
                     <h6 class="mb-0">Filter Criteria</h6>
-                    <p class="text-opac">2154 products</p>
+                    <!-- <p class="text-opac">2154 products</p> -->
                 </div>
                 <div class="col-auto px-0" >
                     <button class="btn btn-link text-danger filter-close" >
@@ -15,21 +15,32 @@
         </div>
         <div class="card-body overflow-auto">
             <div class="mb-4">
-                <h6>Select Range</h6>
-                <div id="rangeslider" class="mt-4"></div>
+                <h6>Distance Range</h6>
+                <mat-slider
+                class="mt-4 w-100"
+                [max]="max"
+                [min]="min"
+                [step]="step"
+                [thumbLabel]="thumbLabel"
+                [tickInterval]="tickInterval"
+                [(ngModel)]="searchFilter.MaxDistance"
+                [vertical]="vertical"
+                aria-labelledby="example-name-label">
+                </mat-slider>
+                <!-- <div id="rangeslider" class="mt-4"></div> -->
             </div>
 
             <div class="row mb-4">
                 <div class="col">
                     <div class="form-floating">
-                        <input type="number" class="form-control" min="0" max="500" value="100" step="1" id="input-select">
+                        <input type="number" class="form-control" [min]="min" [max]="max" [(ngModel)]="searchFilter.MinDistance" [step]="step" id="input-select">
                         <label for="input-select">Minimum</label>
                     </div>
                 </div>
                 <div class="col-auto align-self-center"> to </div>
                 <div class="col">
                     <div class="form-floating">
-                        <input type="number" class="form-control" min="0" max="500" value="200" step="1" id="input-number">
+                        <input type="number" class="form-control" [min]="min" [max]="max" [(ngModel)]="searchFilter.MaxDistance"  [step]="step" id="input-number">
                         <label for="input-number">Maximum</label>
                     </div>
                 </div>
@@ -72,6 +83,19 @@
             <div class="form-floating mb-3">
                 <input type="text" class="form-control" placeholder="Keyword">
                 <label for="input-select">Keyword</label>
+
+                <!-- <tag-input [(ngModel)]="searchFilter.Interests"
+                       [placeholder]="'Enter a new repo'"
+                       [onTextChangeDebounce]="500"
+                       [secondaryPlaceholder]="'Search in Github'"
+                       [onlyFromAutocomplete]="true">
+                <tag-input-dropdown >
+                    <ng-template let-item="item" let-index="index">
+                        {{ item.display }}
+                    </ng-template>
+                </tag-input-dropdown>
+            </tag-input> -->
+
             </div>
 
             <div class="form-floating mb-3">
