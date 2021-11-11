@@ -11,21 +11,21 @@ $(window).on('load', function () {
             }, 3500)
             break;
 
-        case "landing":
-            var swiper = new Swiper(".swiper-intro", {
-                pagination: {
-                    el: ".pagination-intro",
-                },
-            });
+        // case "landing":
+        //     var swiper = new Swiper(".swiper-intro", {
+        //         pagination: {
+        //             el: ".pagination-intro",
+        //         },
+        //     });
 
             /* app install toast message */
             var toastElList = document.getElementById('toastinstall');
-            var toastElinit = new bootstrap.Toast(toastElList, {
-                // autohide: "!1",
-                autohide: true,
-                delay: 5000,
-            });
-            toastElinit.show();
+            // var toastElinit = new bootstrap.Toast(toastElList, {
+            //     // autohide: "!1",
+            //     autohide: true,
+            //     delay: 5000,
+            // });
+            // toastElinit.show();
 
             /* PWA add to phone Install ap button */
             var btnAdd = document.getElementById('addtohome');
@@ -80,76 +80,76 @@ $(window).on('load', function () {
             break;
 
         case "home":
-            var swiper1 = new Swiper(".categoriesswiper", {
-                slidesPerView: "auto",
-                spaceBetween: 12,
-            });
+            // var swiper1 = new Swiper(".categoriesswiper", {
+            //     slidesPerView: "auto",
+            //     spaceBetween: 12,
+            // });
 
-            var swiper2 = new Swiper(".offerslides", {
-                slidesPerView: "1",
-                spaceBetween: 10,
-                pagination: {
-                    el: ".pagination-offerslides",
-                },
-                breakpoints: {
-                    640: {
-                        slidesPerView: 1,
-                    },
-                    768: {
-                        slidesPerView: 2,
-                        spaceBetween: 20,
-                    },
-                    1024: {
-                        slidesPerView: 3,
-                        spaceBetween: 30,
-                    },
-                },
-            });
+            // var swiper2 = new Swiper(".offerslides", {
+            //     slidesPerView: "1",
+            //     spaceBetween: 10,
+            //     pagination: {
+            //         el: ".pagination-offerslides",
+            //     },
+            //     breakpoints: {
+            //         640: {
+            //             slidesPerView: 1,
+            //         },
+            //         768: {
+            //             slidesPerView: 2,
+            //             spaceBetween: 20,
+            //         },
+            //         1024: {
+            //             slidesPerView: 3,
+            //             spaceBetween: 30,
+            //         },
+            //     },
+            // });
 
-            var swiper3 = new Swiper(".trendingslides", {
-                slidesPerView: "auto",
-                spaceBetween: 26,
-            });
+            // var swiper3 = new Swiper(".trendingslides", {
+            //     slidesPerView: "auto",
+            //     spaceBetween: 26,
+            // });
 
-            var swiper4 = new Swiper(".shopslides", {
-                slidesPerView: "auto",
-                spaceBetween: 0,
-            });
+            // var swiper4 = new Swiper(".shopslides", {
+            //     slidesPerView: "auto",
+            //     spaceBetween: 0,
+            // });
 
             /* filter sliders range picker for filter */
             var html5Slider = document.getElementById('rangeslider');
-            noUiSlider.create(html5Slider, {
-                start: [100, 200],
-                connect: true,
-                range: {
-                    'min': 0,
-                    'max': 500
-                }
-            });
+            // noUiSlider.create(html5Slider, {
+            //     start: [100, 200],
+            //     connect: true,
+            //     range: {
+            //         'min': 0,
+            //         'max': 500
+            //     }
+            // });
 
             var inputNumber = document.getElementById('input-number');
             var select = document.getElementById('input-select');
 
-            html5Slider.noUiSlider.on('update', function (values, handle) {
-                var value = values[handle];
+            // html5Slider.noUiSlider.on('update', function (values, handle) {
+            //     var value = values[handle];
 
-                if (handle) {
-                    inputNumber.value = value;
-                } else {
-                    select.value = Math.round(value);
-                }
-            });
-            select.addEventListener('change', function () {
-                html5Slider.noUiSlider.set([this.value, null]);
-            });
-            inputNumber.addEventListener('change', function () {
-                html5Slider.noUiSlider.set([null, this.value]);
-            });
+            //     if (handle) {
+            //         inputNumber.value = value;
+            //     } else {
+            //         select.value = Math.round(value);
+            //     }
+            // });
+            // select.addEventListener('change', function () {
+            //     html5Slider.noUiSlider.set([this.value, null]);
+            // });
+            // inputNumber.addEventListener('change', function () {
+            //     html5Slider.noUiSlider.set([null, this.value]);
+            // });
 
             var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-            var toastList = toastElList.map(function (toastEl) {
-                return new bootstrap.Toast(toastEl, {})
-            });
+            // var toastList = toastElList.map(function (toastEl) {
+            //     return new bootstrap.Toast(toastEl, {})
+            // });
 
             /* toast action events messages */
             $('#toastprouctaddedtinybtn').on('click', function () {
@@ -166,12 +166,12 @@ $(window).on('load', function () {
 
             /* app install toast message */
             var toastElList = document.getElementById('toastinstall');
-            var toastElinit = new bootstrap.Toast(toastElList, {
-                // autohide: "!1",
-                autohide: true,
-                delay: 5000,
-            });
-            toastElinit.show();
+            // var toastElinit = new bootstrap.Toast(toastElList, {
+            //     // autohide: "!1",
+            //     autohide: true,
+            //     delay: 5000,
+            // });
+            // toastElinit.show();
 
             /* PWA add to phone Install ap button */
             var btnAdd = document.getElementById('addtohome');
@@ -197,17 +197,17 @@ $(window).on('load', function () {
 
             break;
         case "product":
-            var swiper5 = new Swiper(".imageswiper", {
-                slidesPerView: "1",
-                spaceBetween: 12,
-                pagination: {
-                    el: ".imageswiper-pagination",
-                },
-            });
-            var swiper6 = new Swiper(".shopslides", {
-                slidesPerView: "auto",
-                spaceBetween: 0,
-            });
+            // var swiper5 = new Swiper(".imageswiper", {
+            //     slidesPerView: "1",
+            //     spaceBetween: 12,
+            //     pagination: {
+            //         el: ".imageswiper-pagination",
+            //     },
+            // });
+            // var swiper6 = new Swiper(".shopslides", {
+            //     slidesPerView: "auto",
+            //     spaceBetween: 0,
+            // });
 
             var swiper7 = new Swiper(".offerslides", {
                 slidesPerView: "1",
@@ -230,10 +230,10 @@ $(window).on('load', function () {
                 },
             });
 
-            var swiper8 = new Swiper(".trendingslides", {
-                slidesPerView: "auto",
-                spaceBetween: 26,
-            });
+            // var swiper8 = new Swiper(".trendingslides", {
+            //     slidesPerView: "auto",
+            //     spaceBetween: 26,
+            // });
 
 
             /* Progress circle  */

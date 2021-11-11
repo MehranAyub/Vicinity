@@ -14,6 +14,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { SearchInputComponent } from './components/search-input/search-input.component';
 import { SearchInputByGoogleMapComponent } from './components/search-input-by-google-map/search-input-by-google-map.component';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { MaterialModule } from 'src/app/shared/material/material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -32,6 +34,9 @@ import { GoogleMapsModule } from '@angular/google-maps';
   imports: [
     CommonModule,
     JobRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MaterialModule,
     GoogleMapsModule
   ]
 })

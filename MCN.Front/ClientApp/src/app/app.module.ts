@@ -19,7 +19,8 @@ import { CustomSnackBarComponent } from './shared/components/custom-snack-bar/cu
     BrowserAnimationsModule,
     AppRoutingModule,
     MaterialModule,       
-    FormsModule, ReactiveFormsModule
+    FormsModule, ReactiveFormsModule,
+    
   ],
   providers: [SnackBarService],
   bootstrap: [AppComponent]
