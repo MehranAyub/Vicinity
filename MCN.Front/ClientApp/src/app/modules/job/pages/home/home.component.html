@@ -3,17 +3,6 @@
  
 <button class="btn btn-primary text-white avatar avatar-50 p-0 rounded-circle shadow-sm filter-btn"><i class="bi bi-search"></i></button>
 
-<!-- google map -->
-<!-- <google-map
-height="100vh"
-width="100%"
-[zoom]="zoom"
-[center]="center"
-[options]="options"
->
-</google-map> -->
-
-
 <google-map
 height="100vh"
 width="100%"
@@ -26,13 +15,17 @@ width="100%"
   *ngFor="let mark of markers"
   [position]="mark.position"
   [title]="mark.title"
-  [options]="mark.option"
-  (mapClick)="openInfoWindow(marker)"
+  [options]="mark.options"
+  (mapClick)="openInfoWindow(marker,mark)"
 >
 </map-marker>
 
-<map-info-window> {{ infoContent }}</map-info-window>
+<map-info-window> <span [innerHtml]="infoContent"></span></map-info-window>
 </google-map>
 
 <!-- google map -->
     </div>
+
+<!-- filter menu -->
+<app-filter-right-navbar (searchCriteria)="searchCriteria($event)" ></app-filter-right-navbar>
+<!-- filter menu ends-->

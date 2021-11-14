@@ -15,101 +15,98 @@
         </div>
         <div class="card-body overflow-auto">
             <div class="mb-4">
-                <h6>Distance Range</h6>
-                <mat-slider
-                class="mt-4 w-100"
-                [max]="max"
-                [min]="min"
-                [step]="step"
-                [thumbLabel]="thumbLabel"
-                [tickInterval]="tickInterval"
-                [(ngModel)]="searchFilter.MaxDistance"
-                [vertical]="vertical"
-                aria-labelledby="example-name-label">
-                </mat-slider>
+                <!-- <h6>Distance Range(KM)</h6> -->
+                <div class="toggle">
+                    <span fxLayoutAlign="start stretch" fxFlex="100%" fxLayoutAlign="space-between start" >
+                      <!-- <mat-slide-toggle [labelPosition]="'before'"  [value]="'primary'"> Here is the Label  Here is the Label Here is the Label </mat-slide-toggle> -->
+                      <app-slide-toggle  class="w-100" [checked]="this.searchFilter?.isDistance" (onChangeSlideToggle)="onChangeSlideToggle($event)"   [label]="'Is Distance Range'"  [name]="'tog-1'" [color]=true ></app-slide-toggle>
+                    </span>
+                </div>
+                <div *ngIf="this.searchFilter?.isDistance">
+                    <mat-slider
+                    class="mt-4 w-100"
+                    [max]="max"
+                    [min]="min"
+                    [step]="step"
+                    [thumbLabel]="thumbLabel"
+                    [tickInterval]="tickInterval"
+                    [(ngModel)]="searchFilter.MaxDistance"
+                    [vertical]="vertical"
+                    aria-labelledby="example-name-label">
+                    </mat-slider>
+                </div>
+              
                 <!-- <div id="rangeslider" class="mt-4"></div> -->
             </div>
 
-            <div class="row mb-4">
-                <div class="col">
-                    <div class="form-floating">
+            <div class="row mb-4" *ngIf="this.searchFilter?.isDistance">
+                <div class="col-5">
+                    <!-- <div class="form-floating">
                         <input type="number" class="form-control" [min]="min" [max]="max" [(ngModel)]="searchFilter.MinDistance" [step]="step" id="input-select">
                         <label for="input-select">Minimum</label>
-                    </div>
+                    </div> -->
+
+                    <app-input-field
+                    placeholder="Min" 
+                    maxlength="25"  
+                    [isDisabled]="true"
+                    [inputValue]="searchFilter.MinDistance"              
+                  ></app-input-field>
+
                 </div>
                 <div class="col-auto align-self-center"> to </div>
-                <div class="col">
-                    <div class="form-floating">
-                        <input type="number" class="form-control" [min]="min" [max]="max" [(ngModel)]="searchFilter.MaxDistance"  [step]="step" id="input-number">
-                        <label for="input-number">Maximum</label>
-                    </div>
+                <div class="col-5"> 
+                    <app-input-field
+                    placeholder="Max" 
+                    maxlength="25" 
+                    [inputValue]="searchFilter.MaxDistance"
+                    (inputChange)="inputChange($event)"              
+                  ></app-input-field>
                 </div>
             </div>
 
-            <div class="form-floating mb-4">
-                <select class="form-control" id="filtertype">
-                    <option selected>Cloths</option>
-                    <option>Electronics</option>
-                    <option>Furniture</option>
-                </select>
-                <label for="filtertype">Select Shopping Type</label>
+            <div class="mb-4"> 
+                <app-input-field
+                placeholder="Keywords" 
+                maxlength="25"     
+                [inputValue]="searchFilter.Keyword"    
+                (inputChange)="inputChange($event)"       
+              ></app-input-field>
+
             </div>
 
             <div class="form-group floating-form-group active mb-4">
-                <h6 class="mb-3">Select Facilities</h6>
+                <h6 class="mb-3">Select desirable pin location</h6>
 
-                <div class="form-check form-switch mb-2">
-                    <input type="checkbox" class="form-check-input" id="men" checked>
-                    <label class="form-check-label" for="men">Men</label>
-                </div>
-                <div class="form-check form-switch mb-2">
-                    <input type="checkbox" class="form-check-input" id="woman" checked>
-                    <label class="form-check-label" for="woman">Women</label>
-                </div>
-                <div class="form-check form-switch mb-2">
-                    <input type="checkbox" class="form-check-input" id="Sport">
-                    <label class="form-check-label" for="Sport">Sport</label>
-                </div>
-                <div class="form-check form-switch mb-2">
-                    <input type="checkbox" class="form-check-input" id="homedecor">
-                    <label class="form-check-label" for="homedecor">Home Decor</label>
-                </div>
-                <div class="form-check form-switch mb-2">
-                    <input type="checkbox" class="form-check-input" id="kidsplay">
-                    <label class="form-check-label" for="kidsplay">Kid's Play</label>
-                </div>
-            </div>
+                
 
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control" placeholder="Keyword">
-                <label for="input-select">Keyword</label>
+                <div class="mb-2"> 
+                    <app-input-field
+                    placeholder="Latitude" 
+                    maxlength="25"   
+                    [isDisabled]="true"    
+                    [inputValue]="searchFilter.SearchLat"   
+                    (click)="setPinLocation()"       
+                  ></app-input-field>
+    
+                </div>
 
-                <!-- <tag-input [(ngModel)]="searchFilter.Interests"
-                       [placeholder]="'Enter a new repo'"
-                       [onTextChangeDebounce]="500"
-                       [secondaryPlaceholder]="'Search in Github'"
-                       [onlyFromAutocomplete]="true">
-                <tag-input-dropdown >
-                    <ng-template let-item="item" let-index="index">
-                        {{ item.display }}
-                    </ng-template>
-                </tag-input-dropdown>
-            </tag-input> -->
+                <div class="mb-2"> 
+                    <app-input-field
+                    placeholder="Longitude" 
+                    maxlength="25"   
+                    [isDisabled]="true"   
+                    [inputValue]="searchFilter.SearchLng"      
+                    (click)="setPinLocation()"         
+                  ></app-input-field>
+    
+                </div>
 
             </div>
-
-            <div class="form-floating mb-3">
-                <select class="form-control" id="discount">
-                    <option>10% </option>
-                    <option>30%</option>
-                    <option>50%</option>
-                    <option>80%</option>
-                </select>
-                <label for="discount">Offer Discount</label>
-            </div>
+ 
         </div>
         <div class="card-footer">
-            <button class="btn btn-lg btn-default w-100 shadow-sm">Search</button>
+            <button class="btn btn-lg btn-default w-100 shadow-sm" (click)="filterCriteria($event)" >Search</button>
         </div>
     </div>
 </div>

@@ -16,6 +16,7 @@ import { SearchInputByGoogleMapComponent } from './components/search-input-by-go
 import { GoogleMapsModule } from '@angular/google-maps';
 import { MaterialModule } from 'src/app/shared/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from 'src/app/shared/shared/shared.module';
 
 
 @NgModule({
@@ -33,11 +34,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    JobRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MaterialModule,
-    GoogleMapsModule
+    JobRoutingModule, 
+    SharedModule,
   ]
 })
 export class JobModule { }

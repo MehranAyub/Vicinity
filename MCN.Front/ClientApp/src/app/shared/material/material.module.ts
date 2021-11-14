@@ -3,6 +3,7 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatDialogModule } from '@angular/material/dialog'
 import { MatCardModule } from '@angular/material/card'
 import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { MatInputModule } from '@angular/material/input'
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet'
 import {MatSliderModule} from '@angular/material/slider';
@@ -56,7 +57,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
     MatFormFieldModule, 
     MatSnackBarModule, 
     MatBottomSheetModule,
-    MatSliderModule
+    MatSliderModule,    
+    MatSlideToggleModule,
   ],
   exports: [
     MatButtonModule,
@@ -67,7 +69,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
     MatFormFieldModule, 
     MatSnackBarModule, 
     MatBottomSheetModule,
-    MatSliderModule
+    MatSliderModule,
+    MatSlideToggleModule,
   ]
 })
 export class MaterialModule { }

@@ -1,5 +1,8 @@
 import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
+import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
+import { Subscription } from 'rxjs';
 import { SearchFilter } from '../../models/mapService';
+import { SearchInputByGoogleMapComponent } from '../search-input-by-google-map/search-input-by-google-map.component';
 declare var $:any;
 @Component({
   selector: 'app-filter-right-navbar',
@@ -7,6 +10,7 @@ declare var $:any;
   styleUrls: ['./filter-right-navbar.component.scss']
 })
 export class FilterRightNavbarComponent implements OnInit {
+  @Output() searchCriteria:EventEmitter<any>=new EventEmitter();
 
   autoTicks = true;
   disabled = false;
@@ -19,10 +23,15 @@ export class FilterRightNavbarComponent implements OnInit {
   value = 0;
   vertical = false;
   tickInterval = 1;
-  public searchFilter:SearchFilter={Keyword:'',MinDistance:0,MaxDistance:500,Interests:[],SearchLat:0,SearchLng:0};
-  constructor() { }
+  public searchFilter:SearchFilter={Keyword:'',MinDistance:0,MaxDistance:500,Interests:[],SearchLat:0,SearchLng:0,isDistance:true};
+  constructor(private _bottomSheet: MatBottomSheet) { }
 
   ngOnInit(): void {
+    navigator.geolocation.getCurrentPosition((position) => {
+        this.searchFilter.SearchLat= position.coords.latitude;
+        this.searchFilter.SearchLng= position.coords.longitude;
+      });
+
 
     $(document).ready(function(){
    $('.filter-close').on('click', function () {
@@ -33,16 +42,57 @@ export class FilterRightNavbarComponent implements OnInit {
    });
   }
 
-//   public requestAutocompleteItems = (text: string): Observable<any> => {
-//     const url = `https://api.github.com/search/repositories?q=${text}`;
-//     return this.http
-//         .get(url)
-//         .map((data: any) => data.items.map(item => item.full_name));
-// };
+  inputChange(event){
+    console.log(event);
+    if(event?.id=='Max'){
+      this.searchFilter.MaxDistance=event.value;
+    }
+    else if(event?.id=='Keywords'){
+      this.searchFilter.Keyword=event.value;
+    }
+  }
 
-  // DismissCardEvent(){
-  //   this.isHide=true;
-  //   this.onDismissEvent.emit(true);
+  private _bottomSheetDismissSubscription: Subscription;
+  private _bottomSheetRef: MatBottomSheetRef;
+  // actionConfirmData: ActionConfirmModel = {
+  //   acceptLabel: "Login",
+  //   rejectLabel: "",
+  //   id: "verifyPin",
+  //   heading: "Account found",
+  //   description: "An account already exists for this phone number."
   // }
+
+  setPinLocation(): void {
+    this._bottomSheetRef = this._bottomSheet.open(SearchInputByGoogleMapComponent, {
+      data: null,
+      disableClose: false,
+      panelClass: 'bottomsheet-container'
+    });
+
+    this._bottomSheetDismissSubscription = this._bottomSheetRef
+      .afterDismissed()
+      .subscribe((response: any) => {
+        console.log(response);
+        if (response?.code =='200' ) {
+          this.searchFilter.SearchLat=response?.data?.geometry?.location?.lat();
+          this.searchFilter.SearchLng=response?.data?.geometry?.location?.lng();
+        }
+      });
+  }
+
+  onChangeSlideToggle(event){
+    this.searchFilter.isDistance=!!event?.checked?true:false;
+  }
+  filterCriteria(event){
+    this.searchCriteria.emit(this.searchFilter);
+    $('body').removeClass('filter-open');
+  }
+
+  ngOnDestroy(): void {
+    this._bottomSheetRef = null;
+    if (this._bottomSheetDismissSubscription) {
+      this._bottomSheetDismissSubscription.unsubscribe();
+    }
+  }
 
 }

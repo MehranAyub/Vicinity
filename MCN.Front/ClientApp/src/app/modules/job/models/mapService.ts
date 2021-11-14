@@ -2,8 +2,10 @@ export interface Marker{
     position?:Position;
     title?:string;
     options?:Option;
+    icon?:any;
     info?:string;
     label?:Label;
+    data?:SearchResultDto;
 }
 
 export interface Position{
@@ -13,7 +15,8 @@ export interface Position{
 
 export interface Option{
 animation:any;
-icon:any
+icon:any;
+draggable:boolean;
 }
 export interface Label{
     color:any;
@@ -27,6 +30,21 @@ export interface SearchFilter{
      Interests:number[] 
      SearchLat:number 
      SearchLng:number 
+     isDistance:boolean
+}
+
+
+export interface SearchResultDto
+{
+      id :number
+      email :string
+      firstName:string 
+      lastName :string
+      gender :string
+      title :string
+      distance :number
+      latitude:number
+      longitude:number
 }
 
 

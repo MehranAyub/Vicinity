@@ -12990,3 +12990,9 @@ main.has-header {
   opacity: 1;
   background-color: rgba(3, 169, 244, 0.75);
 }
+.float-right{
+  float: right;
+}
+.color-dark-grey{
+  color: #576e8c;
+}

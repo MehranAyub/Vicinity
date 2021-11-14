@@ -28,6 +28,8 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.ISearchRepositoryBL
         public string Gender { get; set; }
         public string Title { get; set; }
         public double Distance { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
     }
 
     public interface ISearchRepositoryBL
@@ -61,7 +63,10 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.ISearchRepositoryBL
                 Gender = x.Gender,
                 Id = x.Id,
                 LastName = x.LastName,
-                Title = x.Title
+                Title = x.Title,
+                Latitude=x.Latitude,
+                Longitude=x.Longitude,
+
             }).ToList();
         }
 

@@ -31,6 +31,7 @@ namespace MCN.WebAPI.Areas.Location.Controllers
         }
 
         [HttpPost]
+        [Route("GetResults")]
         public IActionResult GetResults([FromBody] SearchFilter filter)
         {
             var searchDto = new SearchFilterDto
