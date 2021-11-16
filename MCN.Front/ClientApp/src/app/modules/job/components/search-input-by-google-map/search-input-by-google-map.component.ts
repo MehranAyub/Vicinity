@@ -2,7 +2,7 @@ import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, EventEmi
 import { GoogleMap } from '@angular/google-maps';
 import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { Marker } from '../../models/mapService';
-const marker = {
+const marker:Marker = {
   position: {
     lat: 33.599239344482179,
     lng: 73.0098210191367093,
@@ -11,6 +11,7 @@ const marker = {
   label:{color:'red',text:'text 123'},
   options: {
     animation: google.maps.Animation.DROP,
+    draggable:true,
     icon: {
       url: 'assets/img/PickPin.svg',
     },
@@ -97,6 +98,7 @@ export class SearchInputByGoogleMapComponent implements AfterViewInit {
         console.log(this.placeItem)
         marker.setPosition(place.geometry.location);
         marker.setVisible(true);
+        marker.setDraggable(true);
         infowindowContent.children["place-name"].textContent = place.name;
         infowindowContent.children["place-address"].textContent =
           place.formatted_address;
@@ -150,6 +152,20 @@ export class SearchInputByGoogleMapComponent implements AfterViewInit {
         input.value = "";
       });
     // }
+
+    
+
+    google.maps.event.addListener(marker,'dragend',function(event) 
+        {
+    console.log(event);
+    // this.placeItem.geometry.location.lat =event.latLng.lat();
+    // this.placeItem.geometry.location.lat =event.latLng.lng();
+    console.log(marker);
+    
+});
+
+
+
   }
 
 

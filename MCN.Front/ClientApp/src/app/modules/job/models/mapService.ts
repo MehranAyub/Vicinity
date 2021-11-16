@@ -47,6 +47,25 @@ export interface SearchResultDto
       longitude:number
 }
 
+export interface InterestFilter
+{ 
+     Keyword: string
+     PageNumber: number
+     PageSize: number
+}
+
+export interface InterestDto
+{
+     id:number
+     title:string
+     paid:boolean
+     description:string
+     cost:number
+     type:string
+     display:string
+     value:string
+
+}
 
 // public class SearchFilter
 // { 

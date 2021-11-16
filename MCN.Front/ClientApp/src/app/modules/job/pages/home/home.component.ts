@@ -34,9 +34,11 @@ export class HomeComponent implements OnInit {
   @ViewChild(MapInfoWindow, { static: false }) info: MapInfoWindow;
   
   center: google.maps.LatLngLiteral = { lat: 0, lng: 0 };
-  zoom = 12;
+  pinPositon: google.maps.LatLngLiteral = { lat: 0, lng: 0 };
+  
+  zoom = 6;
   options: google.maps.MapOptions = {
-    zoom: 12,
+    zoom: 6,
     mapTypeId: 'roadmap',
     panControl: false,
     zoomControl: false,
@@ -79,9 +81,13 @@ export class HomeComponent implements OnInit {
    });
    });
 
-
+   
    navigator?.geolocation?.getCurrentPosition((position) => {
     this.center = {
+      lat: position?.coords?.latitude,
+      lng: position?.coords?.longitude,
+    }
+    this.pinPositon = {
       lat: position?.coords?.latitude,
       lng: position?.coords?.longitude,
     }
@@ -95,11 +101,8 @@ export class HomeComponent implements OnInit {
     const mark = { ...marker };
     mark.position=this.center;
     mark.data={latitude:this.center.lat,longitude:this.center.lng,firstName:'Pin',lastName:'Point',distance:0,email:'',gender:'',id:0,title:''}
-    this.zoom=12;
     bounds.extend(mark.position);
     this.markers.push(mark);
-    console.log("markers",this.markers)
-    console.log("bounds",bounds)
     this.center = {
       lat: bounds?.getCenter()?.lat(),
       lng: bounds?.getCenter()?.lng(),
@@ -108,7 +111,14 @@ export class HomeComponent implements OnInit {
   }
   loadLatLng(){
     this.markers=[];
-    const bounds = new google.maps.LatLngBounds();
+    this.vertices=[];
+    const bounds = new google.maps.LatLngBounds();    
+   let pinPointData= {latitude:this.center.lat,longitude:this.center.lng,firstName:'Pin',lastName:'Point',distance:0,email:'',gender:'',id:0,title:''};
+    this.markers.push({position:this.pinPositon,title:'Pin Point',label:{color:'Yellow',text:'label'},options:{
+      animation: google.maps.Animation.DROP,
+      draggable:false,
+      icon:'assets/img/apple-small.png'
+    },data:pinPointData});
     this.latLongs.forEach((item)=>{
 
       this.markers.push({
@@ -127,9 +137,12 @@ export class HomeComponent implements OnInit {
           draggable:false,
           icon:'assets/img/PickPin.svg'
         },
-      }); 
+      }
+      ); 
+      this.vertices.push({lat:this.pinPositon.lat,lng:this.pinPositon.lng});
+      this.vertices.push({lat:item.latitude,lng:item.longitude});
      })
-
+console.log('vertices=> ',this.vertices);
      this.markers.forEach((marker) => {
       bounds.extend(marker.position);
     });
@@ -139,7 +152,7 @@ export class HomeComponent implements OnInit {
     };
 
     this.map.fitBounds(bounds);
-    // this.map.panToBounds(bounds);
+    this.map.panToBounds(bounds);
   }
 
   infoContent = ''
@@ -151,6 +164,7 @@ export class HomeComponent implements OnInit {
 
   searchCriteria(event:SearchFilter){
     console.log(event);
+    this.pinPositon={lat:event.SearchLat,lng:event.SearchLng};
     this._jobService.GetResults(event).subscribe((res)=>{
       console.log(res);
       this.latLongs=res;

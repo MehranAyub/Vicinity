@@ -9,7 +9,9 @@ import { AuthService } from './shared/services/auth/auth.service';
 import { SnackBarService } from './shared/snack-bar.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CustomSnackBarComponent } from './shared/components/custom-snack-bar/custom-snack-bar.component';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
+import { LoadingBarModule } from '@ngx-loading-bar/core';
 @NgModule({
   declarations: [
     AppComponent
@@ -19,7 +21,10 @@ import { CustomSnackBarComponent } from './shared/components/custom-snack-bar/cu
     BrowserAnimationsModule,
     AppRoutingModule,
     MaterialModule,       
-    FormsModule, ReactiveFormsModule,
+    FormsModule, ReactiveFormsModule,    
+    LoadingBarHttpClientModule,
+    LoadingBarRouterModule,
+    LoadingBarModule,
     
   ],
   providers: [SnackBarService],

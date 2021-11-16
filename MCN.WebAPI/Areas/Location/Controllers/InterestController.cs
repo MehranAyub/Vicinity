@@ -29,6 +29,7 @@ namespace MCN.WebAPI.Areas.Location.Controllers
         }
 
         [HttpPost]
+        [Route("GetInterestList")]
         public IActionResult GetInterestList([FromBody] InterestFilter filter)
         {
             var result = _interestService.GetInterests(new InterestFilterDto { Keyword = filter.Keyword, PageNumber = filter.PageNumber, PageSize = filter.PageSize });

@@ -10,6 +10,12 @@ width="100%"
 [center]="center"
 [options]="options"
 >
+
+<map-polyline
+[path]="vertices"
+[options]="{ strokeColor: '#0097fb', strokeWidth: 2 }"
+></map-polyline>
+
 <map-marker
   #marker="mapMarker"
   *ngFor="let mark of markers"

@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
 import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { Subscription } from 'rxjs';
-import { SearchFilter } from '../../models/mapService';
+import { InterestDto, SearchFilter } from '../../models/mapService';
+import { JobService } from '../../service/jobService';
 import { SearchInputByGoogleMapComponent } from '../search-input-by-google-map/search-input-by-google-map.component';
 declare var $:any;
 @Component({
@@ -24,7 +25,7 @@ export class FilterRightNavbarComponent implements OnInit {
   vertical = false;
   tickInterval = 1;
   public searchFilter:SearchFilter={Keyword:'',MinDistance:0,MaxDistance:500,Interests:[],SearchLat:0,SearchLng:0,isDistance:true};
-  constructor(private _bottomSheet: MatBottomSheet) { }
+  constructor(private _bottomSheet: MatBottomSheet,private _jobService:JobService) { }
 
   ngOnInit(): void {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -84,8 +85,30 @@ export class FilterRightNavbarComponent implements OnInit {
     this.searchFilter.isDistance=!!event?.checked?true:false;
   }
   filterCriteria(event){
+    this.searchFilter.Interests=this.interests;
     this.searchCriteria.emit(this.searchFilter);
     $('body').removeClass('filter-open');
+  }
+  inputInterestItems:InterestDto[]=[];
+  interests:number[]=[];
+  dropdownItems:InterestDto[]=[];
+  onTextChange(event){
+    console.log(event);
+    this._jobService.GetInterestList(event).subscribe((res)=>{
+      console.log(res);
+      this.dropdownItems=res;
+    });
+  }
+  onItemAdded(event){
+    this.interests=[];
+    console.log(this.inputInterestItems);
+    this.inputInterestItems.forEach((res)=>{
+      this.interests.push(res.id);
+    });
+  }
+
+  GetInterestList(event:SearchFilter){
+
   }
 
   ngOnDestroy(): void {

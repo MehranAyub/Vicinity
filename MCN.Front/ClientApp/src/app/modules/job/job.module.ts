@@ -17,8 +17,13 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { MaterialModule } from 'src/app/shared/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared/shared.module';
+import { TagInputModule } from 'ngx-chips';
 
-
+TagInputModule.withDefaults({
+  tagInput: {
+      placeholder: 'Select Skills or Interests',
+  }
+});
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -35,6 +40,7 @@ import { SharedModule } from 'src/app/shared/shared/shared.module';
   imports: [
     CommonModule,
     JobRoutingModule, 
+    TagInputModule,
     SharedModule,
   ]
 })

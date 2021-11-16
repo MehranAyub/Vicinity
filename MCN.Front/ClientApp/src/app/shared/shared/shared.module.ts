@@ -6,7 +6,6 @@ import { MaterialModule } from '../material/material.module';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { SlideToggleComponent } from '../components/slide-toggle/slide-toggle.component';
 
-
 const components = [ 
   InputFieldComponent,
   SlideToggleComponent
@@ -19,7 +18,7 @@ const components = [
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,    
-    GoogleMapsModule
+    GoogleMapsModule,
   ],
   exports:[
     FormsModule,

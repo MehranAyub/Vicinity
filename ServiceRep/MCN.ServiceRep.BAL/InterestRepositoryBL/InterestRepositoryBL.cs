@@ -16,6 +16,8 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.IInterestRepositoryBL
         public string Description { get; set; }
         public double Cost { get; set; }
         public string Type { get; set; }
+        public string Display { get; set; }
+        public string Value { get; set; }
 
     }
 
@@ -54,7 +56,9 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.IInterestRepositoryBL
                  Id = x.Id,
                  Paid = x.Paid,
                  Title = x.Title,
-                 Type  = x.Type
+                 Type  = x.Type,
+                 Display=x.Title,
+                 Value=x.Title
             }).ToList();
         }
     }

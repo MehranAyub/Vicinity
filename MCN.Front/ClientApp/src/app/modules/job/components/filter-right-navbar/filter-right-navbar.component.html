@@ -65,6 +65,17 @@
                 </div>
             </div>
 
+            <div class="mb-4">
+                <tag-input 
+                [(ngModel)]='inputInterestItems'
+                (onTextChange)="onTextChange($event)"
+                (onAdd)="onItemAdded($event)"
+                [onlyFromAutocomplete]="true" [identifyBy]="'display'" [displayBy]="'value'">
+
+                <tag-input-dropdown [autocompleteItems]="dropdownItems" >
+                </tag-input-dropdown>
+                </tag-input>
+            </div>
             <div class="mb-4"> 
                 <app-input-field
                 placeholder="Keywords" 
