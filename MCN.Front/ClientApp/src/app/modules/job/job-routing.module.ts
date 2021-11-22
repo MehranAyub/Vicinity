@@ -8,8 +8,8 @@ import { StyleComponent } from './pages/style/style.component';
 
 const routes: Routes = [ 
   {
-    path:'',
-    component:JobComponent,
+  path:'',
+  component:JobComponent,
   children: [
   {
   path: '',

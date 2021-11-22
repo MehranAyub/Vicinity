@@ -7426,6 +7426,12 @@ fieldset:disabled .btn {
 .pt-5 {
   padding-top: 3rem !important;
 }
+.pt-70 {
+  padding-top: 70px;
+}
+.pb-70 {
+  padding-bottom: 70px;
+}
 
 .pe-0 {
   padding-right: 0 !important;

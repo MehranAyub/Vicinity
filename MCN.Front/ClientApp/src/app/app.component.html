@@ -1,2 +1,4 @@
 <ngx-loading-bar  [includeSpinner]="false"></ngx-loading-bar>
-<router-outlet></router-outlet>
+<main  [@routeTransition]="getAnimation()">
+    <router-outlet></router-outlet>
+</main>

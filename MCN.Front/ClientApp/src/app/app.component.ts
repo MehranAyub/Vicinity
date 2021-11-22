@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
+import { RouteTransition } from './shared/services/animation/animation';
+import { AnimationService } from './shared/services/animation/animation.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],  
+  animations: RouteTransition
 })
 export class AppComponent {
   title = 'ThemeIntegrationApp';
 
-  constructor(){
+  constructor(private animSRVC: AnimationService,){
     this.loadScripts();
   }
   loadScripts() {
@@ -26,4 +29,8 @@ export class AppComponent {
     }
   }
 
+  getAnimation() {
+    ////console.log(this.animSRVC.getCurrentAnimation());
+    return this.animSRVC.getCurrentAnimation();
+  }
 }
