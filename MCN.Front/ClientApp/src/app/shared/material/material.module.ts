@@ -7,45 +7,9 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { MatInputModule } from '@angular/material/input'
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet'
 import {MatSliderModule} from '@angular/material/slider';
-// import {
-//   MatButtonModule,
-//   MatCardModule,
-//   MatDialogModule,
-//   MatInputModule,
-//   MatTableModule,
-//   MatSortModule,
-//   MatToolbarModule,
-//   MatMenuModule,
-//   MatIconModule,
-//   MatProgressSpinnerModule,
-//   MatCheckboxModule,
-//   MatDividerModule,
-//   MatProgressBarModule,
-//   MatStepperModule,
-//   MatFormFieldModule,
-//   MatDatepickerModule,
-//   MatNativeDateModule,
-//   MatRadioModule,
-//   MatOptionModule,
-//   MatSlideToggleModule,
-//   MatSliderModule,
-//   MatAutocompleteModule,
-//   MatExpansionModule,
-//   MatSidenavModule,
-//   MatTabsModule,
-//   MatSnackBarModule,
-//   MatPaginatorModule,
-//   MatTooltipModule,
-//   MatListModule, 
-//   MatBottomSheetModule,
-//   MatChipsModule
-// } from '@angular/material'
-
-import {
-  MatSelectModule
-} from '@angular/material/select'
+import {  MatSelectModule} from '@angular/material/select'
 import { MatSnackBarModule } from '@angular/material/snack-bar'
-
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   imports: [
@@ -59,6 +23,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
     MatBottomSheetModule,
     MatSliderModule,    
     MatSlideToggleModule,
+    MatIconModule
   ],
   exports: [
     MatButtonModule,
@@ -71,6 +36,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
     MatBottomSheetModule,
     MatSliderModule,
     MatSlideToggleModule,
+    MatIconModule
   ]
 })
 export class MaterialModule { }

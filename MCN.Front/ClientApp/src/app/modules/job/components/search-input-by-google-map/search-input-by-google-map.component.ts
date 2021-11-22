@@ -26,8 +26,8 @@ const marker:Marker = {
 })
 export class SearchInputByGoogleMapComponent implements AfterViewInit {
   public placeItem:any={};
+  public pos:google.maps.LatLng;
   constructor(private _bottomSheetRef: MatBottomSheetRef<SearchInputByGoogleMapComponent>){
-    
   }
   ngAfterViewInit(){
     // function initMap(): void {
@@ -35,10 +35,24 @@ export class SearchInputByGoogleMapComponent implements AfterViewInit {
         document.getElementById("map") as HTMLElement,
         {
           center: { lat: 40.749933, lng: -73.98633 },
-          zoom: 13,
+          zoom: 18,
           mapTypeControl: false,
         }
       );
+      const marker = new google.maps.Marker({
+        map,
+        anchorPoint: new google.maps.Point(0, -29),
+      });
+      if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          map.setCenter(new google.maps.LatLng(position.coords.latitude,position.coords.longitude));
+          marker.setPosition(new google.maps.LatLng(position.coords.latitude,position.coords.longitude));
+          marker.setDraggable(true);
+          marker.setAnimation(google.maps.Animation.DROP);
+          map.setZoom(12);
+        });
+        }
+
       const card = document.getElementById("pac-card") as HTMLElement;
       const input = document.getElementById("pac-input") as HTMLInputElement;
       const biasInputElement = document.getElementById(
@@ -69,10 +83,7 @@ export class SearchInputByGoogleMapComponent implements AfterViewInit {
     
       infowindow.setContent(infowindowContent);
     
-      const marker = new google.maps.Marker({
-        map,
-        anchorPoint: new google.maps.Point(0, -29),
-      });
+     
     
       autocomplete.addListener("place_changed", () => {
         infowindow.close();
@@ -92,8 +103,8 @@ export class SearchInputByGoogleMapComponent implements AfterViewInit {
           map.fitBounds(place.geometry.viewport);
         } else {
           map.setCenter(place.geometry.location);
-          map.setZoom(17);
         }
+
         this.placeItem=place;
         console.log(this.placeItem)
         marker.setPosition(place.geometry.location);
@@ -155,184 +166,34 @@ export class SearchInputByGoogleMapComponent implements AfterViewInit {
 
     
 
-    google.maps.event.addListener(marker,'dragend',function(event) 
+    google.maps.event.addListener(marker,'dragend',function(event)
         {
-    console.log(event);
+    //console.log(event.latLng.lat());
     // this.placeItem.geometry.location.lat =event.latLng.lat();
     // this.placeItem.geometry.location.lat =event.latLng.lng();
-    console.log(marker);
+    //console.log(marker.getPosition().lat());
+    geocodePosition(marker.getPosition())
     
 });
 
-
+function   geocodePosition(pos) {
+  var geocoder;
+  geocoder.geocode({
+    latLng: pos
+  }, function(responses) {
+    if (responses && responses.length > 0) {
+      console.log(responses[0].formatted_address);
+    } else {
+      console.log('NULL')
+    }
+  });
+}
 
   }
 
 
+ 
   Accept(){
     this._bottomSheetRef.dismiss({code:'200',data:this.placeItem});    
   }
-//   @ViewChild('mapSearchField') searchField:ElementRef;
-//   @ViewChild(GoogleMap) map:GoogleMap;
-   
-//   center: google.maps.LatLngLiteral = { lat: 33.599239344482179, lng: 73.009821019136709 };
-   
- 
-//   zoom = 12;
-//   options: google.maps.MapOptions = {
-//     zoom: 12,
-//     mapTypeId: 'roadmap',
-//     panControl: false,
-//     zoomControl: false,
-//     mapTypeControl: false,
-//     scaleControl: false,
-//     streetViewControl: false,
-//     rotateControl: false,
-//     fullscreenControl: false,
-//     center: new google.maps.LatLng(37.3382, -121.8863),
-//   };
-
-//   public markers:Marker[]=[{title:'title 123...',options:{animation:google.maps.Animation.DROP,icon:{
-//     url: 'assets/img/PickPin.svg',
-//   }},position:{lat:this.center.lat,lng:this.center.lng},info:'info 123',label:{color:'red',text:'text 123'}}];
-
-//   // public markers:Marker[]=[];
-//   mapConfigurations={
-//     disableDefaultUI:false,
-//     fullscreenControl:false,
-//     zoomControl:false
-//   }
-//   constructor() { }
-
-//   ngAfterViewInit(): void {
-//     const searchBox=new google.maps.places.SearchBox(
-//       this.searchField.nativeElement,
-//     );
-//     this.map.controls[google.maps.ControlPosition.TOP_CENTER].push(
-//       this.searchField.nativeElement,
-//     );
-
-//     searchBox.addListener('places_changed',()=>{ 
-//       this.markers=[];
-//       const places=searchBox.getPlaces();
-//       if(places.length===0){
-//         return;
-//       }
-
-//       const bounds=new google.maps.LatLngBounds();
-//       places.forEach(place=>{
-//         if(!place.geometry || !place.geometry.location){
-//           return;
-//         }
-//         if(place.geometry.viewport){
-//           //only geocodes have viwewport
-//           bounds.union(place.geometry.viewport);
-//         }else{
-//           bounds.extend(place.geometry.location);
-//         }
-        
-
-//       }); 
-
-
-//       let lat=bounds.getCenter().lat();
-//       let lng= bounds.getCenter().lng();
-// const mark = { ...marker };
-// mark.position = {
-//   lat: lat,
-//   lng: lng,
-// };
-
-// this.center = {
-//   lat: lat,
-//   lng: lng,
-// };
-// this.options.center=this.center;
-// mark.label={color:'red',text:'text 123'};
-// mark.options={
-//   animation: google.maps.Animation.DROP,
-//   icon: {
-//     url: 'assets/img/PickPin.svg',
-//   },
-// };
-// mark.title = 'Current Location';
-// this.markers.push(mark);
- 
-// bounds.extend(mark.position);
-
-// const cardinalBounds = bounds.toJSON();
-//     const newBounds = {
-//       north: cardinalBounds?.north + 0.1,
-//       east: cardinalBounds?.east,
-//       west: cardinalBounds?.west,
-//       south: cardinalBounds?.south - 0.1,
-//     };
-//     if (this.map) {
-//       this.map.fitBounds(newBounds);
-//       this.map.panToBounds(newBounds);
-//       this.map.panBy(0, 100);
-//     } 
-      
-//     })
-//   }
-
-
-
-//   private setCurrentPosition() {
-//     if ('geolocation' in navigator) {
-//       navigator.geolocation.getCurrentPosition((position) => {
-//         this.markers[0].position.lat = position.coords.latitude;
-//         this.markers[0].position.lng = position.coords.longitude;
-//         this.zoom = 12;
-//       });
-//     }
-//   }
-
-//   initiateMarker(lat:any,lng:any){
-//     this.markers.push({
-//       position: {
-//         lat: +lat,
-//         lng: +lng,
-//       },
-//       title:'Marker title ',
-//       label: {
-//         color: 'red',
-//         text: 'Marker label ',
-//       },
-//       info: 'Marker info ',
-
-//       options: {
-//         animation: google.maps.Animation.DROP,
-//         icon: {
-//           url: 'assets/img/PickPin.svg',
-//         },
-//       },
-//     });
-
-//     // this.markers[0].position={lat:lat,lng:lng};
-
-//    const bounds= this.getBounds(this.markers);
-//     // this.map.googleMap.fitBounds(bounds);
-    
-//   }
-
-//   getBounds(markers){
-//     let north;
-//     let south;
-//     let east;
-//     let west;
-  
-//     for (const marker of markers){
-//       // set the coordinates to marker's lat and lng on the first run.
-//       // if the coordinates exist, get max or min depends on the coordinates.
-//       north = north !== undefined ? Math.max(north, marker.position.lat) : marker.position.lat;
-//       south = south !== undefined ? Math.min(south, marker.position.lat) : marker.position.lat;
-//       east = east !== undefined ? Math.max(east, marker.position.lng) : marker.position.lng;
-//       west = west !== undefined ? Math.min(west, marker.position.lng) : marker.position.lng;
-//     };
-  
-//     const bounds = { north, south, east, west };
-  
-//     return bounds;
-//   }
 }

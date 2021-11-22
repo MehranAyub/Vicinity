@@ -36,9 +36,8 @@ export class HomeComponent implements OnInit {
   center: google.maps.LatLngLiteral = { lat: 0, lng: 0 };
   pinPositon: google.maps.LatLngLiteral = { lat: 0, lng: 0 };
   
-  zoom = 6;
+  zoom = 12;
   options: google.maps.MapOptions = {
-    zoom: 6,
     mapTypeId: 'roadmap',
     panControl: false,
     zoomControl: false,
@@ -47,6 +46,8 @@ export class HomeComponent implements OnInit {
     streetViewControl: false,
     rotateControl: false,
     fullscreenControl: false,
+    zoom:12,
+    maxZoom:18,
     center: new google.maps.LatLng(37.3382, -121.8863),
     
   };
@@ -90,7 +91,7 @@ export class HomeComponent implements OnInit {
     this.pinPositon = {
       lat: position?.coords?.latitude,
       lng: position?.coords?.longitude,
-    }
+    } 
     this.setPinLocation();
   });
   // this.loadLatLng()
@@ -107,7 +108,9 @@ export class HomeComponent implements OnInit {
       lat: bounds?.getCenter()?.lat(),
       lng: bounds?.getCenter()?.lng(),
     };
-    this.map.fitBounds(bounds);
+    console.log(this.map);
+    this.map.googleMap.fitBounds(bounds);
+    this.map.googleMap.setZoom(12);
   }
   loadLatLng(){
     this.markers=[];
@@ -150,8 +153,8 @@ console.log('vertices=> ',this.vertices);
       lat: bounds?.getCenter()?.lat(),
       lng: bounds?.getCenter()?.lng(),
     };
-
-    this.map.fitBounds(bounds);
+    this.map.zoom=6;
+    this.map.fitBounds(bounds); 
     this.map.panToBounds(bounds);
   }
 
