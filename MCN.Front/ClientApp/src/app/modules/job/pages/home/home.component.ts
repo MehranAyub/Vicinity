@@ -161,8 +161,10 @@ console.log('vertices=> ',this.vertices);
   infoContent = ''
   openInfoWindow(marker: MapMarker,item:Marker) {
     console.log(item);
-    this.infoContent ='1- '+item?.data?.firstName +' '+ item?.data?.lastName+'<br/>2- Title:- <b>'+item?.data?.title +'</b><br/>3- Email <b>'+item.data?.email+'</b><br/>4- Distance (km) <b>'+item?.data?.distance.toFixed(2)+'</b><br/>5- Position <b>'+item.data.latitude +' '+item?.data?.longitude+'</b>';
+    this.infoContent ='1- '+item?.data?.firstName +' '+ item?.data?.lastName+'<br/>2- Title:- <b>'+item?.data?.title +'</b><br/>3- Email <b>'+item.data?.email+'</b><br/>4- Distance (km) <b>'+item?.data?.distance.toFixed(2)+'</b><br/>5- Position <b>'+item.data.latitude +' '+item?.data?.longitude+'</b></br></br>';
     this.info.open(marker);
+
+    
   }
 
   searchCriteria(event:SearchFilter){
@@ -173,5 +175,9 @@ console.log('vertices=> ',this.vertices);
       this.latLongs=res;
       this.loadLatLng();
     })
+  }
+
+  GoToProfile(){
+    console.log("User's Profile");
   }
 }
