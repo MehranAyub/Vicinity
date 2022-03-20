@@ -44,7 +44,7 @@ namespace MCN.ServiceRep.BAL.ContextModel
 
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=(local);Initial Catalog=JobPortal;Integrated Security=true;");
+                optionsBuilder.UseSqlServer("Data Source=(local);Initial Catalog=VicinityDb;Integrated Security=true;");
             }
         }
         protected override void OnModelCreating(ModelBuilder builder)

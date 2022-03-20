@@ -1,5 +1,5 @@
 ﻿
-CREATE PROCEDURE GetUserAddressByDistance
+CREATE PROCEDURE [dbo].[GetUserAddressByDistance]
 	
 	@Latitude FLOAT = 0,
 	@Longitude FLOAT = 0,
@@ -13,7 +13,7 @@ BEGIN
 	DECLARE @InterestTable TABLE (InterestId INT)
 	INSERT INTO @InterestTable SELECT value FROM string_split( @Interests, ',')
 	SELECT * FROM (
-	SELECT U.Id,  U.Email, U.FirstName, U.LastName, U.Gender, I.Title,
+	SELECT U.Id,  U.Email, U.FirstName, U.LastName, U.Gender, I.Title, U.Latitude,U.Longitude,
 	dbo.fnCalcDistanceKM(AL.Latitude, @Latitude,  AL.Longitude, @Longitude) as Distance FROM Users U 
 	INNER JOIN Account.UserInterest UI ON UI.UserId = U.ID
 	INNER JOIN Account.Location AL  ON AL.UserId = UI.UserId 
