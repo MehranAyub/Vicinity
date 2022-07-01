@@ -78,5 +78,6 @@
     <Build Include="dbo\Functions\fnCalcDistanceKM.sql" />
     <Build Include="dbo\Stored Procedures\GetUserAddressByDistance.sql" />
     <Build Include="Security\Account.sql" />
+    <Build Include="Account\Tables\InterestLogos.sql" />
   </ItemGroup>
 </Project>
