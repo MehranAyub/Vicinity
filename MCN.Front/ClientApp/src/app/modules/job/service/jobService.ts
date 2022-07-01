@@ -3,6 +3,7 @@ import { HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ApiService } from 'src/app/shared/services/common/api.service';
 import { InterestDto, InterestFilter, SearchFilter, SearchResultDto } from '../models/mapService';
+import { User } from '../../account/models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -33,5 +34,4 @@ export class JobService {
     let model:InterestFilter={Keyword:keyword,PageNumber:0,PageSize:10}
     return this.apiService.post('Interest/GetInterestList',model);
 }
-   
 }

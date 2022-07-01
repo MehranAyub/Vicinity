@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { GoogleMap, MapInfoWindow, MapMarker } from '@angular/google-maps';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Marker, SearchFilter, SearchResultDto } from '../../models/mapService';
 import { JobService } from '../../service/jobService';
@@ -53,6 +54,7 @@ export class HomeComponent implements OnInit {
   };
   public markers:Marker[] = [];
   public latLongs:SearchResultDto[]=[];
+  SellerId:any;
   // =[{firstName:'Niazi',lastName:'Town',lat:33.599239344482179,long:73.009821019136709},{firstName:'Misrial',lastName:'Chowk',lat:33.602050353186954,long:72.98370354939469}];
 
   imageUrl = 'https://angular.io/assets/images/logos/angular/angular.svg';
@@ -64,7 +66,7 @@ export class HomeComponent implements OnInit {
   };
   vertices: google.maps.LatLngLiteral[] = [];
   
-  constructor(private _jobService:JobService) { 
+  constructor(private _jobService:JobService,private router:Router) { 
 
     
   }
@@ -160,11 +162,12 @@ console.log('vertices=> ',this.vertices);
 
   infoContent = ''
   openInfoWindow(marker: MapMarker,item:Marker) {
-    console.log(item);
+    console.log(item.data.id);
     this.infoContent ='1- '+item?.data?.firstName +' '+ item?.data?.lastName+'<br/>2- Title:- <b>'+item?.data?.title +'</b><br/>3- Email <b>'+item.data?.email+'</b><br/>4- Distance (km) <b>'+item?.data?.distance.toFixed(2)+'</b><br/>5- Position <b>'+item.data.latitude +' '+item?.data?.longitude+'</b></br></br>';
+    this.SellerId=item?.data?.id;
     this.info.open(marker);
 
-    
+    // <a class="btn" ><i (click)="GoToProfile('+item?.data?.id+')" class="bi bi-arrow-90deg-right"></i></a>
   }
 
   searchCriteria(event:SearchFilter){
@@ -177,7 +180,7 @@ console.log('vertices=> ',this.vertices);
     })
   }
 
-  GoToProfile(){
-    console.log("User's Profile");
+  GoToProfile(id){
+    this.router.navigate(['seller/seller-profile'], { queryParams: { id: id }});
   }
 }

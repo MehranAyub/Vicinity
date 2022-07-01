@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonComponent } from 'src/app/shared/components/common/common.component';
 import { AnimationService, AnimationType } from 'src/app/shared/services/animation/animation.service';
+import { DataService } from '../../service/data.service';
 declare var $: any;
 @Component({
   selector: 'app-header',
@@ -9,11 +10,18 @@ declare var $: any;
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent extends CommonComponent implements OnInit {
-  constructor(_router:Router,animationService:AnimationService) {
+  @Input() userData: any;
+  @Output() anchorLinkClick = new EventEmitter();
+  constructor(_router:Router,animationService:AnimationService,private dataService:DataService) {
     super(_router,animationService);
    }
 
   ngOnInit(): void {
+    this.anchorLinkClick.emit({LastName:'Ayub',Cast:'Deol'})
+    console.log(this.userData);
+    this.dataService.updateData.subscribe((res)=>{
+      console.log(res);
+    })
     // document.querySelector("body")?.classList.add("faisal")
     $(document).ready(function(){
     $('.menu-btn').on('click', function () {
@@ -31,7 +39,8 @@ export class HeaderComponent extends CommonComponent implements OnInit {
   }
 
   profile(){
-    this.navigateToRoute('/job/profile',null,AnimationType.slideToLeft);
+    this.anchorLinkClick.emit({lastName:'Faisal',Specialization:'Software Enginerring'})
+    // this.navigateToRoute('/job/profile',null,AnimationType.slideToLeft);
   }
   dashboard(){
     this.navigateToRoute('/job/dashboard',null,AnimationType.slideToTop);

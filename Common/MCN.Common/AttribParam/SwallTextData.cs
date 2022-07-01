@@ -62,6 +62,7 @@ namespace MCN.Common.AttribParam
         public class LoginUser
         {
             public static SwallText UserCreatedScuccessfully = new SwallText("success", "User has been created successfuly", "");
+            public static SwallText UserUpdatedScuccessfully = new SwallText("success", "User has been updated successfuly", "");
 
             public static SwallText EmailVerifcationInvalidUser = new SwallText("error", "Invalid User", "No user exist to generate email verification email");
 

@@ -1,4 +1,5 @@
 ﻿using MCN.Common.AttribParam;
+using MCN.Core.Entities.Entities;
 using MCN.ServiceRep.BAL.ServicesRepositoryBL.UserRepositoryBL.Dtos;
 using System;
 using System.Collections.Generic;
@@ -15,9 +16,14 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.UserRepositoryBL
         //SwallResponseWrapper ResetPassword(ChangePasswordDTO resetPassword);
         SwallResponseWrapper IsEmailVerified(string Passcode, string IpAddress, string Email);
         SwallResponseWrapper CreateUser(CreateUserDto dto);
+
+        SwallResponseWrapper UpdateUser(CreateUserDto dto);
         //SwallResponseWrapper PasswordChange(PasswordChangeDto passwordChangeDto);
         SwallResponseWrapper ReGenerateEmailVerificationPasscode(CreateUserDto userDto, string IpAddress);
-       // Result<UserDto> Users(UserCriteria criteria);
+
+        SwallResponseWrapper GetSellerProfile(int userID);
+
+        // Result<UserDto> Users(UserCriteria criteria);
         //User GetUser(int userID); 
     }
 }

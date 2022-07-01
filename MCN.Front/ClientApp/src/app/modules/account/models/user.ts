@@ -12,6 +12,7 @@ export interface User {
     token?:string; 
     latitude?:number;
     longitude?:number;
+    address?:string;
 }
 
 export class UserToken{

@@ -5,7 +5,8 @@ using System.Text;
 namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.UserRepositoryBL.Dtos
 {
  public   class CreateUserDto
-    { 
+    {
+        public int ID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Gender { get; set; }

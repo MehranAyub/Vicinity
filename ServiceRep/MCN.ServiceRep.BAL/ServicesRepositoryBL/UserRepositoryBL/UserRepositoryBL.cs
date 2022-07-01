@@ -188,6 +188,8 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.UserRepositoryBL
             //    }
             //    );
 
+
+
             return new SwallResponseWrapper()
             {
                 SwallText = LoginUser.UserCreatedScuccessfully,
@@ -196,6 +198,33 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.UserRepositoryBL
             };
         }
 
+        public SwallResponseWrapper UpdateUser(CreateUserDto dto)
+        {
+
+            var userItem = repositoryContext.Users.FirstOrDefault(x => x.ID == dto.ID);
+            var location = repositoryContext.Locations.FirstOrDefault(x => x.UserId == dto.ID);
+
+            userItem.FirstName = dto.FirstName;
+            userItem.LastName = dto.LastName;
+            userItem.Email = dto.Email;
+            userItem.Password = dto.Password;
+            userItem.Latitude = dto.Latitude;
+            userItem.Longitude = dto.Longitude;
+            location.Latitude = dto.Latitude;
+            location.Longitude = dto.Longitude;
+            userItem.Address = dto.Address;
+            location.Address = dto.Address;
+            repositoryContext.Users.Update(userItem);
+            repositoryContext.Locations.Update(location);
+            repositoryContext.SaveChanges();
+           // var user = repositoryContext.Users.FirstOrDefault(x => x.ID == dto.ID);
+            return new SwallResponseWrapper()
+            {
+                SwallText = LoginUser.UserUpdatedScuccessfully,
+                StatusCode = 200,
+                Data = userItem
+            };
+        }
         //public SwallResponseWrapper ResetPassword(ChangePasswordDTO resetPassword)
         //{
         //    var token = repositoryContext.UserAuthtoken.Where(x => x.Authtoken == resetPassword.Token && x.AccessIP == resetPassword.IpAddress).OrderByDescending(x => x.CreatedOn).FirstOrDefault();
@@ -386,7 +415,30 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.UserRepositoryBL
 
             return user;
         }
+        public SwallResponseWrapper GetSellerProfile(int userID)
+        {
+            var user = repositoryContext.Users.FirstOrDefault(x => x.ID == userID);
+            var UserInterest = repositoryContext.UserInterests.Where(x => x.UserId == userID).ToList();
+            var InterestList = repositoryContext.Interests.ToList();
+            var result = new
+            {
+                firstName = user.FirstName,
+                lastName = user.LastName,
+                email = user.Email,
+                address = user.Address,
+                interests = (from UI in UserInterest
+                             join ss in repositoryContext.Interests on UI.InterestId equals ss.Id
+                             where UI.UserId == userID
+                             select ss).ToList()
+            };
 
+            return new SwallResponseWrapper()
+            {
+                Data = result,
+                StatusCode = 200,
+               
+            };
+        }
 
 
 

@@ -17,6 +17,8 @@ namespace MCN.Core.Entities.Entities
         public string Gender { get; set; }
         public Double Latitude { get; set; }
         public Double Longitude { get; set; }
+
+        public string Address { get; set; }
         public bool IsEmailVerified { get; set; }
         public bool? IsActive { get; set; }
         public int LoginFailureCount { get; set; }
@@ -77,16 +79,16 @@ namespace MCN.Core.Entities.Entities
         public double Cost { get; set; }
         public string Type { get; set; }
     }
-
+    [Table(nameof(InterestLogos), Schema = nameof(Schemas.Account))]
+    public class InterestLogos
+    {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        [MaxLength]
+        public string DataFiles { get; set; }
+        public int InterestId { get; set; }
+        [ForeignKey(nameof(InterestId))]
+        public Interest Interest { get; set; }
+    }
 }
-
-
-/*
-Category
-- Occupation
-- Interest
-
-
-SubCategory
- 
- */

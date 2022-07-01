@@ -126,6 +126,17 @@ namespace MCN.WebAPI.Areas.Users
         }
 
         [HttpPost]
+        [Route("UpdateUser")]
+        [Authorize]
+        public IActionResult UpdateUser([FromBody] CreateUserDto dto)
+        {
+            dto.IpAddress = _IpAddress;
+            dto.BaseURL = _baseuri;
+            var result = _UserRepositoryBL.UpdateUser(dto);
+            return Ok(result);
+        }
+
+        [HttpPost]
         [Route("ReGenerateEmailVerificationMail")]
         [AllowAnonymous]
         public IActionResult ReGenerateEmailVerificationPasscode(CreateUserDto createUserDto)
@@ -140,6 +151,16 @@ namespace MCN.WebAPI.Areas.Users
         public IActionResult EmailVerification([FromBody]EmailVerificationDTO dto)
         {
             var result = _UserRepositoryBL.IsEmailVerified(dto.Passcode, _IpAddress, dto.Email);
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [Route("GetSellerProfile")]
+        [AllowAnonymous]
+        public IActionResult GetSellerProfile(int id)
+        {
+            var result = _UserRepositoryBL.GetSellerProfile(id);
+         
             return Ok(result);
         }
 

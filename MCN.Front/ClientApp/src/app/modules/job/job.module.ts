@@ -39,6 +39,9 @@ TagInputModule.withDefaults({
     JobRoutingModule, 
     TagInputModule,
     SharedModule,
+  ],
+  exports:[
+    FooterComponent
   ]
 })
 export class JobModule { }

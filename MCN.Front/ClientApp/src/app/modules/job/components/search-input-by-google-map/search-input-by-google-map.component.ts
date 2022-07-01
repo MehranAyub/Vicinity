@@ -10,7 +10,7 @@ const marker:Marker = {
   title: '',
   label:{color:'red',text:'text 123'},
   options: {
-    animation: google.maps.Animation.DROP,
+     animation: google.maps.Animation.DROP,
     draggable:true,
     icon: {
       url: 'assets/img/PickPin.svg',
@@ -48,7 +48,7 @@ export class SearchInputByGoogleMapComponent implements AfterViewInit {
           map.setCenter(new google.maps.LatLng(position.coords.latitude,position.coords.longitude));
           marker.setPosition(new google.maps.LatLng(position.coords.latitude,position.coords.longitude));
           marker.setDraggable(true);
-          marker.setAnimation(google.maps.Animation.DROP);
+         marker.setAnimation(google.maps.Animation.DROP);
           map.setZoom(12);
         });
         }

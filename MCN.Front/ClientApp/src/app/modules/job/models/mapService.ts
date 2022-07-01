@@ -67,6 +67,7 @@ export interface InterestDto
 
 }
 
+
 // public class SearchFilter
 // { 
 //     public string Keyword { get; set; }

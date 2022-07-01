@@ -21,12 +21,20 @@ export class UserService {
     
     return new HttpHeaders(headers);
   }
-  paramss:HttpParams = new HttpParams();
+  params:HttpParams = new HttpParams();
   
     constructor(private apiService: ApiService) { }
    
     register(user:User): Observable<any> {
       return this.apiService.post(this.url+'CreateUser',user);
   }
-   
+  UpdateUser(user:User): Observable<any> {
+    return this.apiService.post(this.url+'UpdateUser',user);
+}
+
+GetSellerProfile(id): Observable<any> {
+  
+  this.params = new HttpParams().set('id',id)
+  return this.apiService.get(this.url+'GetSellerProfile',this.params);
+}
 }

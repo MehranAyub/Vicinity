@@ -1,0 +1,61 @@
+<!-- main page content -->
+<div class="main-container container pt-70 pb-70">
+
+    <!-- profile picture -->
+    <div class="row  mb-4">
+        <div class="col-auto">
+            <figure class="avatar avatar-100 rounded mx-auto">
+                <img src="assets/img/Mehran.jpg" alt="">
+            </figure>
+        </div>
+        <div class="col align-self-center">
+            <h5 class="">{{this.user.firstName}} {{this.user.lastName}}</h5>
+            <p class="text-opac mt-2"><i class="fa fa-envelope"></i>{{this.user.email}}</p>
+            <p class="text-opac"><i class="fa fa-phone" aria-hidden="true"></i>03438876859</p>
+        </div>
+    </div>
+    <!-- profile information -->
+    <div class="row mb-3">
+        <div class="col">
+            <h5 class="mb-0">Address</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-light shadow-sm mb-4">
+                <div class="card-body">
+                   Lahore sadar Canttt Lahore.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col">
+            <h5 class="mb-0">Our Services</h5>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-10 col-sm-6 col-md-4 col-lg-4 " *ngFor="let item of Interests;">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body text-center">
+                    <div class="row align-items-center ">
+                        <a href="profile.html" class="col">
+                            <figure class="avatar avatar-100 mx-auto mb-3 rounded-circle">
+                                <img src="assets/img/plumber1.jpg" alt="">
+                            </figure>
+                        </a>
+                    </div>
+                    <h6 class="card-title mb-0 text-color-theme text-center">{{item.title}}</h6>
+                    <p class="text-small text-opac small">{{item.type}}</p>
+                    <p>{{item.description}}</p>
+                </div>
+              
+            </div>
+        </div>
+       
+     
+    </div>
+
+</div>
+<!-- main page content ends -->
