@@ -146,6 +146,7 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.UserRepositoryBL
         {
             User usr = new User
             {
+               
                 CreatedOn = DateTime.Now,
                 UpdatedOn = DateTime.Now,
                 CreatedBy = DEFAULT_USERID,
@@ -154,7 +155,11 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.UserRepositoryBL
                 IsActive = true,
                 LastName = dto.LastName,
                 LoginFailureCount = 0,
+                Phone=dto.Phone,
+                Address=dto.Address,
                 Password = dto.Password,
+                Latitude=dto.Latitude,
+                Longitude=dto.Longitude,
                 UpdatedBy = DEFAULT_USERID,
                 IsEmailVerified = false,
                 UserLoginTypeId = AppConstants.UserEntityType.Applicant,//edit here 

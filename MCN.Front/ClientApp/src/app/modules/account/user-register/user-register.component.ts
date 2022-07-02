@@ -19,13 +19,14 @@ import { AccountDataService } from '../services/accountDataService';
 export class UserRegisterComponent implements OnInit,OnDestroy {
   createUserForm:any;
   isEmailVerify:boolean=false;
-  userCreate:User={id:0,email:'',firstName:'',gender:'',lastName:'',password:'',role:Role.User,username:'',token:'',latitude:0,longitude:0};
+  userCreate:User={id:0,email:'',firstName:'',gender:'',lastName:'',password:'',role:Role.User,username:'',token:'',latitude:0,longitude:0,address:'',phone:''};
   constructor(private _dataService:AccountDataService ,private formBuilder: FormBuilder,private _bottomSheet: MatBottomSheet,private router:Router,private userService:UserService,private snackbarService:SnackBarService,private dialogService:DialogService) { 
 
     this.createUserForm=this.formBuilder.group({
       firstName:['',[Validators.required]],
       lastName:['',[Validators.required]],
       email:['',[Validators.required,Validators.email]],
+      phone:['',[Validators.required]],
       address:['',[Validators.required]],
       password:['',[Validators.required]],
       confirmPassword:['',[Validators.required]]
@@ -74,6 +75,8 @@ export class UserRegisterComponent implements OnInit,OnDestroy {
       this.userCreate.firstName=this.createUserForm.controls['firstName'].value;  
       this.userCreate.lastName=this.createUserForm.controls['lastName'].value;
       this.userCreate.password=this.createUserForm.controls['password'].value;
+      this.userCreate.address=this.createUserForm.controls['address'].value;
+      this.userCreate.phone=this.createUserForm.controls['phone'].value;
       this._dataService._emailPasscode.email=this.userCreate.email;
         this.userService.register(this.userCreate).subscribe((response)=>{
           console.log(response);

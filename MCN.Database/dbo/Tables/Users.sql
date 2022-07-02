@@ -16,8 +16,11 @@
     [Latitude]          FLOAT (53)     CONSTRAINT [DF__Users__Latitude__32E0915F] DEFAULT ((0.0000000000000000e+000)) NOT NULL,
     [Longitude]         FLOAT (53)     CONSTRAINT [DF__Users__Longitude__33D4B598] DEFAULT ((0.0000000000000000e+000)) NOT NULL,
     [Address]           NVARCHAR (MAX) NULL,
+    [Phone]             VARCHAR (20)   NULL,
     CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED ([ID] ASC)
 );
+
+
 
 
 
