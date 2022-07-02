@@ -20,7 +20,9 @@ export class SellerProfileComponent extends CommonComponent implements OnInit {
         super(router,animationService)
        
      }
-  
+     dataReceivedByEvent(event){
+      console.log("event",event);
+    }
     ngOnInit(): void {
       // this.id = Number(this.route.snapshot.paramMap.get('id'))
       // console.log('id got in seller profile'+this.id)

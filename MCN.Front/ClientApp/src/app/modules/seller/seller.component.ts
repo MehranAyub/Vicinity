@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/services/auth/auth.service';
 import { FooterComponent } from '../job/components/footer/footer.component';
+declare var $:any;
 @Component({
   selector: 'app-seller',
   templateUrl: './seller.component.html',
@@ -7,9 +10,27 @@ import { FooterComponent } from '../job/components/footer/footer.component';
 })
 export class SellerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private auth:AuthService,private route:Router) { 
+    let currentUser=JSON.parse(localStorage.getItem('currentUser'));
+    if(currentUser){
 
-  ngOnInit(): void {
+    }
+    else{
+      this.route.navigate(['account/login'])
+    }
   }
+  ngOnInit(): void {
 
+    $(document).ready(function(){
+      /* Filter button */
+   $('.filter-close').on('click', function () {
+       if ($('body').hasClass('filter-open') === true) {
+         $('body').removeClass('filter-open');
+       }
+   });
+   });
+  }
+  Logout(){
+    this.auth.logout();
+  }
 }

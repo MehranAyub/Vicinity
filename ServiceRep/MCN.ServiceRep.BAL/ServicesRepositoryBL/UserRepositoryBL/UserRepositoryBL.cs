@@ -212,6 +212,7 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.UserRepositoryBL
             userItem.FirstName = dto.FirstName;
             userItem.LastName = dto.LastName;
             userItem.Email = dto.Email;
+            userItem.Phone = dto.Phone;
             userItem.Password = dto.Password;
             userItem.Latitude = dto.Latitude;
             userItem.Longitude = dto.Longitude;

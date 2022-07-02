@@ -9,19 +9,22 @@
     <!-- profile picture -->
     <div class="row  mb-4">
         <!-- <div class="card card-light shadow-sm" > -->
-            <div class="col-auto">
+            <div class="col-md-2 col-lg-2 col-5">
             <figure class="avatar avatar-100 rounded mx-auto">
                 <img [src]="this.image" onerror="this.src='assets/img/user-img.png'" alt="">
+               
             </figure>
             <div style="width: min-content;">
-                <input type="file" (change)="onFileSelected($event)">
-                <input class="btn btn-sm btn-default shadow-sm" (click)="onUpload()" type="button" value="upload">
+                <input type="file" (change)="onFileSelected($event)" id="img" style="display:none;">
+                <label class="btn btn-sm btn-danger shadow-sm" for="img">Browse</label> 
+                <!-- <button class="btn btn-sm btn-default shadow-sm" for="img" type="button">Browse</button> -->
+                <input class="btn btn-sm btn-default shadow-sm mt-2" (click)="onUpload()" type="button" value="upload">
             </div>
         </div>
-        <!-- <div class="col align-self-center">
-            <h5 class="">{{this.user.firstName}}{{this.user.lastName}}</h5>
+        <div class="col-md-10 col-lg-10 mt-3 col-7">
+            <h5 class="">{{this.user.firstName}} {{this.user.lastName}}</h5>
             <p class="text-opac">Lahore</p>
-        </div> -->
+        </div>
     <!-- </div> -->
     </div>
     <!-- profile information -->
@@ -46,6 +49,13 @@
                                 <input type="text" class="form-control" value="{{this.user.lastName }}" [(ngModel)]="this.user.lastName" placeholder="Surname"
                                     id="surnames">
                                 <label for="surnames">Last Name</label>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="form-group form-floating   mb-3">
+                                <input type="text" class="form-control" value="{{this.user.phone }}" [(ngModel)]="this.user.phone" placeholder="Surname"
+                                    id="surnames">
+                                <label for="surnames">Phone</label>
                             </div>
                         </div>
                         <div class="col-12 col-md-6 col-lg-4">
@@ -81,7 +91,7 @@
                                 <label class="form-control-label" for="address2">Street Address</label>
                             </div>
                         </div>
-                        <div class="col-12 col-md-6 col-lg-4 mb-3">
+                        <!-- <div class="col-12 col-md-6 col-lg-4 mb-3">
                             <div class="form-group form-floating">
                                 <input type="text" class="form-control" value="Raipur" id="address6" placeholder="City">
                                 <label class="form-control-label" for="address6">City</label>
@@ -100,7 +110,7 @@
                                 </datalist>
                                 <label class="form-control-label" for="address4">Country</label>
                             </div>
-                        </div>
+                        </div> -->
                        
                         
                         

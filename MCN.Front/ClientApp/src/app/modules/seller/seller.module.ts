@@ -4,6 +4,8 @@ import { SellerProfileComponent } from './pages/seller-profile/seller-profile.co
 import { JobModule } from '../job/job.module';
 import { SellerRoutingModule } from './seller-routing.module';
 import { CommonModule } from '@angular/common';
+import { SharedModule } from 'src/app/shared/shared/shared.module';
+import { TagInputModule } from 'ngx-chips';
 
 
 @NgModule({
@@ -15,8 +17,9 @@ import { CommonModule } from '@angular/common';
   imports: [
     CommonModule,
     SellerRoutingModule,
-    JobModule
-   
+    JobModule,
+    SharedModule,
+    TagInputModule,
   ]
 })
 export class SellerModule { }

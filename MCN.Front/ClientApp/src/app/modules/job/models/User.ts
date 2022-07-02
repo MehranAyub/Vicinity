@@ -7,5 +7,5 @@ export interface UserDto{
     email :string
     address:string
     password:string
-
+phone:string
 }
