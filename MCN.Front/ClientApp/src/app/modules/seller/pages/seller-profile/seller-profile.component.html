@@ -12,7 +12,7 @@
         <div class="col align-self-center">
             <h5 class="">{{this.user.firstName}} {{this.user.lastName}}</h5>
             <p class="text-opac mt-2"><i class="fa fa-envelope"></i>{{this.user.email}}</p>
-            <p class="text-opac"><i class="fa fa-phone" aria-hidden="true"></i>03438876859</p>
+            <p class="text-opac"><i class="fa fa-phone" aria-hidden="true"></i>{{this.user.phone}}</p>
         </div>
     </div>
     <!-- profile information -->
@@ -37,11 +37,11 @@
         </div>
     </div>
     <div class="row" >
-        <div class="col-10 col-sm-6 col-md-4 col-lg-4 " *ngFor="let item of Interests;">
+        <!-- <div class="col-10 col-sm-6 col-md-4 col-lg-4 " *ngFor="let item of Interests;">
             <div class="card mb-4 shadow-sm">
                 <div class="card-body text-center">
                     <div class="row align-items-center ">
-                        <a href="profile.html" class="col">
+                        <a class="col">
                             <figure class="avatar avatar-100 mx-auto mb-3 rounded-circle">
                                 <img src="assets/img/plumber1.jpg" alt="">
                             </figure>
@@ -54,8 +54,36 @@
               
             </div>
         </div>
-       
+        -->
      
+
+        <div class="col-6 col-md-4 col-lg-3" *ngFor="let item of Interests;">
+            <div class="card shadow-sm product mb-4">
+                <div class="card-body">
+                    <figure class="text-center">
+                        <img src="assets/img/product1.png" alt="">
+                    </figure>
+                    <p class="mb-1">
+                        <small class="text-opac">{{item.type}}</small>
+                        <small class="float-end"><span class="text-opac">4.5</span> <i class="bi bi-star-fill text-warning"></i></small>
+                    </p>
+                    <a href="product.html" class="text-normal">
+                        <h6 class="text-color-theme">{{item.title}}</h6>
+                    </a>
+                    <div class="row">
+                        <div class="col">
+                            <p class="mb-0">R.S {{item.cost}}<br><small class="text-opac">24/7</small></p>
+                        </div>
+                        <div class="col-auto">
+                            <button class="btn btn-sm avatar avatar-30 p-0 rounded-circle shadow btn-gradient"
+                                data-bs-toggle="modal" data-bs-target="#addproductcart">
+                                <i class="bi bi-plus size-22"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 </div>
