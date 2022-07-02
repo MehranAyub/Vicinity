@@ -7,6 +7,8 @@ import { CommonModule } from '@angular/common';
 import { ChatComponent } from './pages/chat/chat.component';
 import { FormsModule } from '@angular/forms';
 import { DateAgoPipe } from 'src/app/shared/pipes/date-ago.pipe';
+import { SharedModule } from 'src/app/shared/shared/shared.module';
+import { TagInputModule } from 'ngx-chips';
 
 
 @NgModule({
@@ -20,9 +22,9 @@ import { DateAgoPipe } from 'src/app/shared/pipes/date-ago.pipe';
   imports: [
     CommonModule,
     FormsModule,
-    SellerRoutingModule,
-    JobModule
-   
+    SellerRoutingModule, 
+    SharedModule,
+    TagInputModule,
   ]
 })
 export class SellerModule { }

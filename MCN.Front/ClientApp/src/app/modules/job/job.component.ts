@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/services/auth/auth.service';
 declare var $:any;
 @Component({
   selector: 'app-job',
@@ -7,7 +9,15 @@ declare var $:any;
 })
 export class JobComponent implements OnInit {
 
-  constructor() { }
+  constructor(private auth:AuthService,private route:Router) { 
+    let currentUser=JSON.parse(localStorage.getItem('currentUser'));
+    if(currentUser){
+
+    }
+    else{
+      this.route.navigate(['account/login'])
+    }
+  }
 
   ngOnInit(): void {
 
@@ -20,5 +30,7 @@ export class JobComponent implements OnInit {
    });
    });
   }
-
+Logout(){
+  this.auth.logout();
+}
 }
