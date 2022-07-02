@@ -1,4 +1,5 @@
 using System;
+using MCN.ServiceRep.BAL.ServicesRepositoryBL.Chats;
 using MCN.ServiceRep.BAL.ServicesRepositoryBL.IInterestRepositoryBL;
 using MCN.ServiceRep.BAL.ServicesRepositoryBL.ISearchRepositoryBL;
 using MCN.ServiceRep.BAL.ServicesRepositoryBL.Locals;
@@ -17,6 +18,7 @@ namespace MCN.ServiceRep.DepencyInjuctionInfo
                 services.AddScoped<IUserRepositoryBL, UserRepositoryBL>();
                 services.AddScoped<ISearchRepositoryBL, SearchRepositoryBL>();
                 services.AddScoped<IInterestRepositoryBL, InterestRepositoryBL>();
+                services.AddScoped<IChatRepositoryBL, ChatRepositoryBL>();
 
                 //services.AddTransient<IFormRepositoryBL, FormRepositoryBL>();
                 //services.AddTransient<IAdminOfficeRepositoryBL, AdminOfficeRepositoryBL>();

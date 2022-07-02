@@ -39,6 +39,7 @@ namespace MCN.ServiceRep.BAL.ContextModel
         public DbSet<Files> Files { get; set; }
         public DbSet<UserInterest> UserInterests { get; set; }
         public DbSet<GetUserAddressByDistance> GetUserAddressByDistances { get; set; }
+        public DbSet<Chat> Chats { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

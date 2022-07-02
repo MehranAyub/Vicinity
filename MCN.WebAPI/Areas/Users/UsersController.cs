@@ -100,6 +100,7 @@ namespace MCN.WebAPI.Areas.Users
             var claims = new[] {
                     new Claim(System.IdentityModel.Tokens.Jwt.JwtRegisteredClaimNames.Email, userInfo.Email),
                     new Claim(System.IdentityModel.Tokens.Jwt.JwtRegisteredClaimNames.Email, userInfo.Email),
+                    new Claim("loggedUserId", userInfo.ID.ToString()),
                     new Claim(System.IdentityModel.Tokens.Jwt.JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
                                 };
 
@@ -238,6 +239,7 @@ namespace MCN.WebAPI.Areas.Users
         [Route("GetProfileImg")]
         public IActionResult GetProfileImg(int id)
         {
+           
 
             var result = _UserRepositoryBL.GetProfileImg(id);
            

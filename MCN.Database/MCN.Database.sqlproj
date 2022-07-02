@@ -80,5 +80,6 @@
     <Build Include="Security\Account.sql" />
     <Build Include="Account\Tables\InterestLogos.sql" />
     <Build Include="dbo\Tables\Files.sql" />
+    <Build Include="dbo\Tables\Chats.sql" />
   </ItemGroup>
 </Project>
