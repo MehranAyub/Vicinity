@@ -60,7 +60,7 @@
         public class UserEntityType
         {
             public static int AdminOffice = 2;
-            public static int Applicant = 3;
+            public static int Applicant = 1;
         }
 
         public class GlobalSettings
