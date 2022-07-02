@@ -45,7 +45,7 @@ namespace MCN.ServiceRep.BAL.ContextModel
 
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=CYBERSPACE;Initial Catalog=vicinityDb;Integrated Security=true;");
+                optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=vicinityDb;Integrated Security=true;");
             }
         }
         protected override void OnModelCreating(ModelBuilder builder)
