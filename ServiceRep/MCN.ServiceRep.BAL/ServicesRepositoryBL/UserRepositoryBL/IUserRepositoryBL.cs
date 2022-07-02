@@ -20,9 +20,9 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.UserRepositoryBL
         SwallResponseWrapper UpdateUser(CreateUserDto dto);
         //SwallResponseWrapper PasswordChange(PasswordChangeDto passwordChangeDto);
         SwallResponseWrapper ReGenerateEmailVerificationPasscode(CreateUserDto userDto, string IpAddress);
-
+        string UserImg(FileDto dto);
         SwallResponseWrapper GetSellerProfile(int userID);
-
+        SwallResponseWrapper GetProfileImg(int userID);
         // Result<UserDto> Users(UserCriteria criteria);
         //User GetUser(int userID); 
     }

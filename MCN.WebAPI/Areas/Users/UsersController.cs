@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
@@ -184,7 +185,65 @@ namespace MCN.WebAPI.Areas.Users
             //var user= _accessor.HttpContext.User.Claims.Select(x=>x.Value).FirstOrDefault();
             return Ok(new { tok = "token was here" });
         }
+        [HttpPost]
+        [Route("UserImg/{id}")]
+        [AllowAnonymous]
+        public string UserImg(int id)
+        {
+            var Userid = id;
 
 
+            var file = Request.Form.Files[0];
+            if (file.Length > 0)
+            {//Getting FileName
+                var fileName = Path.GetFileName(file.FileName);
+                //Getting file Extension
+                var fileExtension = Path.GetExtension(fileName);
+                // concatenating  FileName + FileExtension
+                var newFileName = String.Concat(Convert.ToString(Guid.NewGuid()), fileExtension);
+
+
+
+                var objfiles = new FileDto()
+                {
+                    Id = 0,
+                    Name = newFileName,
+                    FileType = fileExtension,
+                    CreatedOn = DateTime.Now,
+                    UserId = Userid
+                };
+
+                using (var target = new MemoryStream())
+                {
+                    file.CopyTo(target);
+                    objfiles.DataFiles = target.ToArray();
+                }
+
+                var response = _UserRepositoryBL.UserImg(objfiles);
+
+
+
+
+                return response;
+            }
+            else
+            {
+                return "file nt found";
+            }
+
+
+        }
+        [HttpGet]
+        [AllowAnonymous]
+        [Route("GetProfileImg")]
+        public IActionResult GetProfileImg(int id)
+        {
+
+            var result = _UserRepositoryBL.GetProfileImg(id);
+           
+
+            return Ok(result);
+
+        }
     }
 }

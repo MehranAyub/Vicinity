@@ -440,7 +440,59 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.UserRepositoryBL
             };
         }
 
+        public string UserImg(FileDto dto)
+        {
+           
+
+            var record = repositoryContext.Files.FirstOrDefault(x => x.UserId == dto.UserId);
+            var image = "data:image/png;base64," + Convert.ToBase64String(dto.DataFiles);
+            if (record == null)
+            {
+                
+                var obj = new Files();
+                obj.Id = dto.Id;
+                obj.DataFiles = image;
+                obj.Name = dto.Name;
+                obj.UserId = dto.UserId;
+                repositoryContext.Files.Add(obj);
+            }
+
+            else
+            {
+                record.DataFiles =image;
+                repositoryContext.Update(record);
+            }
+            repositoryContext.SaveChanges();
+            return image;
 
 
+        }
+        public SwallResponseWrapper GetProfileImg(int userID)
+        {
+            var user = repositoryContext.Files.FirstOrDefault(x => x.UserId == userID);
+
+
+            if (user == null)
+            {
+
+                return new SwallResponseWrapper()
+                {
+                    SwallText = null,
+                    StatusCode = 404,
+                    Data = null
+                };
+            }
+            else
+            {
+                var image = user.DataFiles;
+                return new SwallResponseWrapper()
+                {
+                    SwallText = null,
+                    StatusCode = 200,
+                    Data = image
+                };
+            }
+
+        }
     }
 }

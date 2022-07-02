@@ -37,4 +37,9 @@ GetSellerProfile(id): Observable<any> {
   this.params = new HttpParams().set('id',id)
   return this.apiService.get(this.url+'GetSellerProfile',this.params);
 }
+GetProfileImg(id): Observable<any> {
+  
+  this.params = new HttpParams().set('id',id)
+  return this.apiService.get(this.url+'GetProfileImg',this.params);
+}
 }

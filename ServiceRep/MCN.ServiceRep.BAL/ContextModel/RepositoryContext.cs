@@ -36,6 +36,7 @@ namespace MCN.ServiceRep.BAL.ContextModel
         public virtual DbSet<UserLoginType> UserLoginType { get; set; }
         public DbSet<Interest> Interests { get; set; }
         public DbSet<Location> Locations { get; set; }
+        public DbSet<Files> Files { get; set; }
         public DbSet<UserInterest> UserInterests { get; set; }
         public DbSet<GetUserAddressByDistance> GetUserAddressByDistances { get; set; }
 

@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { Router } from '@angular/router';
@@ -17,12 +18,13 @@ import { DataService } from '../../service/data.service';
 })
 export class ProfileComponent extends CommonComponent implements OnInit {
 public user:UserDto;
-  constructor(private _authService:AuthService,private _bottomSheet: MatBottomSheet,private userService:UserService,
+  constructor(private http: HttpClient,private _authService:AuthService,private _bottomSheet: MatBottomSheet,private userService:UserService,
     private _snackbarService:SnackBarService,router:Router,animationService:AnimationService,private dataService:DataService) {
       super(router,animationService)
  
    }
-
+   SelectedFile:File=null;
+   image:any=null;
   ngOnInit(): void {
     this.ProfileInitiate();
   }
@@ -51,7 +53,30 @@ public user:UserDto;
     let currentUser=JSON.parse(localStorage.getItem('currentUser'));
     if(currentUser){
       this.user=currentUser.user;
+      this.userService.GetProfileImg(this.user.id).subscribe((response)=>{
+        if(response?.data){
+          this.image=response.data;
+      
+        }
+      })
     }
+  }
+  onFileSelected(event){
+    this.SelectedFile=<File>event.target.files[0];
+   
+  }
+  onUpload(){
+ 
+    const form = new FormData();
+    form.append('image',this.SelectedFile,this.SelectedFile.name);
+  
+    this.http.post('http://localhost:62489/api/Users/UserImg/'+this.user.id, form,{responseType: 'text'}).subscribe((res)=>{
+      console.log(res);
+this.image=res;
+ 
+          })
+
+
   }
 }
 
