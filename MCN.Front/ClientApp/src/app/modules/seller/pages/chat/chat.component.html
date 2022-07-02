@@ -1,0 +1,93 @@
+<main class="h-100 has-header has-footer">
+
+    <!-- Header -->
+    <header class="container-fluid header">
+        <div class="row h-100">
+            <div class="col-auto align-self-center">
+                <a   class="btn btn-link back-btn text-color-theme" (click)="goBack()">
+                    <i class="bi bi-arrow-left size-20"></i>
+                </a>
+            </div>
+            <div class="col align-self-center">
+                <div class="row">
+                    <div class="col-auto">
+                        <div class="avatar avatar-40 coverimg rounded-circle">
+                            <img  [src]="this.sellerProfile?.file?.dataFiles" onerror="this.src='assets/img/user-img.png'" alt="">
+                        </div>
+                    </div>
+                    <div class="col align-self-center ps-0">
+                        <p class="mb-0 lh-small">{{sellerProfile?.firstName}} {{sellerProfile?.lastName}}</p>
+                        <!-- <span class="text-opac small">Online</span> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-auto align-self-center">
+                <a   class="link text-color-theme">
+                    <i class="bi bi-shop size-22"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+    <!-- Header ends -->
+
+    <!-- main page content -->
+    <div class="main-container container">
+        <!-- Chat list   -->
+        <div class="row">
+            <div class="col-12 chat-list scroll-y">
+<div *ngFor="let item of chatData">
+    <div class="row no-margin left-chat" *ngIf="item.sender!=currentUser?.user?.id">
+        <div class="col-12">
+            <div class="chat-block">
+                <div class="row">
+                    <div class="col">
+                        {{item.message}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <p class="text-opac small time"><i class="bi bi-check"></i> {{item.createdAt | dateAgo}}</p>
+        </div>
+    </div>
+    <div class="row no-margin right-chat" *ngIf="item.sender==currentUser?.user?.id">
+        <div class="col-12">
+            <div class="chat-block">
+                <div class="row">
+                    <div class="col">
+                        {{item.message}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 text-end">
+            <p class="text-opac small time"><i class="bi bi-check"></i> {{item.createdAt | dateAgo}}</p>
+        </div>
+    </div>
+
+</div> 
+            </div>
+        </div>
+    </div>
+    <!-- main page content ends -->
+
+    <!-- chat post message -->
+    <div class="position-fixed bottom-0 start-0 chat-post">
+        <div class="row gx-3">
+            <!-- <div class="col-auto">
+                <button class="btn btn-outline-theme rounded avatar-40 avatar p-0" type="button" data-bs-toggle="modal" data-bs-target="#attachefiles">
+                    <i class="bi bi-plus"></i>
+                </button>
+            </div> -->
+            <div class="col">
+                <div class="input-group">
+                    <input type="text" class="form-control" [(ngModel)]="sendText" placeholder="Write your message">
+                    <button class="btn btn-outline-primary" type="button" (click)="send()"><i class="bi bi-cursor"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- chat post message ends-->
+
+</main>
+<!-- Page ends-->

@@ -423,6 +423,7 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.UserRepositoryBL
         public SwallResponseWrapper GetSellerProfile(int userID)
         {
             var user = repositoryContext.Users.FirstOrDefault(x => x.ID == userID);
+            var file = repositoryContext.Files.FirstOrDefault(x => x.Id== userID);
             var UserInterest = repositoryContext.UserInterests.Where(x => x.UserId == userID).ToList();
             var InterestList = repositoryContext.Interests.ToList();
             var result = new
@@ -431,6 +432,7 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.UserRepositoryBL
                 lastName = user.LastName,
                 email = user.Email,
                 address = user.Address,
+                file= file,
                 interests = (from UI in UserInterest
                              join ss in repositoryContext.Interests on UI.InterestId equals ss.Id
                              where UI.UserId == userID

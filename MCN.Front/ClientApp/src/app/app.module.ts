@@ -14,12 +14,9 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
 import { JwtInterceptor } from './shared/_helpers/jwt.interceptor';
 import { ErrorInterceptor } from './shared/_helpers/error.interceptor';
-import { SellerModule } from './modules/seller/seller.module';
-import { JobRoutingModule } from './modules/job/job-routing.module';
-import { JobModule } from './modules/job/job.module';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,12 +28,11 @@ import { JobModule } from './modules/job/job.module';
     LoadingBarHttpClientModule,
     LoadingBarRouterModule,
     LoadingBarModule,
-    SellerModule,
-    JobModule
   
-  ],
+  ], 
   providers: [SnackBarService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

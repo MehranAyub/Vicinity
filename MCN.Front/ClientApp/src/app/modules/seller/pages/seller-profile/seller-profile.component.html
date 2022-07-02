@@ -9,9 +9,22 @@
             </figure>
         </div>
         <div class="col align-self-center">
-            <h5 class="">{{this.user.firstName}} {{this.user.lastName}}</h5>
-            <p class="text-opac mt-2"><i class="fa fa-envelope"></i>{{this.user.email}}</p>
+            <h5 class="">{{this.user?.firstName}} {{this.user?.lastName}}</h5>
+            <p class="text-opac mt-2"><i class="fa fa-envelope"></i>{{this.user?.email}}</p>
             <p class="text-opac"><i class="fa fa-phone" aria-hidden="true"></i>03438876859</p>
+        </div>
+    </div>
+
+    <p class="text-opac text-center mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+        sollicitudin dignissim nisi, eget malesuada ligula ultricies sit amet. Suspendisse efficitur ex eu est
+        placerat mattis.</p>
+
+    <div class="row mb-4">
+        <div class="col d-grid">
+            <button class="btn btn-default btn-lg shadow-sm">Contact</button>
+        </div>
+        <div class="col d-grid">
+            <button (click)="GoToChat()"   class="btn btn-lg btn-theme shadow-sm">Chat</button>
         </div>
     </div>
     <!-- profile information -->
@@ -46,8 +59,8 @@
                             </figure>
                         </a>
                     </div>
-                    <h6 class="card-title mb-0 text-color-theme text-center">{{item.title}}</h6>
-                    <p class="text-small text-opac small">{{item.type}}</p>
+                    <h6 class="card-title mb-0 text-color-theme text-center">{{item?.title}}</h6>
+                    <p class="text-small text-opac small">{{item?.type}}</p>
                     <p>{{item.description}}</p>
                 </div>
               
