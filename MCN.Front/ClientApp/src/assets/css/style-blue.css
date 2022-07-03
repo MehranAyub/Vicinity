@@ -7428,6 +7428,9 @@ fieldset:disabled .btn {
 .pt-5 {
   padding-top: 3rem !important;
 }
+.pt-7{
+  padding-top: 5rem !important;
+}
 .pt-70 {
   padding-top: 70px;
 }

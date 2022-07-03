@@ -1,0 +1,24 @@
+    <!-- Header -->
+    <header class="container-fluid header">
+        <div class="row h-100">
+            <div class="col-auto align-self-center">
+                <a   class="btn btn-link back-btn text-color-theme" (click)="back.emit($event)">
+                    <i class="bi bi-arrow-left size-20"></i>
+                </a>
+            </div>
+            <div class="col align-self-center">
+                <div class="row"> 
+                    <div class="col align-self-center ps-0">
+                        <h6 class="mb-0 lh-small text-center" *ngIf="header">{{header}}</h6>
+                        <!-- <span class="text-opac small">Online</span> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-auto align-self-center">
+                <a   class="link text-color-theme">
+                    <i class="bi bi-shop size-22"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+    <!-- Header ends -->

@@ -1,11 +1,9 @@
-<div class="row mb-3 mt-5">
-    <div class="col">
-        <h5 class="mb-0">Available Services</h5>
+<main class="container">
+    <navigation-header header="Available Services" (back)="goToBack($event)"></navigation-header>
+<div class="row mb-3 pt-7">
+    <div class="col"> 
         <small class="text-opac">Earn Money by providing services to others.</small>
-    </div>
-    <div class="col-auto">
-        <a href="#" class="link text-color-theme">View All <i class="bi bi-chevron-right"></i></a>
-    </div>
+    </div> 
 </div>
 <div class="row">
     <div class="col-6 col-md-4 col-lg-3" *ngFor="let item of Services;">
@@ -36,3 +34,4 @@
         </div>
     </div>
 </div>
+</main>
