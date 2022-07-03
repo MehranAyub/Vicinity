@@ -160,8 +160,11 @@ this.mapsAPILoader?.load()?.then(() => {
       draggable:false,
       icon:''
     },data:pinPointData});
-    this.latLongs.forEach((item)=>{
 
+    let currentUser=JSON.parse(localStorage.getItem('currentUser'));
+
+    this.latLongs.forEach((item)=>{
+if(currentUser.user.id!=item.id){
       this.markers.push({
         position: {
           lat: item.latitude,
@@ -182,7 +185,8 @@ this.mapsAPILoader?.load()?.then(() => {
       ); 
       this.vertices.push({lat:this.pinPositon.lat,lng:this.pinPositon.lng});
       this.vertices.push({lat:item.latitude,lng:item.longitude});
-     })
+     }
+    })
 console.log('vertices=> ',this.vertices);
      this.markers.forEach((marker) => {
       bounds.extend(marker.position);

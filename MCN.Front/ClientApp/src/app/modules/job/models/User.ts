@@ -1,5 +1,3 @@
-import * as internal from "stream"
-
 export interface UserDto{
     id:number;
     firstName:string 
@@ -11,6 +9,6 @@ phone:string
 }
 export interface UserInterestDto{
     interestId:number;
-    userId
+    userId:any;
    
 }
