@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from 'src/app/shared/_helpers/auth.guard';
 import { JobComponent } from './job.component';
+import { AddServicesComponent } from './pages/add-services/add-services.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HomeComponent } from './pages/home/home.component';
 import { InboxComponent } from './pages/inbox/inbox.component';
@@ -36,6 +37,11 @@ const routes: Routes = [
   {
     path: 'inbox',
     component: InboxComponent,
+    canActivate:[AuthGuard]
+  },
+  {
+    path: 'add-services',
+    component: AddServicesComponent,
     canActivate:[AuthGuard]
   },
   {

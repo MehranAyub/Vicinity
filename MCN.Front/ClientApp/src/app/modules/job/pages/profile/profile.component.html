@@ -18,12 +18,20 @@
                 <input type="file" (change)="onFileSelected($event)" id="img" style="display:none;">
                 <label class="btn btn-sm btn-danger shadow-sm" for="img">Browse</label> 
                 <!-- <button class="btn btn-sm btn-default shadow-sm" for="img" type="button">Browse</button> -->
-                <input class="btn btn-sm btn-default shadow-sm mt-2" (click)="onUpload()" type="button" value="upload">
+                <input class="btn btn-sm btn-default shadow-sm mt-1" (click)="onUpload()" type="button" value="upload">
             </div>
         </div>
         <div class="col-md-10 col-lg-10 mt-3 col-7">
             <h5 class="">{{this.user.firstName}} {{this.user.lastName}}</h5>
             <p class="text-opac">Lahore</p>
+        </div>
+        <div class="row mb-4">
+            <div class="col-md-9 d-grid">
+                
+            </div>
+            <div class="col-md-3 d-grid">
+                <button  [routerLink]="['/job/add-services']"  class="btn btn-lg btn-theme shadow-sm"><i class="bi bi-plus-lg"></i>&nbsp;&nbsp; Add Your Services</button>
+            </div>
         </div>
     <!-- </div> -->
     </div>

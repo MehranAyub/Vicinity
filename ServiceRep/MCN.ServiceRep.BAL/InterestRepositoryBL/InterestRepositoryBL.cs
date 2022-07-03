@@ -1,4 +1,5 @@
-﻿using MCN.ServiceRep.BAL.ContextModel;
+﻿using MCN.Common.AttribParam;
+using MCN.ServiceRep.BAL.ContextModel;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -31,6 +32,7 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.IInterestRepositoryBL
     public interface IInterestRepositoryBL
     {
         public List<InterestDto> GetInterests(InterestFilterDto filter);
+        public SwallResponseWrapper GetServices(int userId);
     }
     public class InterestRepositoryBL : BaseRepository, IInterestRepositoryBL
     {
@@ -60,6 +62,17 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.IInterestRepositoryBL
                  Display=x.Title,
                  Value=x.Title
             }).ToList();
+        }
+
+        public SwallResponseWrapper  GetServices(int userId)
+        {
+            var result = repositoryContext.Interests.AsQueryable().ToList();
+            return new SwallResponseWrapper()
+            {
+                SwallText = null,
+                StatusCode = 200,
+                Data = result
+            };
         }
     }
 }

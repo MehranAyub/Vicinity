@@ -35,5 +35,13 @@ namespace MCN.WebAPI.Areas.Location.Controllers
             var result = _interestService.GetInterests(new InterestFilterDto { Keyword = filter.Keyword, PageNumber = filter.PageNumber, PageSize = filter.PageSize });
             return Ok(result);
         }
+
+        [HttpGet]
+        [Route("GetServices")]
+        public IActionResult GetServices(int userId)
+        {
+            var result = _interestService.GetServices(userId);
+            return Ok(result);
+        }
     }
 }

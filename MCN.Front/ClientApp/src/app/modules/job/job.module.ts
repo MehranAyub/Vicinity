@@ -16,6 +16,7 @@ import { SearchInputByGoogleMapComponent } from './components/search-input-by-go
 import { SharedModule } from 'src/app/shared/shared/shared.module';
 import { TagInputModule } from 'ngx-chips';
 import { InboxComponent } from './pages/inbox/inbox.component';
+import { AddServicesComponent } from './pages/add-services/add-services.component';
 
 TagInputModule.withDefaults({
   tagInput: {
@@ -34,7 +35,8 @@ TagInputModule.withDefaults({
     HomeComponent,
     SearchInputComponent,
     SearchInputByGoogleMapComponent,
-    InboxComponent
+    InboxComponent,
+    AddServicesComponent
   ],
   imports: [
     CommonModule,
