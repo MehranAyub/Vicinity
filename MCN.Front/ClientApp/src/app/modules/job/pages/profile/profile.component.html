@@ -4,21 +4,22 @@
 
 
 <!-- main page content -->
-<div class="main-container container pt-70 pb-70">
+<div class="main-container container pt-70 pb-70 profile">
 
     <!-- profile picture -->
     <div class="row  mb-4">
         <!-- <div class="card card-light shadow-sm" > -->
             <div class="col-md-2 col-lg-2 col-5">
-            <figure class="avatar avatar-100 rounded mx-auto">
-                <img [src]="this.image" onerror="this.src='assets/img/user-img.png'" alt="">
-               
+            <figure class="avatar avatar-100 rounded mx-auto" >
+                <img [src]="this.image" onerror="this.src='assets/img/user-img.jpg'" class="profileImg" alt="">
+                <input type="file" (change)="onFileSelected($event)" #browseImage id="browseImage" style="display:none;"> 
+                <img src="assets/img/browse-icon.png"   (click)="browseImg()" class="browse-icon">
             </figure>
-            <div style="width: min-content;">
-                <input type="file" (change)="onFileSelected($event)" id="img" style="display:none;">
-                <label class="btn btn-sm btn-danger shadow-sm" for="img">Browse</label> 
+       
+            <div >
+               
                 <!-- <button class="btn btn-sm btn-default shadow-sm" for="img" type="button">Browse</button> -->
-                <input class="btn btn-sm btn-default shadow-sm mt-2" (click)="onUpload()" type="button" value="upload">
+                <!-- <input class="btn btn-sm btn-default shadow-sm mt-2" (click)="onUpload()" type="button" value="upload"> -->
             </div>
         </div>
         <div class="col-md-10 col-lg-10 mt-3 col-7">

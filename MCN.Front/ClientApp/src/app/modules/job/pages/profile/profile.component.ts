@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/modules/account/userServices/user.service';
@@ -18,7 +18,8 @@ import { DataService } from '../../service/data.service';
 })
 export class ProfileComponent extends CommonComponent implements OnInit {
 public user:UserDto;
-  constructor(private http: HttpClient,private _authService:AuthService,private _bottomSheet: MatBottomSheet,private userService:UserService,
+  constructor(private http: HttpClient,
+    public _elementRef: ElementRef,private _authService:AuthService,private _bottomSheet: MatBottomSheet,private userService:UserService,
     private _snackbarService:SnackBarService,router:Router,animationService:AnimationService,private dataService:DataService) {
       super(router,animationService)
  
@@ -61,12 +62,19 @@ public user:UserDto;
       })
     }
   }
+  browseImg(){
+    let dataInput = this._elementRef.nativeElement.querySelector("#browseImage");
+    dataInput.click();
+  }
   onFileSelected(event){
     this.SelectedFile=<File>event.target.files[0];
-   
+    console.log(this.SelectedFile);
+    if(this.SelectedFile!=undefined){
+      this.onUpload();
+    }
   }
-  onUpload(){
- 
+
+  onUpload(){ 
     const form = new FormData();
     form.append('image',this.SelectedFile,this.SelectedFile.name);
   

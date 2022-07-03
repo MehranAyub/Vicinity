@@ -1,0 +1,16 @@
+.profile{
+    figure{
+        position: relative;
+        .profileImg{
+            border-radius: 50px !important;
+        }
+        .browse-icon{
+            position: absolute;
+            bottom: -3px;
+            right: 5px;
+            width: 32px;
+            height: auto;
+
+        }
+    }
+}

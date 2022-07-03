@@ -2,21 +2,21 @@ import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, EventEmi
 import { GoogleMap } from '@angular/google-maps';
 import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { Marker } from '../../models/mapService';
-const marker:Marker = {
-  position: {
-    lat: 33.599239344482179,
-    lng: 73.0098210191367093,
-  },
-  title: '',
-  label:{color:'red',text:'text 123'},
-  options: {
-     animation: google.maps.Animation.DROP,
-    draggable:true,
-    icon: {
-      url: 'assets/img/PickPin.svg',
-    },
-  },
-};
+// const marker:Marker = {
+//   position: {
+//     lat: 33.599239344482179,
+//     lng: 73.0098210191367093,
+//   },
+//   title: '',
+//   label:{color:'red',text:'text 123'},
+//   options: {
+//      animation: google.maps.Animation.DROP,
+//     draggable:true,
+//     icon: {
+//       url: 'assets/img/PickPin.svg',
+//     },
+//   },
+// };
 
 @Component({
   selector: 'app-search-input-by-google-map',

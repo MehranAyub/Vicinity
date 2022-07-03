@@ -13,7 +13,7 @@ const marker:Marker = {
   },
   title: '',
   options: {
-    animation: google.maps.Animation.DROP,
+    animation: 2,
     draggable:false,
     icon: {
       url: 'assets/img/PickPin.svg',
@@ -48,8 +48,8 @@ export class HomeComponent implements OnInit {
     rotateControl: false,
     fullscreenControl: false,
     zoom:12,
-    maxZoom:18,
-    center: new google.maps.LatLng(37.3382, -121.8863),
+    maxZoom:18
+    // center:!!google? new google.maps.LatLng(37.3382, -121.8863):null,
     
   };
   public markers:Marker[] = [];
