@@ -23,8 +23,7 @@ import { TagInputModule } from 'ngx-chips';
     CommonModule,
     FormsModule,
     SellerRoutingModule, 
-    SharedModule,
-    TagInputModule,
+    JobModule,
   ]
 })
 export class SellerModule { }

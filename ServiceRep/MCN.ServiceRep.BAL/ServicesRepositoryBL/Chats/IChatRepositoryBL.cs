@@ -10,5 +10,6 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.Chats
     {
         public SwallResponseWrapper GetChats(int currentUserId, int sellerUserId);
         SwallResponseWrapper CreateChat(string message, int SenderId, int ReceiverId);
+        public SwallResponseWrapper GetInbox(int userId);
     }
 }

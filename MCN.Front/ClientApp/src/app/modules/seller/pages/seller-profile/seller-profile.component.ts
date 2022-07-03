@@ -17,6 +17,7 @@ export class SellerProfileComponent extends CommonComponent implements OnInit {
   public Interests:any;
   sellerId:number=0;
   id:number;
+  icon:string='/assets/img/Mechanics/Plumber.png'
     constructor(private userService:UserService,router:Router,animationService:AnimationService,private route: ActivatedRoute) {
         super(router,animationService)
        

@@ -34,4 +34,6 @@ export class JobService {
     let model:InterestFilter={Keyword:keyword,PageNumber:0,PageSize:10}
     return this.apiService.post('Interest/GetInterestList',model);
 }
+
+
 }

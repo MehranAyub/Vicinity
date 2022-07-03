@@ -1,5 +1,6 @@
 <!-- <app-header [userData]="this.user.firstName" (anchorLinkClick)="dataReceivedByEvent($event)"></app-header> -->
 <!-- main page content -->
+<app-header [userData]="user.firstName" (anchorLinkClick)="dataReceivedByEvent($event)"></app-header>
 <div class="main-container container pt-70 pb-70">
 
     <!-- profile picture -->
@@ -74,7 +75,8 @@
             <div class="card shadow-sm product mb-4">
                 <div class="card-body">
                     <figure class="text-center">
-                        <img src="assets/img/product1.png" alt="">
+                        <!-- <img [src]="this.icon" style="width: 70px;height:auto;" class="img" alt=""> -->
+                        <img [src]="item.description" style="width: 70px;height:auto;" class="img" alt="">
                     </figure>
                     <p class="mb-1">
                         <small class="text-opac">{{item.type}}</small>
@@ -100,4 +102,6 @@
     </div>
 
 </div>
+
+<!-- <app-footer></app-footer> -->
 <!-- main page content ends -->

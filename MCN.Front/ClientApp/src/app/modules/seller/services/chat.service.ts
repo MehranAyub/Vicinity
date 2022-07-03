@@ -25,4 +25,9 @@ export class ChatService {
   this.params = new HttpParams().set('sellerId',sellerId)
   return this.apiService.get(this.url+'GetChats',this.params);
 }
+
+GetInbox(userId): Observable<any> {
+  this.params = new HttpParams().set('userId',userId)
+  return this.apiService.get(this.url+'GetInbox',this.params);
+}
 }

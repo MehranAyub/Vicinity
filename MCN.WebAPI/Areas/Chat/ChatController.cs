@@ -38,5 +38,14 @@ namespace MCN.WebAPI.Areas.Chats
             var result = _chatRepositoryBL.GetChats(int.Parse(currentUser.Value), sellerId);
             return Ok(result);
         }
+
+        [HttpGet]
+        [Route("GetInbox")]
+        public IActionResult GetInbox(int userId)
+        {
+           
+            var result = _chatRepositoryBL.GetInbox(userId);
+            return Ok(result);
+        }
     }
 }

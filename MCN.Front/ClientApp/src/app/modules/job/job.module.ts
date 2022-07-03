@@ -15,6 +15,7 @@ import { SearchInputComponent } from './components/search-input/search-input.com
 import { SearchInputByGoogleMapComponent } from './components/search-input-by-google-map/search-input-by-google-map.component';
 import { SharedModule } from 'src/app/shared/shared/shared.module';
 import { TagInputModule } from 'ngx-chips';
+import { InboxComponent } from './pages/inbox/inbox.component';
 
 TagInputModule.withDefaults({
   tagInput: {
@@ -32,7 +33,8 @@ TagInputModule.withDefaults({
     StyleComponent,
     HomeComponent,
     SearchInputComponent,
-    SearchInputByGoogleMapComponent
+    SearchInputByGoogleMapComponent,
+    InboxComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +43,8 @@ TagInputModule.withDefaults({
     SharedModule,
   ],
   exports:[
-    FooterComponent
+    FooterComponent,
+    HeaderComponent
   ]
 })
 export class JobModule { }

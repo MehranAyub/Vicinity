@@ -63,7 +63,30 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.Chats
                     Data = cht
                 };
             }
+        public SwallResponseWrapper GetInbox(int userId)
+        {
+            var chats = repositoryContext.Chats.Where(x=>x.Receiver==userId).OrderBy(x => x.CreatedAt).AsQueryable();
+            var data = chats.Select(x => x.Sender).Distinct().Select(x=>chats.FirstOrDefault(y=>y.Sender==x)).ToList();
 
+
+            var result = data.Select(x =>
+             new ChatDto
+             {
+                 Id = x.Id,
+                 CreatedAt = x.CreatedAt,
+                 Sender = x.Sender,
+                 Message=x.Message,
+                 SenderName = repositoryContext.Users.FirstOrDefault(y => y.ID == x.Sender).FirstName,
+
+             }).ToList();
+
+            return new SwallResponseWrapper()
+            {
+                SwallText = null,
+                StatusCode = 200,
+                Data = result
+            };
         }
+    }
     }
 

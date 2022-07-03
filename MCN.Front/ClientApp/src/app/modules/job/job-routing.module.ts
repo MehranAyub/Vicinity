@@ -4,6 +4,7 @@ import { AuthGuard } from 'src/app/shared/_helpers/auth.guard';
 import { JobComponent } from './job.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HomeComponent } from './pages/home/home.component';
+import { InboxComponent } from './pages/inbox/inbox.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { StyleComponent } from './pages/style/style.component';
 
@@ -30,6 +31,11 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
+    canActivate:[AuthGuard]
+  },
+  {
+    path: 'inbox',
+    component: InboxComponent,
     canActivate:[AuthGuard]
   },
   {
