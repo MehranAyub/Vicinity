@@ -8,10 +8,11 @@ declare var $:any;
   styleUrls: ['./job.component.scss']
 })
 export class JobComponent implements OnInit {
-
+Name:string;
   constructor(private auth:AuthService,private route:Router) { 
     let currentUser=JSON.parse(localStorage.getItem('currentUser'));
     if(currentUser){
+this.Name=currentUser.user.firstName+" "+currentUser.user.lastName;
 
     }
     else{
