@@ -8,7 +8,7 @@
     <div class="row  mb-4">
         <div class="col-auto">
             <figure class="avatar avatar-100 rounded mx-auto">
-                <img src="assets/img/Mehran.jpg" alt="">
+                <img [src]="this.user.file" onerror="this.src='assets/img/user-img.jpg'" alt="">
             </figure>
         </div>
         <div class="col align-self-center">
