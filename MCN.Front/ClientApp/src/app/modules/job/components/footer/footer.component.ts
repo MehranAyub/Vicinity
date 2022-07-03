@@ -30,5 +30,8 @@ export class FooterComponent extends CommonComponent implements OnInit {
     else if(value==3){      
       this.navigateToRoute('/job/dashboard',null,AnimationType.slideToTop);
     }
+    else if(value==5){      
+      this.navigateToRoute('/job/inbox',null,AnimationType.slideToTop);
+    }
   }
 }

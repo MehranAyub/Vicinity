@@ -1,8 +1,10 @@
-<div class="main-container container top-20 mt-2">
+<app-header [userData]="this.firstName" (anchorLinkClick)="dataReceivedByEvent($event)"></app-header>
+
+<div class="main-container container mt-7">
     <!-- Chat list   -->
     <div class="row">
         <div class="col-12 px-0" *ngFor="let item of chats;">
-            <div class="list-group list-group-flush rounded-0 bg-none">
+            <div class="list-group list-group-flush rounded-0" style="opacity: 0.90;">
                 <a (click)="getChat(item.sender)" class="list-group-item">
                     <div class="row">
                         <div class="col-auto">

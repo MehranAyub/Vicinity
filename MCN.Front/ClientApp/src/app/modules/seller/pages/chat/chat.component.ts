@@ -17,10 +17,11 @@ export class ChatComponent implements OnInit {
   constructor(private chatService:ChatService,private activatedRouter:ActivatedRoute,private router:Router,private userService:UserService) { 
     this.currentUser=JSON.parse(localStorage.getItem('currentUser'));
   }
-
+public inboxURL:boolean=false;
   ngOnInit(): void {
     this.activatedRouter.queryParams.subscribe(params => {
       this.sellerId = (params['sellerId'] || 0);
+      this.inboxURL=(params['inbox'] || false);
       if(this.sellerId>0){
         this.getChats();
       } 
@@ -54,7 +55,15 @@ export class ChatComponent implements OnInit {
   });
   }
   goBack(){
-    this.router.navigate(['seller/seller-profile'], { queryParams: { id: this.sellerId }});
+    if(this.inboxURL==false){
+this.router.navigate(['seller/seller-profile'], { queryParams: { id: this.sellerId }});
+console.log("false" ,this.inboxURL)
   }
+  else{
+    console.log("true" ,this.inboxURL)
+    this.router.navigate(['job/inbox']);
+    
+  }
+}
 }
 
