@@ -1,16 +1,15 @@
 <main class="container" style="padding-bottom: 80px;">
-    <navigation-header header="Availabe Services" (back)="goToBack($event)"></navigation-header>
+    <navigation-header header="Your Services" (back)="goToBack($event)"></navigation-header>
     <div class="row mb-3 mt-7">
         <div class="col">
-            <h5 class="mb-0">Add Services</h5>
-            <p class="text-opac">Hi, Thanks for exploring us, We are happy to know you that these are the available services that you can provide to our customers if you match your skills with these services.</p>
+            <h5 class="mb-0">Your Services</h5>
+            <p class="text-opac">Hi, Thanks for joining us, We are happy to see you to serving to others.</p>
+            <p class="text-opac">When you change your mind, you can quit to provide service from them by deleting it.</p>
+            <p class="text-opac">Click on cross to remove it.</p>
         </div>
 
         <div class="row mb-3 mt-3">
-            <div class="col">
-                <h5 class="mb-0">Available Services</h5>
-                <small class="text-opac">Earn Money by providing services to others.</small>
-            </div>
+         
         </div>
         <div class="row">
             <div class="col-6 col-md-4 col-lg-3" *ngFor="let item of Services;">
@@ -32,9 +31,9 @@
                                 <p class="mb-0">R.S {{item.cost}}<br><small class="text-opac">{{item.type}}</small></p>
                             </div>
                             <div class="col-auto">
-                                <button (click)="AddService(item.id)"
+                                <button (click)="RemoveService(item.id)"
                                     class="btn btn-sm avatar avatar-30 p-0 rounded-circle shadow btn-gradient">
-                                    <i class="bi bi-plus size-22"></i>
+                                    <i class="bi bi-x size-22"></i>
                                 </button>
                                 <!-- <button (click)="AddService(item.id)" class="btn btn-primary btn-xs shadow btn-gradient pull-right">
                             <i class="bi bi-plus size-22"></i>Add

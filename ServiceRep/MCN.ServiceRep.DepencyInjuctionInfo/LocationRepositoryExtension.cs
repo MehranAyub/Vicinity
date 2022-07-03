@@ -4,7 +4,8 @@ using MCN.ServiceRep.BAL.ServicesRepositoryBL.IInterestRepositoryBL;
 using MCN.ServiceRep.BAL.ServicesRepositoryBL.ISearchRepositoryBL;
 using MCN.ServiceRep.BAL.ServicesRepositoryBL.Locals;
 using MCN.ServiceRep.BAL.ServicesRepositoryBL.UserRepositoryBL;
-using Microsoft.Extensions.DependencyInjection; 
+using Microsoft.Extensions.DependencyInjection;
+using static MCN.ServiceRep.BAL.ServicesRepositoryBL.IInterestRepositoryBL.IInterestRepositoryBL;
 
 namespace MCN.ServiceRep.DepencyInjuctionInfo
 {

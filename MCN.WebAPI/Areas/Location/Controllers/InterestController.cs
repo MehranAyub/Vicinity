@@ -1,4 +1,5 @@
-﻿using MCN.ServiceRep.BAL.ServicesRepositoryBL.IInterestRepositoryBL;
+﻿using MCN.ServiceRep.BAL.InterestRepositoryBL.Dtos;
+using MCN.ServiceRep.BAL.ServicesRepositoryBL.IInterestRepositoryBL;
 using MCN.ServiceRep.BAL.ServicesRepositoryBL.ISearchRepositoryBL;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -38,9 +39,32 @@ namespace MCN.WebAPI.Areas.Location.Controllers
 
         [HttpGet]
         [Route("GetServices")]
-        public IActionResult GetServices(int userId)
+        public IActionResult GetServices()
         {
-            var result = _interestService.GetServices(userId);
+            //These are those services which are not added by seller in his profile.
+            var result = _interestService.GetServices();
+            return Ok(result);
+        }
+        [HttpGet]
+        [Route("GetUserServices")]
+        public IActionResult GetUserServices(int userId)
+        {
+          
+            var result = _interestService.GetUserServices(userId);
+            return Ok(result);
+        }
+        [HttpPost]
+        [Route("AddService")]
+        public IActionResult AddService(UserInterestDto dto)
+        {
+            var result = _interestService.AddService(dto);
+            return Ok(result);
+        }
+        [HttpPost]
+        [Route("RemoveService")]
+        public IActionResult RemoveService(UserInterestDto dto)
+        {
+            var result = _interestService.RemoveService(dto);
             return Ok(result);
         }
     }

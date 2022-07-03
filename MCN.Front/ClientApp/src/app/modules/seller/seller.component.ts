@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
-import { FooterComponent } from '../job/components/footer/footer.component';
+
 declare var $:any;
 @Component({
   selector: 'app-seller',

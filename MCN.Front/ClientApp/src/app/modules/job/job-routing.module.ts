@@ -6,6 +6,7 @@ import { AddServicesComponent } from './pages/add-services/add-services.componen
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HomeComponent } from './pages/home/home.component';
 import { InboxComponent } from './pages/inbox/inbox.component';
+import { MyServicesComponent } from './pages/my-services/my-services.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { StyleComponent } from './pages/style/style.component';
 
@@ -42,6 +43,11 @@ const routes: Routes = [
   {
     path: 'add-services',
     component: AddServicesComponent,
+    canActivate:[AuthGuard]
+  },
+  {
+    path: 'my-services',
+    component: MyServicesComponent,
     canActivate:[AuthGuard]
   },
   {

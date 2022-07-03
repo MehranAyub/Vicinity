@@ -18,6 +18,9 @@ import { TagInputModule } from 'ngx-chips';
 import { InboxComponent } from './pages/inbox/inbox.component';
 import { AddServicesComponent } from './pages/add-services/add-services.component';
 import { AgmCoreModule } from '@agm/core';
+import { NavigationHeaderComponent } from 'src/app/shared/components/navigation-header/navigation-header.component';
+import { MyServicesComponent } from './pages/my-services/my-services.component';
+
 TagInputModule.withDefaults({
   tagInput: {
       placeholder: 'Select Skills or Interests',
@@ -36,7 +39,8 @@ TagInputModule.withDefaults({
     SearchInputComponent,
     SearchInputByGoogleMapComponent,
     InboxComponent,
-    AddServicesComponent, 
+    AddServicesComponent,   
+    MyServicesComponent
   ],
   imports: [
     JobRoutingModule, 

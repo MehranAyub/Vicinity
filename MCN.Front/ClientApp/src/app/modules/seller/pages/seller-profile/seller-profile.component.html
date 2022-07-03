@@ -1,6 +1,7 @@
 <!-- <app-header [userData]="this.user.firstName" (anchorLinkClick)="dataReceivedByEvent($event)"></app-header> -->
 <!-- main page content -->
-<app-header [userData]="user.firstName" (anchorLinkClick)="dataReceivedByEvent($event)"></app-header>
+<!-- <app-header [userData]="user.firstName" (anchorLinkClick)="dataReceivedByEvent($event)"></app-header> -->
+<app-header></app-header>
 <div class="main-container container pt-70 pb-70">
 
     <!-- profile picture -->
@@ -11,15 +12,13 @@
             </figure>
         </div>
         <div class="col align-self-center">
-            <h5 class="">{{this.user.firstName}} {{this.user.lastName}}</h5>
-            <p class="text-opac mt-2"><i class="fa fa-envelope"></i>{{this.user.email}}</p>
-            <p class="text-opac"><i class="fa fa-phone" aria-hidden="true"></i>{{this.user.phone}}</p>
+            <h5>{{this.user.firstName}} {{this.user.lastName}}</h5>
+            <p class="text-opac mt-2"><i class="bi bi-envelope"></i> {{this.user.email}}</p>
+            <p class="text-opac"><i class="bi bi-phone"></i> {{this.user.phone}}</p>
         </div>
     </div>
 
-    <p class="text-opac text-center mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-        sollicitudin dignissim nisi, eget malesuada ligula ultricies sit amet. Suspendisse efficitur ex eu est
-        placerat mattis.</p>
+    <p class="text-opac text-center mb-4">Hi I am <b>{{this.user.firstName}} {{this.user.lastName}}</b> and I am a service provider. If you need services from given below, give me a call.I will be at your door step. I do work in very low cost. </p>
 
     <div class="row mb-4">
         <div class="col d-grid">
@@ -91,8 +90,8 @@
                         </div>
                         <div class="col-auto">
                             <button class="btn btn-sm avatar avatar-30 p-0 rounded-circle shadow btn-gradient"
-                                data-bs-toggle="modal" data-bs-target="#addproductcart">
-                                <i class="bi bi-plus size-22"></i>
+                                >
+                               
                             </button>
                         </div>
                     </div>
