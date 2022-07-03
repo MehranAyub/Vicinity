@@ -1,1 +1,48 @@
-<p>my-services works!</p>
+<main class="container" style="padding-bottom: 80px;">
+    <navigation-header header="Your Services" (back)="goToBack($event)"></navigation-header>
+    <div class="row mb-3 mt-7">
+        <div class="col">
+            <h5 class="mb-0">Your Services</h5>
+            <p class="text-opac">Hi, Thanks for joining us, We are happy to see you to serving to others.</p>
+            <p class="text-opac">When you change your mind, you can quit to provide service from them by deleting it.</p>
+            <p class="text-opac">Click on cross to remove it.</p>
+        </div>
+
+        <div class="row mb-3 mt-3">
+         
+        </div>
+        <div class="row">
+            <div class="col-6 col-md-4 col-lg-3" *ngFor="let item of Services;">
+                <div class="card shadow-sm product mb-4">
+                    <div class="card-body">
+                        <figure class="text-center">
+                            <img [src]="item.description" style="width: 70px;height:auto;" class="img" alt="">
+                        </figure>
+                        <p class="mb-1">
+                            <small class="text-opac">Paid</small>
+                            <small class="float-end"><span class="text-opac">4.5</span> <i
+                                    class="bi bi-star-fill text-warning"></i></small>
+                        </p>
+                        <a href="product.html" class="text-normal">
+                            <h6 class="text-color-theme">{{item.title}}</h6>
+                        </a>
+                        <div class="row">
+                            <div class="col">
+                                <p class="mb-0">R.S {{item.cost}}<br><small class="text-opac">{{item.type}}</small></p>
+                            </div>
+                            <div class="col-auto">
+                                <button (click)="RemoveService(item.id)"
+                                    class="btn btn-sm avatar avatar-30 p-0 rounded-circle shadow btn-gradient">
+                                    <i class="bi bi-x size-22"></i>
+                                </button>
+                                <!-- <button (click)="AddService(item.id)" class="btn btn-primary btn-xs shadow btn-gradient pull-right">
+                            <i class="bi bi-plus size-22"></i>Add
+                        </button> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

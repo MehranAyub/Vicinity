@@ -434,6 +434,7 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.UserRepositoryBL
                 email = user.Email,
                 address = user.Address,
                 file= file,
+                phone=user.Phone,
                 interests = (from UI in UserInterest
                              join ss in repositoryContext.Interests on UI.InterestId equals ss.Id
                              where UI.UserId == userID

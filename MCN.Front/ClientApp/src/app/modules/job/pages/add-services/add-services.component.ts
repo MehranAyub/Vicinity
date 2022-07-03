@@ -26,7 +26,7 @@ interestDto:UserInterestDto={interestId:null,userId:null}
     this.GetServices();
   }
   GetServices(){
-this.jobService.GetServices(this.userId).subscribe((res)=>{
+this.jobService.GetServices().subscribe((res)=>{
 if(res){
   console.log(res.data);
 this.Services=res.data;

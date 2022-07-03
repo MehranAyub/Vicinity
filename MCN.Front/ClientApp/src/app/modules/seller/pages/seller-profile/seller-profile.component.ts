@@ -13,7 +13,7 @@ import { AuthService } from 'src/app/shared/services/auth/auth.service';
   styleUrls: ['./seller-profile.component.scss']
 })
 export class SellerProfileComponent extends CommonComponent implements OnInit {
-  public user:UserDto;
+  public user:any=[];
   public Interests:any;
   sellerId:number=0;
   id:number;

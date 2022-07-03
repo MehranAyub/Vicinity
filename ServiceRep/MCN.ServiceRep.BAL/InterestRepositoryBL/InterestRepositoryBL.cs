@@ -34,9 +34,10 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.IInterestRepositoryBL
     public interface IInterestRepositoryBL
     {
         public List<InterestDto> GetInterests(InterestFilterDto filter);
-        public SwallResponseWrapper GetServices(int userId);
+        public SwallResponseWrapper GetServices();
+        public SwallResponseWrapper GetUserServices(int userId);
         public SwallResponseWrapper AddService(UserInterestDto dto);
-
+        public SwallResponseWrapper RemoveService(UserInterestDto dto);
         public class InterestRepositoryBL : BaseRepository, IInterestRepositoryBL
         {
             public InterestRepositoryBL(RepositoryContext repository) : base(repository)
@@ -67,9 +68,9 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.IInterestRepositoryBL
                 }).ToList();
             }
 
-            public SwallResponseWrapper GetServices(int userId)
+            public SwallResponseWrapper GetServices()
             {
-                //These are those services which are not added by seller in his profile.
+               
                 var services = repositoryContext.Interests.ToList();
                
                 return new SwallResponseWrapper()
@@ -79,7 +80,30 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.IInterestRepositoryBL
                     Data = services
                 };
             }
+            public SwallResponseWrapper GetUserServices(int userId)
+            {
+               
+                var userinterests = repositoryContext.UserInterests.Where(x=>x.UserId==userId).ToList();
+                var interests = repositoryContext.Interests.ToList();
+                var data = (from U in userinterests
+                            join I in interests on U.InterestId equals I.Id
+                            select new
+                            {
+                                Id = I.Id,
+                                Title = I.Title,
+                                Cost = I.Cost,
+                                Description = I.Description,
+                                Type = I.Type
 
+                            }
+                          );
+                return new SwallResponseWrapper()
+                {
+                    SwallText = null,
+                    StatusCode = 200,
+                    Data = data
+                };
+            }
             public SwallResponseWrapper AddService(UserInterestDto dto)
             {
                 var interest = repositoryContext.Interests.FirstOrDefault(x => x.Id == dto.interestId);
@@ -97,6 +121,19 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.IInterestRepositoryBL
                     SwallText = null,
                     StatusCode = 200,
                     Data = interest
+                };
+            }
+            public SwallResponseWrapper RemoveService(UserInterestDto dto)
+            {
+                var interest = repositoryContext.UserInterests.FirstOrDefault(x => x.InterestId == dto.interestId&&x.UserId==dto.userId);
+
+                repositoryContext.Remove(interest);
+                repositoryContext.SaveChanges();
+                return new SwallResponseWrapper()
+                {
+                    SwallText = null,
+                    StatusCode = 200,
+                    Data = 1
                 };
             }
         }
