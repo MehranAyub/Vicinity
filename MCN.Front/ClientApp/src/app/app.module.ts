@@ -14,6 +14,7 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
 import { JwtInterceptor } from './shared/_helpers/jwt.interceptor';
 import { ErrorInterceptor } from './shared/_helpers/error.interceptor';
+import { NavigationHeaderComponent } from './shared/components/navigation-header/navigation-header.component';
 @NgModule({
   declarations: [
     AppComponent,
