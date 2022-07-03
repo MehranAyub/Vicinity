@@ -69,12 +69,14 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.IInterestRepositoryBL
 
             public SwallResponseWrapper GetServices(int userId)
             {
-                var result = repositoryContext.Interests.AsQueryable().ToList();
+                //These are those services which are not added by seller in his profile.
+                var services = repositoryContext.Interests.ToList();
+               
                 return new SwallResponseWrapper()
                 {
                     SwallText = null,
                     StatusCode = 200,
-                    Data = result
+                    Data = services
                 };
             }
 

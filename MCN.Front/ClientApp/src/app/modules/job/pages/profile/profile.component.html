@@ -21,13 +21,28 @@
             <h5 class="">{{this.user.firstName}} {{this.user.lastName}}</h5>
             <p class="text-opac">Lahore</p>
         </div>
-        <div class="col-lg-12 col-12 col-md-12 pt-4">
-             
-            <div class="col-md-3 d-grid">
-                <button  [routerLink]="['/job/add-services']"  class="btn btn-lg btn-theme shadow-sm"><i class="bi bi-plus-lg"></i>&nbsp;&nbsp; Add Your Services</button>
+        <!-- <div class="col-lg-12 col-12 col-md-12 pt-4">
+            <div class="col-md-3 col-5 d-grid">
+                <button  [routerLink]="['/job/add-services']"  class="btn btn-lg btn-theme shadow-sm"><i class="bi bi-plus-lg"></i>&nbsp;&nbsp; Add Services</button>
             </div>
-        </div>
+            <div class="col-md-3 col-5 d-grid">
+                <button  [routerLink]="['/job/add-services']"  class="btn btn-lg btn-theme shadow-sm"><i class="bi bi-plus-lg"></i>&nbsp;&nbsp; Your Services</button>
+            </div>
+        </div> -->
+        
     <!-- </div> -->
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-lg-6 col-0"></div>
+            <div class="col-md-3 col-6 d-grid">
+                <button  [routerLink]="['/job/add-services']"  class="btn btn-lg btn-theme shadow-sm">Add Services</button>
+            </div>
+            <div class="col-md-3 col-6 d-grid">
+                <button  [routerLink]="['/job/add-services']"  class="btn btn-lg btn-theme shadow-sm">Your Services</button>
+            </div>
+        
+
+
     </div>
     <!-- profile information -->
     <div class="row mb-3">

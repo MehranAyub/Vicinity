@@ -41,6 +41,7 @@ namespace MCN.WebAPI.Areas.Location.Controllers
         [Route("GetServices")]
         public IActionResult GetServices(int userId)
         {
+            //These are those services which are not added by seller in his profile.
             var result = _interestService.GetServices(userId);
             return Ok(result);
         }

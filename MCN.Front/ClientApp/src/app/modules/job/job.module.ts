@@ -18,6 +18,7 @@ import { TagInputModule } from 'ngx-chips';
 import { InboxComponent } from './pages/inbox/inbox.component';
 import { AddServicesComponent } from './pages/add-services/add-services.component';
 import { NavigationHeaderComponent } from 'src/app/shared/components/navigation-header/navigation-header.component';
+import { MyServicesComponent } from './pages/my-services/my-services.component';
 
 TagInputModule.withDefaults({
   tagInput: {
@@ -38,7 +39,7 @@ TagInputModule.withDefaults({
     SearchInputByGoogleMapComponent,
     InboxComponent,
     AddServicesComponent,    
-    NavigationHeaderComponent
+    NavigationHeaderComponent, MyServicesComponent
   ],
   imports: [
     CommonModule,

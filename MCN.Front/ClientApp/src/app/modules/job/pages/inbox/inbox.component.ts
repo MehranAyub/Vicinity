@@ -16,7 +16,7 @@ firstName:string;
   constructor(private chatService:ChatService,private _snackbarService:SnackBarService,public router:Router,animationService:AnimationService) {
     super(router,animationService);
    }
-  ngOnInit(): void {
+   ngOnInit(): void {
     this.GetInbox();
   }
 
@@ -40,4 +40,5 @@ firstName:string;
     this.router.navigate(['seller/chat'], { queryParams: { sellerId:id,inbox:true }}),AnimationType.slideToRight;
     // this.navigateToRoute('/job/dashboard',null,AnimationType.slideToTop);
   }
+
 }
