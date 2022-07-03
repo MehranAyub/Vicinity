@@ -17,6 +17,7 @@ import { SharedModule } from 'src/app/shared/shared/shared.module';
 import { TagInputModule } from 'ngx-chips';
 import { InboxComponent } from './pages/inbox/inbox.component';
 import { AddServicesComponent } from './pages/add-services/add-services.component';
+import { AgmCoreModule } from '@agm/core';
 import { NavigationHeaderComponent } from 'src/app/shared/components/navigation-header/navigation-header.component';
 import { MyServicesComponent } from './pages/my-services/my-services.component';
 
@@ -38,14 +39,17 @@ TagInputModule.withDefaults({
     SearchInputComponent,
     SearchInputByGoogleMapComponent,
     InboxComponent,
-    AddServicesComponent,    
-    NavigationHeaderComponent, MyServicesComponent
+    AddServicesComponent,   
+    MyServicesComponent
   ],
   imports: [
-    CommonModule,
     JobRoutingModule, 
     TagInputModule,
     SharedModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBkfChdc7kMqStXQ-t6w_hnolTQamYZlz0',
+      libraries: ['places']
+  })
   ],
   exports:[
     FooterComponent,

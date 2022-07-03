@@ -5,10 +5,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { SlideToggleComponent } from '../components/slide-toggle/slide-toggle.component';
+import { NavigationHeaderComponent } from '../components/navigation-header/navigation-header.component';
 
 const components = [ 
   InputFieldComponent,
-  SlideToggleComponent
+  SlideToggleComponent,
+  NavigationHeaderComponent
 ];
 
 @NgModule({
@@ -21,6 +23,7 @@ const components = [
     GoogleMapsModule,
   ],
   exports:[
+    CommonModule,
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
