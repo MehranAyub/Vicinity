@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
 import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { Subscription } from 'rxjs';
 import { InterestDto, SearchFilter } from '../../models/mapService';
@@ -10,7 +10,7 @@ declare var $:any;
   templateUrl: './filter-right-navbar.component.html',
   styleUrls: ['./filter-right-navbar.component.scss']
 })
-export class FilterRightNavbarComponent implements OnInit {
+export class FilterRightNavbarComponent implements OnInit,AfterViewInit {
   @Output() searchCriteria:EventEmitter<any>=new EventEmitter();
 
   autoTicks = true;
@@ -27,11 +27,12 @@ export class FilterRightNavbarComponent implements OnInit {
   public searchFilter:SearchFilter={Keyword:'',MinDistance:0,MaxDistance:500,Interests:[],SearchLat:0,SearchLng:0,isDistance:true};
   constructor(private _bottomSheet: MatBottomSheet,private _jobService:JobService) { }
 
-  ngOnInit(): void {
-    navigator.geolocation.getCurrentPosition((position) => {
-        this.searchFilter.SearchLat= position.coords.latitude;
-        this.searchFilter.SearchLng= position.coords.longitude;
-      });
+  ngOnInit(): void { 
+    let currentUser=JSON.parse(localStorage.getItem('currentUser'));
+    if(currentUser){
+      this.searchFilter.SearchLat= currentUser.user.latitude || 0;
+      this.searchFilter.SearchLng= currentUser.user.longitude || 0;
+  }
 
 
     $(document).ready(function(){
@@ -43,6 +44,12 @@ export class FilterRightNavbarComponent implements OnInit {
    });
   }
 
+  ngAfterViewInit(): void {
+    navigator.geolocation.getCurrentPosition((position) => {
+      this.searchFilter.SearchLat= position.coords.latitude;
+      this.searchFilter.SearchLng= position.coords.longitude;
+    });
+  }
   inputChange(event){
     console.log(event);
     if(event?.id=='Max'){
