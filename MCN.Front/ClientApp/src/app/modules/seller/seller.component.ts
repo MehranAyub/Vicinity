@@ -9,11 +9,11 @@ declare var $:any;
   styleUrls: ['./seller.component.scss']
 })
 export class SellerComponent implements OnInit {
-
+Name:string;
   constructor(private auth:AuthService,private route:Router) { 
     let currentUser=JSON.parse(localStorage.getItem('currentUser'));
     if(currentUser){
-
+      this.Name=currentUser.user.firstName+" "+currentUser.user.lastName;
     }
     else{
       this.route.navigate(['account/login'])
