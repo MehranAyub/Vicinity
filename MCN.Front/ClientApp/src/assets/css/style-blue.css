@@ -10387,9 +10387,9 @@ fieldset:disabled .btn {
   background-position: center top;
 }
 
-.coverimg img {
+/* .coverimg img {
   display: none;
-}
+} */
 
 .coverimg + div {
   z-index: 1;
