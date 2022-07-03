@@ -1,9 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { GoogleMap, MapInfoWindow, MapMarker } from '@angular/google-maps';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Marker, SearchFilter, SearchResultDto } from '../../models/mapService';
 import { JobService } from '../../service/jobService';
+import {MapsAPILoader} from '@agm/core';
 declare var $:any;
 
 const marker:Marker = {
@@ -28,7 +29,7 @@ const marker:Marker = {
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit,AfterViewInit {
 
   @ViewChild(GoogleMap, { static: false }) map: GoogleMap;
 
@@ -66,10 +67,11 @@ export class HomeComponent implements OnInit {
   };
   vertices: google.maps.LatLngLiteral[] = [];
   
-  constructor(private _jobService:JobService,private router:Router) { 
-
-    
-  }
+  constructor(private _jobService:JobService,private router:Router,
+    private mapsAPILoader:MapsAPILoader
+   ) { 
+  
+}
 
   ngOnInit(): void {
     $(document).ready(function(){
@@ -84,19 +86,53 @@ export class HomeComponent implements OnInit {
    });
    });
 
-   
-   navigator?.geolocation?.getCurrentPosition((position) => {
-    this.center = {
-      lat: position?.coords?.latitude,
-      lng: position?.coords?.longitude,
-    }
-    this.pinPositon = {
-      lat: position?.coords?.latitude,
-      lng: position?.coords?.longitude,
-    } 
-    this.setPinLocation();
-  });
+
+this.mapsAPILoader?.load()?.then(() => {
+  this.setCurrentLocation();
+});
   // this.loadLatLng()
+  }
+
+  ngAfterViewInit(): void {
+    let currentUser=JSON.parse(localStorage.getItem('currentUser'));
+    if(currentUser){
+      this.center= {
+        lat: currentUser.user.latitude || 0,
+        lng: currentUser.user.longitude || 0
+      }
+      this.pinPositon = {
+        lat: currentUser.user.latitude || 0,
+        lng: currentUser.user.longitude || 0
+      } 
+      this.setPinLocation();
+  }
+  }
+  private setCurrentLocation() {
+
+    if (navigator?.geolocation) {
+      const options = { timeout: 1000 };
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          let clientLatitude = String(position.coords.latitude);
+          let clientLongitude = String(position.coords.longitude);
+          localStorage.setItem("clientLatitude", clientLatitude);
+          localStorage.setItem("clientLongitude", clientLongitude);
+          this.center= {
+            lat: position.coords?.latitude || 0,
+            lng: position.coords?.longitude || 0
+          }
+          this.pinPositon = {
+            lat: position.coords?.latitude || 0,
+            lng: position.coords?.longitude || 0
+          }  
+          console.log("this.center",this.center);
+          this.setPinLocation();
+        },
+        (error) => {
+          console.log('App Component geo location error =============> ', error?.message);
+        }, 
+      );
+    }
   }
 
   setPinLocation(){
@@ -122,7 +158,7 @@ export class HomeComponent implements OnInit {
     this.markers.push({position:this.pinPositon,title:'Pin Point',label:{color:'Yellow',text:'label'},options:{
       animation: google.maps.Animation.DROP,
       draggable:false,
-      icon:'assets/img/apple-small.png'
+      icon:''
     },data:pinPointData});
     this.latLongs.forEach((item)=>{
 

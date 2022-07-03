@@ -17,8 +17,7 @@ import { SharedModule } from 'src/app/shared/shared/shared.module';
 import { TagInputModule } from 'ngx-chips';
 import { InboxComponent } from './pages/inbox/inbox.component';
 import { AddServicesComponent } from './pages/add-services/add-services.component';
-import { NavigationHeaderComponent } from 'src/app/shared/components/navigation-header/navigation-header.component';
-
+import { AgmCoreModule } from '@agm/core';
 TagInputModule.withDefaults({
   tagInput: {
       placeholder: 'Select Skills or Interests',
@@ -37,14 +36,16 @@ TagInputModule.withDefaults({
     SearchInputComponent,
     SearchInputByGoogleMapComponent,
     InboxComponent,
-    AddServicesComponent,    
-    NavigationHeaderComponent
+    AddServicesComponent, 
   ],
   imports: [
-    CommonModule,
     JobRoutingModule, 
     TagInputModule,
     SharedModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBkfChdc7kMqStXQ-t6w_hnolTQamYZlz0',
+      libraries: ['places']
+  })
   ],
   exports:[
     FooterComponent,
