@@ -65,8 +65,8 @@ namespace MCN.ServiceRep.BAL.ServicesRepositoryBL.Chats
             }
         public SwallResponseWrapper GetInbox(int userId)
         {
-            var chats = repositoryContext.Chats.Where(x=>x.Receiver==userId).OrderBy(x => x.CreatedAt).AsQueryable();
-            var data = chats.Select(x => x.Sender).Distinct().Select(x=>chats.FirstOrDefault(y=>y.Sender==x)).ToList();
+            var chats = repositoryContext.Chats.Where(x=>x.Receiver==userId).OrderBy(x=>x.CreatedAt).AsQueryable();
+            var data = chats.Select(x => x.Sender).Distinct().Select(x=>chats.OrderByDescending(y=>y.CreatedAt).FirstOrDefault(y=>y.Sender== x)).ToList();
 
 
             var result = data.Select(x =>
