@@ -9,3 +9,8 @@ export interface UserDto{
     password:string
 phone:string
 }
+export interface UserInterestDto{
+    interestId:number;
+    userId
+   
+}

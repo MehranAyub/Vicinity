@@ -1,4 +1,5 @@
-﻿using MCN.ServiceRep.BAL.ServicesRepositoryBL.IInterestRepositoryBL;
+﻿using MCN.ServiceRep.BAL.InterestRepositoryBL.Dtos;
+using MCN.ServiceRep.BAL.ServicesRepositoryBL.IInterestRepositoryBL;
 using MCN.ServiceRep.BAL.ServicesRepositoryBL.ISearchRepositoryBL;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -41,6 +42,13 @@ namespace MCN.WebAPI.Areas.Location.Controllers
         public IActionResult GetServices(int userId)
         {
             var result = _interestService.GetServices(userId);
+            return Ok(result);
+        }
+        [HttpPost]
+        [Route("AddService")]
+        public IActionResult AddService(UserInterestDto dto)
+        {
+            var result = _interestService.AddService(dto);
             return Ok(result);
         }
     }

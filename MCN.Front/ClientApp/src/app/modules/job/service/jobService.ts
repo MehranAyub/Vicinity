@@ -3,7 +3,7 @@ import { HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ApiService } from 'src/app/shared/services/common/api.service';
 import { InterestDto, InterestFilter, SearchFilter, SearchResultDto } from '../models/mapService';
-import { User } from '../../account/models/user';
+import { UserInterestDto } from '../models/User';
 
 @Injectable({
   providedIn: 'root'
@@ -38,5 +38,7 @@ GetServices(id): Observable<any> {
   this.paramss = new HttpParams().set('userId',id)
   return this.apiService.get('Interest/GetServices',this.paramss);
 }
-
+AddService(model:UserInterestDto): Observable<any> {
+  return this.apiService.post('Interest/AddService',model);
+}
 }

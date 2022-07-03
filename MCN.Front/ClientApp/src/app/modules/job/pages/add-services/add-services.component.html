@@ -1,11 +1,18 @@
+<div class="main-container container pt-70 pb-70">
+<div class="row mb-3 mt-5">
+    <div class="col">
+        <h5 class="mb-0">Your Services</h5>
+   
+    </div>
+    
+</div>
+
 <div class="row mb-3 mt-5">
     <div class="col">
         <h5 class="mb-0">Available Services</h5>
         <small class="text-opac">Earn Money by providing services to others.</small>
     </div>
-    <div class="col-auto">
-        <a href="#" class="link text-color-theme">View All <i class="bi bi-chevron-right"></i></a>
-    </div>
+   
 </div>
 <div class="row">
     <div class="col-6 col-md-4 col-lg-3" *ngFor="let item of Services;">
@@ -26,13 +33,17 @@
                         <p class="mb-0">R.S {{item.cost}}<br><small class="text-opac">{{item.type}}</small></p>
                     </div>
                     <div class="col-auto">
-                        <button class="btn btn-sm avatar avatar-30 p-0 rounded-circle shadow btn-gradient"
-                            data-bs-toggle="modal" data-bs-target="#addproductcart">
-                            <i class="bi bi-plus size-22"></i>
-                        </button>
+                        <button (click)="AddService(item.id)" class="btn btn-sm avatar avatar-30 p-0 rounded-circle shadow btn-gradient"
+                                       >
+                                        <i class="bi bi-plus size-22"></i>
+                                    </button>
+                        <!-- <button (click)="AddService(item.id)" class="btn btn-primary btn-xs shadow btn-gradient pull-right">
+                            <i class="bi bi-plus size-22"></i>Add
+                        </button> -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
